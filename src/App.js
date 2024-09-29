@@ -5,8 +5,24 @@ import {
 } from "@chakra-ui/react";
 import React, {useEffect, useRef, useState} from "react";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import projectLogo from "./img/project-logo.png"
 import homePic from "./img/KakaoTalk_20240929_204538134_01.jpg";
 import mainPic from "./img/KakaoTalk_20240929_204538134.jpg";
+import htmlLogo from "./img/html-logo.png";
+import cssLogo from "./img/css-logo.png";
+import jsLogo from "./img/js-logo.png";
+import reactLogo from "./img/react-logo.png";
+import viteLogo from "./img/vite-js-logo.png";
+import dockerLogo from "./img/docker-logo.png";
+import javaLogo from "./img/java-logo.png";
+import springBootLogo from "./img/springboot_logo.png";
+import mybatisLogo from "./img/mybatis-logo.png";
+import mariadbLogo from "./img/mariadb-logo.png";
+import jwtLogo from "./img/jwt-logo.png";
+import gitLogo from "./img/git-logo.png";
+import ec2Logo from "./img/ec2-logo.png";
+import s3Logo from "./img/s3-logo.png";
+import rdsLogo from "./img/rds-logo.png";
 
 
 import {faBlog} from "@fortawesome/free-solid-svg-icons";
@@ -25,6 +41,7 @@ function App() {
     const [activeSection, setActiveSection] = useState("");
     const homeRef = useRef(null);
     const aboutRef = useRef(null);
+    const skillsRef = useRef(null);
 
     const el = useRef(null);
 
@@ -54,7 +71,7 @@ function App() {
           {/* Header - navigation */}
           <header className={`header ${isSticky ? "sticky" : ""}`}>
               <a href="#" className="logo">
-                  ParkJayHeung
+                  <Image className="project-logo" src={projectLogo}/>
               </a>
               <nav className={`navbar ${isMenuOpen ? "active" : ""}`}>
                   <a href="#home" className={activeSection === "home" ? "active" : ""}>
@@ -98,27 +115,26 @@ function App() {
                   <Image className="home-image" src={homePic} alt=""/>
               </div>
               <div className="home-content">
-                  <h3>안녕하세요, 새내기 개발자</h3>
+                  <h3 className={"home-content-fullstack"}>Full<span>-</span>Stack Developer</h3>
                   <h1>
                       박재형 <span>입니다.</span>
                   </h1>
                   <h3 className="typed-js">
-                      저는, <span ref={el}></span>
+                      저는 <span ref={el}></span>
                   </h3>
                   <br/>
                   <p>
-                      창의적인 문제 해결 과정 중
+                      창의적인 문제 해결 과정 중 무한히 형성되는 지식은
                   </p>
-                  <p>무한히 형성되는 지식은 저에게 마르지 않는 영감을 주며,</p>
-                  <p>
-                      열정을 불태우는 연료로 작용합니다.{" "}
+                  <p>저에게 마르지 않는 영감을 주며, 열정을 불태우는 연료로 작용합니다.{" "}
                   </p>
+
                   <br/>
                   <p>
-                      열정과 창의성으로 팀과 프로젝트에
+                      열정과 창의성으로 팀에는 새로운 시각을,
                   </p>
                   <p>
-                      새로운 시각과 실질적인 개선을 가져올 수 있도록 하겠습니다.
+                      프로젝트에는 실질적인 개선을 가져올 수 있도록 하겠습니다.
                   </p>
                   <br/>
                   <br/>
@@ -153,9 +169,9 @@ function App() {
               </div>
               <div className="about-content">
                   <h2 className="heading">
-                      <span>About</span>
+                      About <span>Me</span>
                   </h2>
-                  <h3>FullStack Developer</h3>
+                  <h3>Full<span>-</span>Stack Developer</h3>
                   <p className="about-quotes">
 
                   </p>
@@ -167,8 +183,114 @@ function App() {
           </section>
 
           {/* Skill Section */}
-          <section>
+          <section className="skills" id="skills" ref={skillsRef}>
+              <h2 className="heading">
+                  My <span>Skills</span>              </h2>
+              <div className="skills-container">
+                  <div className="skills-box">
+                      <h3>Frontend</h3>
+                      <div className="skill-logo-box">
+                          <Image className="skill-logos" src={htmlLogo}/>
+                          <div className="skill-logo-layer">
+                              <div>HTML</div>
+                          </div>
+                      </div>
+                      <div className="skill-logo-box">
+                          <Image className="skill-logos" src={cssLogo}/>
+                          <div className="skill-logo-layer">
+                              <div>CSS</div>
+                          </div>
+                      </div>
+                      <div className="skill-logo-box">
+                          <Image className="skill-logos" src={jsLogo}/>
+                          <div className="skill-logo-layer">
+                              <div>JavaScript</div>
+                          </div>
+                      </div>
+                      <div className="skill-logo-box">
+                          <Image className="skill-logos" src={reactLogo}/>
+                          <div className="skill-logo-layer">
+                              <div>React</div>
+                          </div>
+                      </div>
+                      <div className="skill-logo-box">
+                          <Image className="skill-logos" src={viteLogo}/>
+                          <div className="skill-logo-layer">
+                              <div>Vite</div>
+                          </div>
+                      </div>
+                  </div>
+                  <div className="skills-box">
+                      <h3>Backend</h3>
+                      <div className="skill-logo-box">
+                          <Image className="skill-logos" src={javaLogo}/>
+                          <div className="skill-logo-layer">
+                              <div>Java</div>
+                          </div>
+                      </div>
+                      <div className="skill-logo-box">
+                          <Image className="skill-logos" src={springBootLogo}/>
+                          <div className="skill-logo-layer">
+                              <div>Spring Boot</div>
+                          </div>
+                      </div>
+                      <div className="skill-logo-box">
+                          <Image className="skill-logos" src={jwtLogo}/>
+                          <div className="skill-logo-layer">
+                              <div>JWT</div>
+                          </div>
+                      </div>
+                      <div className="skill-logo-box">
+                          <Image className="skill-logos" src={mybatisLogo}/>
+                          <div className="skill-logo-layer">
+                              <div>MyBatis</div>
+                          </div>
+                      </div>
+                      <div className="skill-logo-box">
+                          <Image className="skill-logos" src={mariadbLogo} h={"8rem"}/>
+                          <div className="skill-logo-layer">
+                              <div>MariaDB</div>
+                          </div>
+                      </div>
+                  </div>
+                  <div className="skills-box">
+                      <h3>etc.</h3>
+                      <div className="skill-logo-box">
+                          <Image className="skill-logos" src={ec2Logo} h={"10rem"}/>
+                          <div className="skill-logo-layer">
+                              <div>EC2</div>
+                          </div>
+                      </div>
+                      <div className="skill-logo-box">
+                          <Image className="skill-logos" src={s3Logo} h={"10rem"}/>
+
+                          <div className="skill-logo-layer">
+                              <div>S3</div>
+                          </div>
+                      </div>
+                      <div className="skill-logo-box">
+                          <Image className="skill-logos" src={rdsLogo} h={"10rem"}/>
+                          <div className="skill-logo-layer">
+                              <div>RDS</div>
+                          </div>
+                      </div>
+
+                      <div className="skill-logo-box">
+                          <Image className="skill-logos" src={gitLogo} h={"10rem"}/>
+                          <div className="skill-logo-layer">
+                              <div>Git</div>
+                          </div>
+                      </div>
+                      <div className="skill-logo-box">
+                          <Image className="skill-logos" src={dockerLogo} h={"10rem"}/>
+                          <div className="skill-logo-layer">
+                              <div>Docker</div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
           </section>
+
           {/* Project Section */}
           <section>
           </section>
