@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Aladin&family=Allura&family=DM+Serif+Display:ital@1&family=Frank+Ruhl+Libre:wght@600&display=swap');
+
+
 *{
     margin: 0;
     padding: 0;
@@ -65,3 +68,148 @@ section{
     padding:9rem 9% 2rem;
 
 }
+
+.logo{
+    font-size: 3.5rem;
+    font-weight: 700;
+    cursor:default;
+    font-family: Allura;
+    background-image: var(--main-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+#menu-icon{
+    font-size: 3.6rem;
+    color:var(--text-color);
+    display: none;
+}
+
+.home{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.home-img{
+    margin-right: 10rem;
+}
+
+.home-img .home-image{
+    width:23vw;
+    background: linear-gradient(to top, #1F242D,#232833, #333841, #3f4654, #565c66, #7e8289);
+    border-radius: 50%;
+    box-shadow: 0 0 3rem white;
+    animation: floatImage 4s ease-in-out infinite;
+}
+
+@keyframes floatImage {
+    0%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-2.4rem);
+    }
+    100%{
+        transform:translateY(0);
+    }
+}
+
+.home-content h3 {
+    font-size: 3.2rem;
+    font-weight: 700;
+}
+.home-content .typed-js{
+    min-width: 40vw;
+}
+
+.home-content h3:nth-of-type(2){
+    margin-bottom: 2rem;
+}
+
+span{
+    background-image: var(--main-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.home-content h1 {
+    font-size: 4.9rem;
+    font-weight: 700;
+    line-height: 1.3;
+    background-image: var(--second-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+.home-content h1 span {
+    font-size: 3.2rem;
+    font-weight: 700;
+    color:var(--text-color);
+}
+
+.home-content p{
+    font-size:1.6rem;
+    font-weight: 600;
+}
+.home-content p span{
+    color:var(--text-color);
+    font-weight: 600;
+}
+
+.home-content .home-content-footer{
+    font-size: 1.8rem;
+    font-weight: 700;
+    background-image: var(--main-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.social-media a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 4rem;
+    height: 4rem;
+    background: transparent;
+    background-image: var(--main-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    border-top: .2rem solid var(--main-color);
+    border-radius: 50%;
+    font-size: 2rem;
+    color: var(--main-color);
+    margin:3rem 1.5rem 3rem 0;
+    transition: .5s ease;
+}
+
+.social-media a:hover {
+    background: var(--main-gradient);
+    color:var(--second-bg-color);
+    box-shadow: 0 0 2rem var(--main-color);
+}
+
+
+.btn{
+    display: inline-block;
+    padding: 1rem 2.8rem;
+    background:var(--main-color);
+    border-radius: 4rem;
+    box-shadow:  0 0 1rem var(--main-color);
+    font-size: 1.6rem;
+    color:var(--second-bg-color);
+    letter-spacing: .1rem;
+    font-weight: 600;
+    transition: .5s ease;
+}
+
+.btn:hover{
+    box-shadow: none;
+}
+
+/*----------------------*/
