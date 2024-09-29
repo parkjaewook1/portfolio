@@ -1,7 +1,14 @@
 import "./css/style.css";
 import {Helmet} from "react-helmet";
+import {
+    Image,
+} from "@chakra-ui/react";
 import React, {useEffect, useRef, useState} from "react";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import homePic from "./img/KakaoTalk_20240929_204538134_01.jpg";
+import mainPic from "./img/KakaoTalk_20240929_204538134.jpg";
+
+
 import {faBlog} from "@fortawesome/free-solid-svg-icons";
 import Typed from "typed.js";
 
@@ -17,6 +24,8 @@ function App() {
     const [isSticky, setIsSticky] = useState(false);
     const [activeSection, setActiveSection] = useState("");
     const homeRef = useRef(null);
+    const aboutRef = useRef(null);
+
     const el = useRef(null);
 
         useEffect(() => {
@@ -36,8 +45,7 @@ function App() {
             };
         }, []);
   return (
-      <div className="conatiner">
-          {/* Dynamically configure <head> elements using Helmet */}
+      <div className="container">
           <div>
               <Helmet>
                   <title>박재형 웹 포트폴리오</title>
@@ -87,7 +95,7 @@ function App() {
           {/* Intro Section */}
           <section className="home" id="home" ref={homeRef}>
               <div className="home-img">
-                  {/*<Image className="home-image" src={homePic} alt=""/>*/}
+                  <Image className="home-image" src={homePic} alt=""/>
               </div>
               <div className="home-content">
                   <h3>안녕하세요, 새내기 개발자</h3>
@@ -120,7 +128,7 @@ function App() {
                           <i className="bx bxl-github"></i>
                       </a>
                       <a href="">
-                          <FontAwesomeIcon icon={faBlog} />
+                          <FontAwesomeIcon icon={faBlog}/>
                       </a>
                   </div>
                   <a href="" className="btn" download>
@@ -129,8 +137,35 @@ function App() {
               </div>
           </section>
           {/* About Section */}
-          <section>
+          <section className="about" id="about" ref={aboutRef}>
+              <div className="about-img">
+                  <Image
+                      className="about-image"
+                      src={mainPic}
+                      alt=""
+                      w={"22vw"}
+                      bg={
+                          "linear-gradient(to top, #1F242D,#232833, #333841, #3f4654, #565c66, #7e8289)"
+                      }
+                      borderRadius={"50%"}
+                      boxShadow={"0 0 3rem black"}
+                  />
+              </div>
+              <div className="about-content">
+                  <h2 className="heading">
+                      <span>About</span>
+                  </h2>
+                  <h3>FullStack Developer</h3>
+                  <p className="about-quotes">
+
+                  </p>
+
+                  <br/>
+                  <br/>
+                  <br/>
+              </div>
           </section>
+
           {/* Skill Section */}
           <section>
           </section>
