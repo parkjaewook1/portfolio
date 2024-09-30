@@ -1,7 +1,7 @@
 import "./css/style.css";
 import {Helmet} from "react-helmet";
 import {
-    Image,
+    Image, Modal, ModalContent, ModalHeader, ModalOverlay,
 } from "@chakra-ui/react";
 import React, {useEffect, useRef, useState} from "react";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
@@ -12,6 +12,7 @@ import htmlLogo from "./img/html-logo.png";
 import cssLogo from "./img/css-logo.png";
 import jsLogo from "./img/js-logo.png";
 import reactLogo from "./img/react-logo.png";
+import project1 from "./img/project1.png";
 import viteLogo from "./img/vite-js-logo.png";
 import dockerLogo from "./img/docker-logo.png";
 import javaLogo from "./img/java-logo.png";
@@ -42,266 +43,285 @@ function App() {
     const homeRef = useRef(null);
     const aboutRef = useRef(null);
     const skillsRef = useRef(null);
+    const projectRef = useRef(null);
 
     const el = useRef(null);
 
-        useEffect(() => {
-            const typed = new Typed(el.current, {
-                strings: [
-                    "효율적인 문제 해결을 추구합니다.",
-                    "새로운 도전에 적극적입니다.",
-                    "소통과 팀워크를 중시합니다.",
-                ],
-                typeSpeed: 100,
-                backSpeed: 100,
-                backDelay: 1000,
-                loop: true,
-            });
-            return () => {
-                typed.destroy();
-            };
-        }, []);
-  return (
-      <div className="container">
-          <div>
-              <Helmet>
-                  <title>박재형 웹 포트폴리오</title>
-              </Helmet>
-          </div>
-          {/* Header - navigation */}
-          <header className={`header ${isSticky ? "sticky" : ""}`}>
-              <a href="#" className="logo">
-                  <Image className="project-logo" src={projectLogo}/>
-              </a>
-              <nav className={`navbar ${isMenuOpen ? "active" : ""}`}>
-                  <a href="#home" className={activeSection === "home" ? "active" : ""}>
-                      Intro
-                  </a>
-                  <a
-                      href="#about"
-                      className={activeSection === "about" ? "active" : ""}
-                  >
-                      About
-                  </a>
-                  <a
-                      href="#skills"
-                      className={activeSection === "skills" ? "active" : ""}
-                  >
-                      Skills
-                  </a>
-                  <a
-                      href="#project"
-                      className={activeSection === "project" ? "active" : ""}
-                  >
-                      Project
-                  </a>
-                  <a
-                      href="#repository"
-                      className={activeSection === "repository" ? "active" : ""}
-                  >
-                      Repository
-                  </a>
-                  <a
-                      href="#contact"
-                      className={activeSection === "contact" ? "active" : ""}
-                  >
-                      Contact
-                  </a>
-              </nav>
-          </header>
-          {/* Intro Section */}
-          <section className="home" id="home" ref={homeRef}>
-              <div className="home-img">
-                  <Image className="home-image" src={homePic} alt=""/>
-              </div>
-              <div className="home-content">
-                  <h3 className={"home-content-fullstack"}>Full<span>-</span>Stack Developer</h3>
-                  <h1>
-                      박재형 <span>입니다.</span>
-                  </h1>
-                  <h3 className="typed-js">
-                      저는 <span ref={el}></span>
-                  </h3>
-                  <br/>
-                  <p>
-                      창의적인 문제 해결 과정 중 무한히 형성되는 지식은
-                  </p>
-                  <p>저에게 마르지 않는 영감을 주며, 열정을 불태우는 연료로 작용합니다.{" "}
-                  </p>
+    useEffect(() => {
+        const typed = new Typed(el.current, {
+            strings: [
+                "효율적인 문제 해결을 추구합니다.",
+                "새로운 도전에 적극적입니다.",
+                "소통과 팀워크를 중시합니다.",
+            ],
+            typeSpeed: 100,
+            backSpeed: 100,
+            backDelay: 1000,
+            loop: true,
+        });
+        return () => {
+            typed.destroy();
+        };
+    }, []);
+    return (
+        <div className="container">
+            <div>
+                <Helmet>
+                    <title>박재형 웹 포트폴리오</title>
+                </Helmet>
+            </div>
+            {/* Header - navigation */}
+            <header className={`header ${isSticky ? "sticky" : ""}`}>
+                <a href="#" className="logo">
+                    <Image className="project-logo" src={projectLogo}/>
+                </a>
+                <nav className={`navbar ${isMenuOpen ? "active" : ""}`}>
+                    <a href="#home" className={activeSection === "home" ? "active" : ""}>
+                        Intro
+                    </a>
+                    <a
+                        href="#about"
+                        className={activeSection === "about" ? "active" : ""}
+                    >
+                        About
+                    </a>
+                    <a
+                        href="#skills"
+                        className={activeSection === "skills" ? "active" : ""}
+                    >
+                        Skills
+                    </a>
+                    <a
+                        href="#project"
+                        className={activeSection === "project" ? "active" : ""}
+                    >
+                        Project
+                    </a>
+                    <a
+                        href="#repository"
+                        className={activeSection === "repository" ? "active" : ""}
+                    >
+                        Repository
+                    </a>
+                    <a
+                        href="#contact"
+                        className={activeSection === "contact" ? "active" : ""}
+                    >
+                        Contact
+                    </a>
+                </nav>
+            </header>
+            {/* Intro Section */}
+            <section className="home" id="home" ref={homeRef}>
+                <div className="home-img">
+                    <Image className="home-image" src={homePic} alt=""/>
+                </div>
+                <div className="home-content">
+                    <h3 className={"home-content-fullstack"}>Full<span>-</span>Stack Developer</h3>
+                    <h1>
+                        박재형 <span>입니다.</span>
+                    </h1>
+                    <h3 className="typed-js">
+                        저는 <span ref={el}></span>
+                    </h3>
+                    <br/>
+                    <p>
+                        창의적인 문제 해결 과정 중 무한히 형성되는 지식은
+                    </p>
+                    <p>저에게 마르지 않는 영감을 주며, 열정을 불태우는 연료로 작용합니다.{" "}
+                    </p>
 
-                  <br/>
-                  <p>
-                      열정과 창의성으로 팀에는 새로운 시각을,
-                  </p>
-                  <p>
-                      프로젝트에는 실질적인 개선을 가져올 수 있도록 하겠습니다.
-                  </p>
-                  <br/>
-                  <br/>
-                  <p className="home-content-footer"></p>
-                  <div className="social-media">
-                      <a href="https://github.com/chaiheung">
-                          <i className="bx bxl-github"></i>
-                      </a>
-                      <a href="">
-                          <FontAwesomeIcon icon={faBlog}/>
-                      </a>
-                  </div>
-                  <a href="" className="btn" download>
-                      이력서 다운로드
-                  </a>
-              </div>
-          </section>
-          {/* About Section */}
-          <section className="about" id="about" ref={aboutRef}>
-              <div className="about-img">
-                  <Image
-                      className="about-image"
-                      src={mainPic}
-                      alt=""
-                      w={"22vw"}
-                      bg={
-                          "linear-gradient(to top, #1F242D,#232833, #333841, #3f4654, #565c66, #7e8289)"
-                      }
-                      borderRadius={"50%"}
-                      boxShadow={"0 0 3rem black"}
-                  />
-              </div>
-              <div className="about-content">
-                  <h2 className="heading">
-                      About <span>Me</span>
-                  </h2>
-                  <h3>Full<span>-</span>Stack Developer</h3>
-                  <p className="about-quotes">
+                    <br/>
+                    <p>
+                        열정과 창의성으로 팀에는 새로운 시각을,
+                    </p>
+                    <p>
+                        프로젝트에는 실질적인 개선을 가져올 수 있도록 하겠습니다.
+                    </p>
+                    <br/>
+                    <br/>
+                    <p className="home-content-footer"></p>
+                    <div className="social-media">
+                        <a href="https://github.com/chaiheung">
+                            <i className="bx bxl-github"></i>
+                        </a>
+                        <a href="">
+                            <FontAwesomeIcon icon={faBlog}/>
+                        </a>
+                    </div>
+                    <a href="" className="btn" download>
+                        이력서 다운로드
+                    </a>
+                </div>
+            </section>
+            {/* About Section */}
+            <section className="about" id="about" ref={aboutRef}>
+                <div className="about-img">
+                    <Image
+                        className="about-image"
+                        src={mainPic}
+                        alt=""
+                        w={"22vw"}
+                        bg={
+                            "linear-gradient(to top, #1F242D,#232833, #333841, #3f4654, #565c66, #7e8289)"
+                        }
+                        borderRadius={"50%"}
+                        boxShadow={"0 0 3rem black"}
+                    />
+                </div>
+                <div className="about-content">
+                    <h2 className="heading">
+                        About <span>Me</span>
+                    </h2>
+                    <h3>Full<span>-</span>Stack Developer</h3>
+                    <p className="about-quotes">
 
-                  </p>
+                    </p>
 
-                  <br/>
-                  <br/>
-                  <br/>
-              </div>
-          </section>
+                    <br/>
+                    <br/>
+                    <br/>
+                </div>
+            </section>
 
-          {/* Skill Section */}
-          <section className="skills" id="skills" ref={skillsRef}>
-              <h2 className="heading">
-                  My <span>Skills</span>              </h2>
-              <div className="skills-container">
-                  <div className="skills-box">
-                      <h3>Frontend</h3>
-                      <div className="skill-logo-box">
-                          <Image className="skill-logos" src={htmlLogo}/>
-                          <div className="skill-logo-layer">
-                              <div>HTML</div>
-                          </div>
-                      </div>
-                      <div className="skill-logo-box">
-                          <Image className="skill-logos" src={cssLogo}/>
-                          <div className="skill-logo-layer">
-                              <div>CSS</div>
-                          </div>
-                      </div>
-                      <div className="skill-logo-box">
-                          <Image className="skill-logos" src={jsLogo}/>
-                          <div className="skill-logo-layer">
-                              <div>JavaScript</div>
-                          </div>
-                      </div>
-                      <div className="skill-logo-box">
-                          <Image className="skill-logos" src={reactLogo}/>
-                          <div className="skill-logo-layer">
-                              <div>React</div>
-                          </div>
-                      </div>
-                      <div className="skill-logo-box">
-                          <Image className="skill-logos" src={viteLogo}/>
-                          <div className="skill-logo-layer">
-                              <div>Vite</div>
-                          </div>
-                      </div>
-                  </div>
-                  <div className="skills-box">
-                      <h3>Backend</h3>
-                      <div className="skill-logo-box">
-                          <Image className="skill-logos" src={javaLogo}/>
-                          <div className="skill-logo-layer">
-                              <div>Java</div>
-                          </div>
-                      </div>
-                      <div className="skill-logo-box">
-                          <Image className="skill-logos" src={springBootLogo}/>
-                          <div className="skill-logo-layer">
-                              <div>Spring Boot</div>
-                          </div>
-                      </div>
-                      <div className="skill-logo-box">
-                          <Image className="skill-logos" src={jwtLogo}/>
-                          <div className="skill-logo-layer">
-                              <div>JWT</div>
-                          </div>
-                      </div>
-                      <div className="skill-logo-box">
-                          <Image className="skill-logos" src={mybatisLogo}/>
-                          <div className="skill-logo-layer">
-                              <div>MyBatis</div>
-                          </div>
-                      </div>
-                      <div className="skill-logo-box">
-                          <Image className="skill-logos" src={mariadbLogo} h={"8rem"}/>
-                          <div className="skill-logo-layer">
-                              <div>MariaDB</div>
-                          </div>
-                      </div>
-                  </div>
-                  <div className="skills-box">
-                      <h3>etc.</h3>
-                      <div className="skill-logo-box">
-                          <Image className="skill-logos" src={ec2Logo} h={"10rem"}/>
-                          <div className="skill-logo-layer">
-                              <div>EC2</div>
-                          </div>
-                      </div>
-                      <div className="skill-logo-box">
-                          <Image className="skill-logos" src={s3Logo} h={"10rem"}/>
+            {/* Skill Section */}
+            <section className="skills" id="skills" ref={skillsRef}>
+                <h2 className="heading">
+                    My <span>Skills</span></h2>
+                <div className="skills-container">
+                    <div className="skills-box">
+                        <h3>Frontend</h3>
+                        <div className="skill-logo-box">
+                            <Image className="skill-logos" src={htmlLogo}/>
+                            <div className="skill-logo-layer">
+                                <div>HTML</div>
+                            </div>
+                        </div>
+                        <div className="skill-logo-box">
+                            <Image className="skill-logos" src={cssLogo}/>
+                            <div className="skill-logo-layer">
+                                <div>CSS</div>
+                            </div>
+                        </div>
+                        <div className="skill-logo-box">
+                            <Image className="skill-logos" src={jsLogo}/>
+                            <div className="skill-logo-layer">
+                                <div>JavaScript</div>
+                            </div>
+                        </div>
+                        <div className="skill-logo-box">
+                            <Image className="skill-logos" src={reactLogo}/>
+                            <div className="skill-logo-layer">
+                                <div>React</div>
+                            </div>
+                        </div>
+                        <div className="skill-logo-box">
+                            <Image className="skill-logos" src={viteLogo}/>
+                            <div className="skill-logo-layer">
+                                <div>Vite</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="skills-box">
+                        <h3>Backend</h3>
+                        <div className="skill-logo-box">
+                            <Image className="skill-logos" src={javaLogo}/>
+                            <div className="skill-logo-layer">
+                                <div>Java</div>
+                            </div>
+                        </div>
+                        <div className="skill-logo-box">
+                            <Image className="skill-logos" src={springBootLogo}/>
+                            <div className="skill-logo-layer">
+                                <div>Spring Boot</div>
+                            </div>
+                        </div>
+                        <div className="skill-logo-box">
+                            <Image className="skill-logos" src={jwtLogo}/>
+                            <div className="skill-logo-layer">
+                                <div>JWT</div>
+                            </div>
+                        </div>
+                        <div className="skill-logo-box">
+                            <Image className="skill-logos" src={mybatisLogo}/>
+                            <div className="skill-logo-layer">
+                                <div>MyBatis</div>
+                            </div>
+                        </div>
+                        <div className="skill-logo-box">
+                            <Image className="skill-logos" src={mariadbLogo} h={"8rem"}/>
+                            <div className="skill-logo-layer">
+                                <div>MariaDB</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="skills-box">
+                        <h3>etc.</h3>
+                        <div className="skill-logo-box">
+                            <Image className="skill-logos" src={ec2Logo} h={"10rem"}/>
+                            <div className="skill-logo-layer">
+                                <div>EC2</div>
+                            </div>
+                        </div>
+                        <div className="skill-logo-box">
+                            <Image className="skill-logos" src={s3Logo} h={"10rem"}/>
 
-                          <div className="skill-logo-layer">
-                              <div>S3</div>
-                          </div>
-                      </div>
-                      <div className="skill-logo-box">
-                          <Image className="skill-logos" src={rdsLogo} h={"10rem"}/>
-                          <div className="skill-logo-layer">
-                              <div>RDS</div>
-                          </div>
-                      </div>
+                            <div className="skill-logo-layer">
+                                <div>S3</div>
+                            </div>
+                        </div>
+                        <div className="skill-logo-box">
+                            <Image className="skill-logos" src={rdsLogo} h={"10rem"}/>
+                            <div className="skill-logo-layer">
+                                <div>RDS</div>
+                            </div>
+                        </div>
 
-                      <div className="skill-logo-box">
-                          <Image className="skill-logos" src={gitLogo} h={"10rem"}/>
-                          <div className="skill-logo-layer">
-                              <div>Git</div>
-                          </div>
-                      </div>
-                      <div className="skill-logo-box">
-                          <Image className="skill-logos" src={dockerLogo} h={"10rem"}/>
-                          <div className="skill-logo-layer">
-                              <div>Docker</div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </section>
+                        <div className="skill-logo-box">
+                            <Image className="skill-logos" src={gitLogo} h={"10rem"}/>
+                            <div className="skill-logo-layer">
+                                <div>Git</div>
+                            </div>
+                        </div>
+                        <div className="skill-logo-box">
+                            <Image className="skill-logos" src={dockerLogo} h={"10rem"}/>
+                            <div className="skill-logo-layer">
+                                <div>Docker</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-          {/* Project Section */}
-          <section>
-          </section>
-          {/* Repository Section */}
-          <section>
-          </section>
-          {/* Contact Section */}
-          <section>
-          </section>
-      </div>
-  );
+            {/* Project Section */}
+            <section className="project" id="project" ref={projectRef}>
+                <h2 className="heading">
+                    Project <span>Experience</span>
+                </h2>
+                <div className="project-container">
+                    <div className="project-box">
+                        <Image src={project1} className="project-image"/>
+                        <div className="project-layer">
+                            <h4>Petmily</h4>
+                            <p>
+                                반려동물과 반려인을 위한 종합 커뮤니티 “Petmily”
+                            </p>
+                            <button className="project-btn">
+                                더보기
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Repository Section */}
+            <section>
+            </section>
+            {/* Contact Section */}
+            <section>
+            </section>
+        </div>
+    );
 }
 
 export default App;
