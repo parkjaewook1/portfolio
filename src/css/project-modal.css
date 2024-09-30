@@ -89,7 +89,7 @@
     transform: scale(1.1);
 }
 .project-task-images{
-    opacity: 0.8;
+    opacity: 1;
 }
 .project-task-images{
     width:100%;
@@ -97,6 +97,11 @@
 
 .project-task-images {
     cursor: pointer;
+}
+.project-task-box:hover{
+    position: relative;
+    transform: scale(1.5);
+    z-index: 1000;
 }
 
 .project-task-box .project-task-layer{
@@ -167,7 +172,7 @@
 /*    height: 100%;*/
 /*}*/
 .project-close-button {
-  position:absolute;
+    position:absolute;
     top:0;
     right: 0;
     color: #aaaaaa;
