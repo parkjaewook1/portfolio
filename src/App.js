@@ -1,7 +1,10 @@
 import "./css/style.css";
+import "./css/project-modal.css";
+
 import {Helmet} from "react-helmet";
 import {
-    Image, Modal, ModalContent, ModalHeader, ModalOverlay,
+    Button,
+    Image, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, useDisclosure,
 } from "@chakra-ui/react";
 import React, {useEffect, useRef, useState} from "react";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
@@ -24,7 +27,7 @@ import gitLogo from "./img/git-logo.png";
 import ec2Logo from "./img/ec2-logo.png";
 import s3Logo from "./img/s3-logo.png";
 import rdsLogo from "./img/rds-logo.png";
-
+import {PetmilyModal} from "./project-modal/PetmilyModal";
 
 import {faBlog} from "@fortawesome/free-solid-svg-icons";
 import Typed from "typed.js";
@@ -46,6 +49,9 @@ function App() {
     const projectRef = useRef(null);
 
     const el = useRef(null);
+
+    /*Chakra UI Modal*/
+    let petmilyModal = useDisclosure();
 
     useEffect(() => {
         const typed = new Typed(el.current, {
@@ -306,9 +312,41 @@ function App() {
                             <p>
                                 반려동물과 반려인을 위한 종합 커뮤니티 “Petmily”
                             </p>
-                            <button className="project-btn">
+                            <button className="project-btn" onClick={petmilyModal.onOpen}>
                                 더보기
                             </button>
+                            {/*----Petmily Modal 시작-------------------*/}
+                            <Modal
+                                onClose={petmilyModal.onClose}
+                                isOpen={petmilyModal.isOpen}
+                                size={"5xl"}
+                                bg={""}
+                            >
+                                <ModalOverlay/>
+                                <ModalContent p={0}>
+                                    <ModalHeader bg={"#1f242d"}>
+                                        <div className="modal-header">Petmily</div>
+                                    </ModalHeader>
+                                    <ModalCloseButton
+                                        color={"#dcdcdc"}
+                                        fontSize={"1.4rem"}
+                                        pt={3}
+                                        pr={2}
+                                    />
+                                    <ModalBody bg={"#323946"}>
+                                        <PetmilyModal/>
+                                    </ModalBody>
+                                    <ModalFooter bg={"#1f242d"}>
+                                        <Button
+                                            fontSize="2rem"
+                                            variant={"link"}
+                                            onClick={petmilyModal.onClose}
+                                        >
+                                            닫기
+                                        </Button>
+                                    </ModalFooter>
+                                </ModalContent>
+                            </Modal>
                         </div>
                     </div>
                 </div>
