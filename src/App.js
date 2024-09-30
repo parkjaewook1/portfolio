@@ -1,12 +1,19 @@
+import React, { useEffect, useRef, useState } from "react";
 import "./css/style.css";
 import "./css/project-modal.css";
-
-import {Helmet} from "react-helmet";
 import {
     Button,
-    Image, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, useDisclosure,
+    Image,
+    Modal,
+    ModalBody,
+    ModalCloseButton,
+    ModalContent,
+    ModalFooter,
+    ModalHeader,
+    ModalOverlay,
+    useDisclosure,
 } from "@chakra-ui/react";
-import React, {useEffect, useRef, useState} from "react";
+import {Helmet} from "react-helmet";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import projectLogo from "./img/project-logo.png"
 import homePic from "./img/KakaoTalk_20240929_204538134_01.jpg";
@@ -27,10 +34,11 @@ import gitLogo from "./img/git-logo.png";
 import ec2Logo from "./img/ec2-logo.png";
 import s3Logo from "./img/s3-logo.png";
 import rdsLogo from "./img/rds-logo.png";
-import {PetmilyModal} from "./project-modal/PetmilyModal";
-
 import {faBlog} from "@fortawesome/free-solid-svg-icons";
+
 import Typed from "typed.js";
+import ScrollReveal from "scrollreveal";
+import {PetmilyModal} from "./project-modal/PetmilyModal";
 
 function App() {
     useEffect(() => {
@@ -53,6 +61,36 @@ function App() {
     /*Chakra UI Modal*/
     let petmilyModal = useDisclosure();
 
+
+    /* React 스크롤 Reveal*/
+    useEffect(() => {
+        const config = {
+            distance: "80px",
+            duration: 2000,
+            delay: 100,
+        };
+
+        ScrollReveal().reveal(".home-content, .heading", {
+            ...config,
+            origin: "top",
+        });
+        ScrollReveal().reveal(
+            ".home-img, .skills-container, .repository-container, .project-box",
+            { ...config, origin: "bottom" },
+        );
+        ScrollReveal().reveal(
+            ".home-content h1, .about-img, .brackets, .about-content",
+            { ...config, origin: "left" },
+        );
+        ScrollReveal().reveal(".home-content p, .about-content .json-content", {
+            ...config,
+            origin: "right",
+        });
+    }, []);
+
+    const toggleMenu = () => {
+        setIsMenuOpen(!isMenuOpen);
+    };
     useEffect(() => {
         const typed = new Typed(el.current, {
             strings: [
@@ -69,6 +107,37 @@ function App() {
             typed.destroy();
         };
     }, []);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const shouldStick = window.scrollY > 100;
+            setIsSticky(shouldStick);
+            const refs = [
+                homeRef,
+                aboutRef,
+                skillsRef,
+                projectRef,
+
+            ];
+            const currentSection = refs.find((ref) => {
+                const element = ref.current;
+                if (!element) return false;
+                const offsetTop = element.offsetTop;
+                const offsetHeight = element.offsetHeight;
+                return (
+                    window.scrollY >= offsetTop - 150 &&
+                    window.scrollY < offsetTop + offsetHeight
+                );
+            });
+            if (currentSection && currentSection.current) {
+                setActiveSection(currentSection.current.id);
+            }
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
     return (
         <div className="container">
             <div>
@@ -81,6 +150,11 @@ function App() {
                 <a href="#" className="logo">
                     <Image className="project-logo" src={projectLogo}/>
                 </a>
+                <i
+                    className={`bx bx-menu ${isMenuOpen ? "bx-x" : ""}`}
+                    id="menu-icon"
+                    onClick={toggleMenu}
+                ></i>
                 <nav className={`navbar ${isMenuOpen ? "active" : ""}`}>
                     <a href="#home" className={activeSection === "home" ? "active" : ""}>
                         Intro
@@ -120,7 +194,7 @@ function App() {
             {/* Intro Section */}
             <section className="home" id="home" ref={homeRef}>
                 <div className="home-img">
-                    <Image className="home-image" src={homePic} alt=""/>
+                <Image className="home-image" src={homePic} alt=""/>
                 </div>
                 <div className="home-content">
                     <h3 className={"home-content-fullstack"}>Full<span>-</span>Stack Developer</h3>
