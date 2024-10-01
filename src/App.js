@@ -39,8 +39,9 @@ import {faBlog} from "@fortawesome/free-solid-svg-icons";
 import Typed from "typed.js";
 import ScrollReveal from "scrollreveal";
 import {PetmilyModal} from "./project-modal/PetmilyModal";
+import {WebPortfolioModal} from "./project-modal/WebPortfolioModal";
 
-function App() {
+function App(props) {
     useEffect(() => {
         const link = document.createElement("link");
         link.href = "https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css";
@@ -53,14 +54,15 @@ function App() {
     const [activeSection, setActiveSection] = useState("");
     const homeRef = useRef(null);
     const aboutRef = useRef(null);
+    const repositoryRef = useRef(null);
     const skillsRef = useRef(null);
     const projectRef = useRef(null);
-
+    const contactRef = useRef(null);
     const el = useRef(null);
 
     /*Chakra UI Modal*/
     let petmilyModal = useDisclosure();
-
+    let portfolioModal = useDisclosure();
 
     /* React 스크롤 Reveal*/
     useEffect(() => {
@@ -88,25 +90,27 @@ function App() {
         });
     }, []);
 
-    const toggleMenu = () => {
-        setIsMenuOpen(!isMenuOpen);
-    };
+    /* typed.js */
     useEffect(() => {
         const typed = new Typed(el.current, {
             strings: [
-                "효율적인 문제 해결을 추구합니다.",
                 "새로운 도전에 적극적입니다.",
-                "소통과 팀워크를 중시합니다.",
+                "효율적인 문제 처리를 추구합니다.",
+                "팀워크와 협업을 중시합니다.",
             ],
             typeSpeed: 100,
             backSpeed: 100,
             backDelay: 1000,
             loop: true,
         });
+
         return () => {
             typed.destroy();
         };
     }, []);
+    const toggleMenu = () => {
+        setIsMenuOpen(!isMenuOpen);
+    };
 
     useEffect(() => {
         const handleScroll = () => {
@@ -115,9 +119,10 @@ function App() {
             const refs = [
                 homeRef,
                 aboutRef,
+                repositoryRef,
                 skillsRef,
                 projectRef,
-
+                contactRef,
             ];
             const currentSection = refs.find((ref) => {
                 const element = ref.current;
@@ -423,6 +428,52 @@ function App() {
                             </Modal>
                         </div>
                     </div>
+                    <div className="project-box webportfolio">
+                        <Image src={projectLogo} className="project-image"/>
+                        <div className="project-layer">
+                            <h4>Web Portfolio</h4>
+                            <p>
+                                기술에 대한 호기심과 새로움을 향한 도전은 제가 코딩을 즐기는
+                                이유입니다.
+                            </p>
+                            <button className="project-btn" onClick={portfolioModal.onOpen}>
+                                더보기
+                            </button>
+                            {/*---- Portfolio Modal 시작-------------------*/}
+                            <Modal
+                                onClose={portfolioModal.onClose}
+                                isOpen={portfolioModal.isOpen}
+                                size={"5xl"}
+                                bg={""}
+                            >
+                                <ModalOverlay/>
+                                <ModalContent p={0}>
+                                    <ModalHeader bg={"#1f242d"}>
+                                        <div className="modal-header">Web Portfolio</div>
+                                    </ModalHeader>
+                                    <ModalCloseButton
+                                        color={"#dcdcdc"}
+                                        fontSize={"1.4rem"}
+                                        pt={3}
+                                        pr={2}
+                                    />
+                                    <ModalBody bg={"#323946"}>
+                                        <WebPortfolioModal/>
+                                    </ModalBody>
+                                    <ModalFooter bg={"#1f242d"}>
+                                        <Button
+                                            fontSize="2rem"
+                                            variant={"link"}
+                                            onClick={portfolioModal.onClose}
+                                        >
+                                            닫기
+                                        </Button>
+                                    </ModalFooter>
+                                </ModalContent>
+                            </Modal>
+                        </div>
+                    </div>
+
                 </div>
             </section>
 
