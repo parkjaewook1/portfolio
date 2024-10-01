@@ -426,8 +426,10 @@ span{
     transform: scale(1.1);
 }
 .project-image{
-    opacity: 0.5;
+    opacity: 1;
+    min-height: 25rem;
 }
+
 
 .project-box .project-layer{
     position: absolute;
@@ -488,4 +490,8 @@ span{
 .project-layer a i{
     font-size: 2rem;
     color: var(--second-bg-color);
+}
+
+.webportfolio{
+    background: black;
 }
