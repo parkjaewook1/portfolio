@@ -495,3 +495,55 @@ span{
 .webportfolio{
     background: black;
 }
+/*------------ Repository ---------------*/
+.repository h2{
+    margin-bottom: 5rem;
+}
+
+.repository-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap:2rem;
+}
+
+.repository-container .repository-box{
+    flex: 1 1 30rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--second-bg-color);
+    padding: 3rem 2rem 4rem;
+    border-radius: 2rem;
+    text-align: center;
+    border: .2rem solid var(--bg-color);
+    transition: .5s ease;
+}
+
+.repository-container .repository-box:hover{
+    border-color:var(--main-color);
+    transform:scale(1.02);
+}
+.repository-img{
+    display:flex;
+    justify-content: center;
+}
+.repository-img .repository-image{
+    width: 10vw;
+    background-color: white;
+    border-radius: 20%;
+}
+
+.repository-box h3{
+    font-size: 2.6rem;
+}
+
+.repository-box p{
+    display: flex;
+    justify-content: flex-start;
+    width: 70%;
+    font-size: 1.6rem;
+    margin: 1rem 0 3rem;
+    font-weight: bold;
+}
