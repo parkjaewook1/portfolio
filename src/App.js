@@ -34,6 +34,8 @@ import gitLogo from "./img/git-logo.png";
 import ec2Logo from "./img/ec2-logo.png";
 import s3Logo from "./img/s3-logo.png";
 import rdsLogo from "./img/rds-logo.png";
+import githubLogo from "./img/github-logo.png";
+
 import {faBlog} from "@fortawesome/free-solid-svg-icons";
 
 import Typed from "typed.js";
@@ -199,7 +201,7 @@ function App(props) {
             {/* Intro Section */}
             <section className="home" id="home" ref={homeRef}>
                 <div className="home-img">
-                <Image className="home-image" src={homePic} alt=""/>
+                    <Image className="home-image" src={homePic} alt=""/>
                 </div>
                 <div className="home-content">
                     <h3 className={"home-content-fullstack"}>Full<span>-</span>Stack Developer</h3>
@@ -478,7 +480,49 @@ function App(props) {
             </section>
 
             {/* Repository Section */}
-            <section>
+            <section className="repository" id="repository" ref={repositoryRef}>
+                <h2 className="heading">
+                    My <span>Repository</span>
+                </h2>
+                <div className="repository-container">
+                    <div className="repository-box">
+                        <div className="repository-img">
+                            <Image className="repository-image" src={githubLogo}/>
+                        </div>
+                        <h3>GitHub</h3>
+                        <p>
+                            제 Github 저장소는 제 개인적인 작업물과 학습 과정에서 얻은 지식을
+                            기록하는 중요한 공간입니다. 프로젝트 소스 코드, 실험적인 코드
+                            조각, 그리고 개발 관련 학습 자료들이 이곳에 저장되어 있습니다.{" "}
+                            <br/>
+                            <br/> 이 저장소는 제가 개발자로서 성장해 나가는 과정을 보여주는
+                            디지털 아카이브 역할을 합니다. 또한, 이곳에 저장된 코드와 문서들은
+                            향후 프로젝트에 대한 이해도를 높이고, 개발 기술을 다듬는 데 도움을
+                            줍니다.
+                        </p>
+                        <a href="https://github.com/chaiheung" className="btn">
+                            방문하기
+                        </a>
+                    </div>
+                    <div className="repository-box">
+                        <div className="repository-img">
+                            <Image className="repository-image" />
+                        </div>
+                        <h3>블로그</h3>
+                        <p>
+                            저의 개인 블로그는 제가 개발 공부를하며 배운 지식과 경험을
+                            공유하는 공간입니다. 여기에서는 제가 공부한 개발 관련 주제들을
+                            정리하고, 이를 다른 사람들과 공유하고자 합니다. <br/>
+                            <br/> 블로그 글들은 제가 공부한 개념을 명확히 이해하고 정리하는
+                            과정을 통해, 제 지식을 확장하고 다른 이들에게도 도움을 제공하는
+                            것을 목표로 합니다. 이 블로그는 저의 학습 여정을 기록하고, 개발
+                            커뮤니티와 지식을 공유하는 플랫폼으로 자리매김하고 있습니다.
+                        </p>
+                        <a href="" className="btn">
+                            방문하기
+                        </a>
+                    </div>
+                </div>
             </section>
             {/* Contact Section */}
             <section>
