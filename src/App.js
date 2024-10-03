@@ -36,7 +36,7 @@ import s3Logo from "./img/s3-logo.png";
 import rdsLogo from "./img/rds-logo.png";
 import githubLogo from "./img/github-logo.png";
 
-import {faBlog} from "@fortawesome/free-solid-svg-icons";
+import {faArrowUp, faBlog} from "@fortawesome/free-solid-svg-icons";
 
 import Typed from "typed.js";
 import ScrollReveal from "scrollreveal";
@@ -506,7 +506,7 @@ function App(props) {
                     </div>
                     <div className="repository-box">
                         <div className="repository-img">
-                            <Image className="repository-image" />
+                            <Image className="repository-image"/>
                         </div>
                         <h3>블로그</h3>
                         <p>
@@ -524,8 +524,32 @@ function App(props) {
                     </div>
                 </div>
             </section>
-            {/* Contact Section */}
-            <section>
+            <section className="contact" id="contact" ref={contactRef}>
+                <h2 className="heading">
+                    Contact <span>Me!</span>
+                </h2>
+                <div className="contact-box">
+                    <p>
+
+                    </p>
+                    <br/>
+                    <p>
+
+                    </p>
+                    <br/>
+                    <p>
+
+                    </p>
+                    <br/>
+                    <br/>
+                    <h3>연락처:010-4388-1992</h3>
+                    <h3>이메일: </h3>
+                </div>
+                <div className="footer-iconTop">
+                    <a href="#home">
+                        <FontAwesomeIcon icon={faArrowUp}/>
+                    </a>
+                </div>
             </section>
         </div>
     );
