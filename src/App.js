@@ -15,9 +15,9 @@ import {
 } from "@chakra-ui/react";
 import {Helmet} from "react-helmet";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import projectLogo from "./img/project-logo.png"
-import homePic from "./img/KakaoTalk_20240929_204538134_01.jpg";
-import mainPic from "./img/KakaoTalk_20240929_204538134.jpg";
+import projectLogo from "./img/jwplogo.png"
+import homePic from "./img/mypic.jpg";
+import mainPic from "./img/photo.jpg";
 import htmlLogo from "./img/html-logo.png";
 import cssLogo from "./img/css-logo.png";
 import jsLogo from "./img/js-logo.png";
@@ -36,7 +36,7 @@ import s3Logo from "./img/s3-logo.png";
 import rdsLogo from "./img/rds-logo.png";
 import githubLogo from "./img/github-logo.png";
 
-import {faArrowUp, faBlog} from "@fortawesome/free-solid-svg-icons";
+import {faArrowUp, faFile} from "@fortawesome/free-solid-svg-icons";
 
 import Typed from "typed.js";
 import ScrollReveal from "scrollreveal";
@@ -96,9 +96,10 @@ function App(props) {
     useEffect(() => {
         const typed = new Typed(el.current, {
             strings: [
-                "새로운 도전에 적극적입니다.",
-                "효율적인 문제 처리를 추구합니다.",
-                "팀워크와 협업을 중시합니다.",
+
+                "Change 새로운 변화를 즐깁니다.",
+                "Challenge 새로운 도전에 적극적입니다.",
+                "Challenger 변화와 도전에 또 다시 도전하는 사람입니다.",
             ],
             typeSpeed: 100,
             backSpeed: 100,
@@ -118,6 +119,7 @@ function App(props) {
         const handleScroll = () => {
             const shouldStick = window.scrollY > 100;
             setIsSticky(shouldStick);
+
             const refs = [
                 homeRef,
                 aboutRef,
@@ -126,30 +128,45 @@ function App(props) {
                 projectRef,
                 contactRef,
             ];
-            const currentSection = refs.find((ref) => {
+
+            let currentId = "";
+            const scrollPosition = window.scrollY + window.innerHeight / 2;
+
+            refs.forEach((ref) => {
                 const element = ref.current;
-                if (!element) return false;
+                if (!element) return;
                 const offsetTop = element.offsetTop;
                 const offsetHeight = element.offsetHeight;
-                return (
-                    window.scrollY >= offsetTop - 150 &&
-                    window.scrollY < offsetTop + offsetHeight
-                );
+
+                if (
+                  scrollPosition >= offsetTop &&
+                  scrollPosition < offsetTop + offsetHeight
+                ) {
+                    currentId = element.id;
+                }
             });
-            if (currentSection && currentSection.current) {
-                setActiveSection(currentSection.current.id);
+
+
+            // 페이지 맨 끝까지 스크롤했을 때 contact 강제 active
+            if (window.innerHeight + window.scrollY >= document.body.scrollHeight - 10) {
+                currentId = "contact";
             }
+
+            if (currentId) setActiveSection(currentId);
         };
 
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
+
+
+
     return (
         <div className="container">
             <div>
                 <Helmet>
-                    <title>박재형 웹 포트폴리오</title>
+                    <title>박재욱 웹 포트폴리오</title>
                 </Helmet>
             </div>
             {/* Header - navigation */}
@@ -206,37 +223,34 @@ function App(props) {
                 <div className="home-content">
                     <h3 className={"home-content-fullstack"}>Full<span>-</span>Stack Developer</h3>
                     <h1>
-                        박재형 <span>입니다.</span>
+                        박재욱 <span>입니다.</span>
                     </h1>
                     <h3 className="typed-js">
                         저는 <span ref={el}></span>
                     </h3>
                     <br/>
                     <p>
-                        창의적인 문제 해결 과정 중 무한히 형성되는 지식은
+                        복잡한 문제를 풀어가는 과정에서 얻게 되는 새로운 통찰은
                     </p>
-                    <p>저에게 마르지 않는 영감을 주며, 열정을 불태우는 연료로 작용합니다.{" "}
+                    <p>저에게 끝없는 호기심과 도전 의식을 불러일으킵니다.{" "}
                     </p>
 
                     <br/>
                     <p>
-                        열정과 창의성으로 팀에는 새로운 시각을,
+                        저는 그 호기심을 창의적인 아이디어로 발전시켜,
                     </p>
                     <p>
-                        프로젝트에는 실질적인 개선을 가져올 수 있도록 하겠습니다.
+                        팀에는 신선한 관점을, 프로젝트에는 지속 가능한 성과를 더하겠습니다.
                     </p>
                     <br/>
                     <br/>
                     <p className="home-content-footer"></p>
                     <div className="social-media">
-                        <a href="https://github.com/chaiheung">
+                        <a href="https://github.com/parkjaewook1">
                             <i className="bx bxl-github"></i>
                         </a>
-                        <a href="">
-                            <FontAwesomeIcon icon={faBlog}/>
-                        </a>
                     </div>
-                    <a href="" className="btn" download>
+                    <a href="/park.pdf" className="btn" download="park.pdf">
                         이력서 다운로드
                     </a>
                 </div>
@@ -248,7 +262,7 @@ function App(props) {
                         className="about-image"
                         src={mainPic}
                         alt=""
-                        w={"22vw"}
+                        w={"30vw"}
                         bg={
                             "linear-gradient(to top, #1F242D,#232833, #333841, #3f4654, #565c66, #7e8289)"
                         }
@@ -262,28 +276,23 @@ function App(props) {
                     </h2>
                     <h3>Full<span>-</span>Stack Developer</h3>
                     <p className="about-quotes">
-                        스스로만 성장하는 것이 아닌 소속된 회사 역시 함께 성장할 수 있기를,
+                        변화의 순간마다 주변에 긍정적인 에너지를 전하고,
                     </p>
                     <p>
-                        그리고 이에 제가 어느 정도 기여하는 부분이 있기를 기대하고 있습니다.
+                        서로의 잠재력을 끌어올리는 연결고리가 되겠습니다.
                     </p>
                     <br/>
-                    <p>회사와 함께 달리는 러닝메이트이자 페이스메이커가 되겠습니다.,
+                    <p>회사의 목표와 제 역량이 맞물려 더 큰 시너지를 만들고,
                     </p>
                     <p>
-                        빠르게 회사의 문화와 분위기에 적응하고, 조직의 구성원이 될 수 있도록 하겠습니다.
+                        그 과정에서 조직과 저, 모두가 한 단계 더 도약하는 경험을 쌓겠습니다.
                     </p>
                     <br/>
                     <p>
-                        혼자 걸어가는 것이 아닌 회사와 함께 보폭을 맞추어 걷는다고 생각하겠습니다.
+                        단순한 구성원이 아니라,
                     </p>
                     <p>
-                        기업과 노동자라는 단순한 관계를 넘어,
-
-                        함께 성장하고 발전하여 유의미한 발자국을 선명하게 남기는
-                    </p>
-                    <p>
-                        상호호혜적 파트너로서 나아갈 수 있기를 기대합니다.
+                        변화를 가속하고 성장을 확산시키는 동반자로서 나아가겠습니다.
                     </p>
                     <br/>
                     <br/>
@@ -465,7 +474,7 @@ function App(props) {
                             <Modal
                                 onClose={portfolioModal.onClose}
                                 isOpen={portfolioModal.isOpen}
-                                size={"5xl"}
+                                size={"3xl"}
                                 bg={""}
                             >
                                 <ModalOverlay/>
@@ -520,28 +529,11 @@ function App(props) {
                             향후 프로젝트에 대한 이해도를 높이고, 개발 기술을 다듬는 데 도움을
                             줍니다.
                         </p>
-                        <a href="https://github.com/chaiheung" className="btn">
+                        <a href="https://github.com/parkjaewook1" className="btn">
                             방문하기
                         </a>
                     </div>
-                    <div className="repository-box">
-                        <div className="repository-img">
-                            <Image className="repository-image"/>
-                        </div>
-                        <h3>블로그</h3>
-                        <p>
-                            저의 개인 블로그는 제가 개발 공부를하며 배운 지식과 경험을
-                            공유하는 공간입니다. 여기에서는 제가 공부한 개발 관련 주제들을
-                            정리하고, 이를 다른 사람들과 공유하고자 합니다. <br/>
-                            <br/> 블로그 글들은 제가 공부한 개념을 명확히 이해하고 정리하는
-                            과정을 통해, 제 지식을 확장하고 다른 이들에게도 도움을 제공하는
-                            것을 목표로 합니다. 이 블로그는 저의 학습 여정을 기록하고, 개발
-                            커뮤니티와 지식을 공유하는 플랫폼으로 자리매김하고 있습니다.
-                        </p>
-                        <a href="" className="btn">
-                            방문하기
-                        </a>
-                    </div>
+
                 </div>
             </section>
             <section className="contact" id="contact" ref={contactRef}>
@@ -562,12 +554,13 @@ function App(props) {
                     </p>
                     <br/>
                     <br/>
-                    <h3>연락처:010-4388-1992</h3>
-                    <h3>이메일: </h3>
+                    <h3>이름:박재욱</h3>
+                    <h3>연락처:010-7101-3624</h3>
+                    <h3>이메일:wodnr5050@gmail.com </h3>
                 </div>
                 <div className="footer-iconTop">
                     <a href="#home">
-                        <FontAwesomeIcon icon={faArrowUp}/>
+                        <FontAwesomeIcon   icon={faArrowUp}/>
                     </a>
                 </div>
             </section>

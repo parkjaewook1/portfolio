@@ -76,20 +76,20 @@ export function PetmilyModal() {
             <h4>Github</h4>
             <div className="modal-info-content">
                 Frontend:{" "}
-                <a href="https://github.com/chaiheung/petmily/tree/master/frontend">
-                    https://github.com/chaiheung/petmily/tree/master/frontend
+                <a href="https://github.com/parkjaewook1/petmily/tree/master/frontend">
+                    https://github.com/parkjaewook1/petmily/tree/master/frontend
                 </a>
                 <br/>
                 Backend:{" "}
-                <a href="https://github.com/chaiheung/petmily/tree/master/backend">
-                    https://github.com/chaiheung/petmily/tree/master/backend
+                <a href="https://github.com/parkjaewook1/petmily/tree/master/backend">
+                    https://github.com/parkjaewook1/petmily/tree/master/backend
                 </a>
             </div>
             <h4>Deployment URL</h4>
             <div className="modal-info-content">
                 URL: <a href="http://52.79.251.74:8080">https://petmily.com/</a>
                 <br/>
-                PPT: <a href="http://petmily.my.canva.site">http://petmily.my.canva.site
+                PPT: <a href="https://jaewookpark.my.canva.site/petmily-ppt">https://jaewookpark.my.canva.site/petmily-ppt
             </a>
             </div>
 
