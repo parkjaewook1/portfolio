@@ -2,7 +2,7 @@
   "name": "web-portfolio",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://parkjaewook1.github.io/portfolio",
+"homepage": "https://parkjaewook1.github.io/portfolio",
   "dependencies": {
     "@chakra-ui/modal": "^2.3.1",
     "@chakra-ui/react": "^2.8.2",
