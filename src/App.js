@@ -165,12 +165,18 @@ function App(props) {
         <div className="container">
             <div>
                 <Helmet>
-                    <title>박재욱 웹 포트폴리오123</title>
+                    <title>박재욱 웹 포트폴리오</title>
                 </Helmet>
             </div>
             {/* Header - navigation */}
             <header className={`header ${isSticky ? "sticky" : ""}`}>
-                <a href="https://parkjaewook1.github.io/portfolio" className="logo">
+                <a href="#home" id="homeBtn" className="logo"  onClick={(e) => {
+                    e.preventDefault(); // 기본 앵커 이동 막기
+                    window.scrollTo({
+                        top: 0,
+                        behavior: "smooth", // 부드러운 스크롤
+                    });
+                }}>
                     <Image className="project-logo" src={projectLogo}/>
                 </a>
                 <i
