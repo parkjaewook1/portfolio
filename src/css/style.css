@@ -45,6 +45,7 @@ html{
 }
 .project-logo{
     width: 10rem;
+    cursor: pointer;
 }
 .navbar a{
     font-size:2.5rem;
