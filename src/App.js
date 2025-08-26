@@ -36,8 +36,7 @@ import s3Logo from "./img/s3-logo.png";
 import rdsLogo from "./img/rds-logo.png";
 import githubLogo from "./img/github-logo.png";
 
-import {faArrowUp, faFile} from "@fortawesome/free-solid-svg-icons";
-
+import {faArrowUp} from "@fortawesome/free-solid-svg-icons";
 import Typed from "typed.js";
 import ScrollReveal from "scrollreveal";
 import {PetmilyModal} from "./project-modal/PetmilyModal";
@@ -171,7 +170,7 @@ function App(props) {
             </div>
             {/* Header - navigation */}
             <header className={`header ${isSticky ? "sticky" : ""}`}>
-                <a href="#" className="logo">
+                <a href="https://parkjaewook1.github.io/portfolio" className="logo">
                     <Image className="project-logo" src={projectLogo}/>
                 </a>
                 <i
