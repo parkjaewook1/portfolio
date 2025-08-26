@@ -255,9 +255,10 @@ function App(props) {
                             <i className="bx bxl-github"></i>
                         </a>
                     </div>
-                    <a href="/park.pdf" className="btn" download="park.pdf">
+                    <a href={`${process.env.PUBLIC_URL}/park.pdf`} download="park.pdf" className="btn">
                         이력서 다운로드
                     </a>
+
                 </div>
             </section>
             {/* About Section */}
