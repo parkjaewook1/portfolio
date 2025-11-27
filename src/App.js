@@ -228,7 +228,7 @@ function App(props) {
                 <div className="home-content">
                     <h3 className={"home-content-fullstack"}>Full<span>-</span>Stack Developer</h3>
                     <h1>
-                        박재욱 <span>입니다.</span>
+                        박재욱1 <span>입니다.</span>
                     </h1>
                     <h3 className="typed-js">
                         저는 <span ref={el}></span>
