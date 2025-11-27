@@ -36,7 +36,7 @@ import s3Logo from "./img/s3-logo.png";
 import rdsLogo from "./img/rds-logo.png";
 import githubLogo from "./img/github-logo.png";
 
-// ✅ [추가] Oracle, Vercel 로고 이미지 import
+// ✅ 로컬 이미지 파일 Import
 import oracleLogo from "./img/oracle-logo.png";
 import vercelLogo from "./img/vercel-logo.png";
 
@@ -383,20 +383,20 @@ function App(props) {
                   <div className="skills-box">
                       <h3>etc.</h3>
 
-                      {/* ✅ [추가] Oracle Cloud 로고 (필터 적용: 빨간색) */}
+                      {/* ✅ [수정] Oracle Cloud 로고 (필터 제거 -> 원본 색상 사용) */}
                       <div className="skill-logo-box">
                           <Image
                             className="skill-logos"
                             src={oracleLogo}
                             h={"10rem"}
-                            filter="invert(16%) sepia(99%) saturate(7404%) hue-rotate(4deg) brightness(95%) contrast(118%)"
+                            // filter 제거
                           />
                           <div className="skill-logo-layer">
                               <div>Oracle Cloud</div>
                           </div>
                       </div>
 
-                      {/* ✅ [추가] Vercel 로고 (필터 적용: 흰색 반전 - 다크모드 배경용) */}
+                      {/* ✅ Vercel 로고 (다크모드 배경용 흰색 반전 필터 유지) */}
                       <div className="skill-logo-box">
                           <Image
                             className="skill-logos"
