@@ -1,415 +1,607 @@
-import React from "react";
-import login from "./task-img/login.png";
-import signUp from "./task-img/sign-up.png";
-import memberRead from "./task-img/member-read.png";
-import memberUpdate from "./task-img/member-update.png";
-import memberDelete from "./task-img/member-delete.png";
-import socialLogin from "./task-img/social-login.png";
-import adminPage from "./task-img/admin-page.png";
-// ✅ 로컬 PNG 로고 파일 import
-import oracleLogo from "./task-img/oracle-logo.png";
-import vercelLogo from "./task-img/vercel-logo.png";
+import React, { useEffect, useRef, useState } from "react";
+import "./css/style.css";
+import "./css/project-modal.css";
+import {
+    Button,
+    Image,
+    Modal,
+    ModalBody,
+    ModalCloseButton,
+    ModalContent,
+    ModalFooter,
+    ModalHeader,
+    ModalOverlay,
+    useDisclosure,
+} from "@chakra-ui/react";
+import {Helmet} from "react-helmet";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import projectLogo from "./img/jwplogo.png"
+import homePic from "./img/mypic.jpg";
+import mainPic from "./img/photo.jpg";
+import htmlLogo from "./img/html-logo.png";
+import cssLogo from "./img/css-logo.png";
+import jsLogo from "./img/js-logo.png";
+import reactLogo from "./img/react-logo.png";
+import project1 from "./img/project1.png";
+import viteLogo from "./img/vite-js-logo.png";
+import dockerLogo from "./img/docker-logo.png";
+import javaLogo from "./img/java-logo.png";
+import springBootLogo from "./img/springboot_logo.png";
+import mybatisLogo from "./img/mybatis-logo.png";
+import mariadbLogo from "./img/mariadb-logo.png";
+import jwtLogo from "./img/jwt-logo.png";
+import gitLogo from "./img/git-logo.png";
+import ec2Logo from "./img/ec2-logo.png";
+import s3Logo from "./img/s3-logo.png";
+import rdsLogo from "./img/rds-logo.png";
+import githubLogo from "./img/github-logo.png";
 
-import { Image, Flex, HStack, Text } from "@chakra-ui/react";
+// ✅ [추가] Oracle, Vercel 로고 이미지 import
+import oracleLogo from "./img/oracle-logo.png";
+import vercelLogo from "./img/vercel-logo.png";
 
-export function PetmilyModal() {
+import {faArrowUp} from "@fortawesome/free-solid-svg-icons";
+import Typed from "typed.js";
+import ScrollReveal from "scrollreveal";
+import {PetmilyModal} from "./project-modal/PetmilyModal";
+import {WebPortfolioModal} from "./project-modal/WebPortfolioModal";
+
+function App(props) {
+    useEffect(() => {
+        const link = document.createElement("link");
+        link.href = "https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css";
+        link.rel = "stylesheet";
+        document.head.appendChild(link);
+    }, []);
+
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [isSticky, setIsSticky] = useState(false);
+    const [activeSection, setActiveSection] = useState("");
+    const homeRef = useRef(null);
+    const aboutRef = useRef(null);
+    const repositoryRef = useRef(null);
+    const skillsRef = useRef(null);
+    const projectRef = useRef(null);
+    const contactRef = useRef(null);
+    const el = useRef(null);
+
+    /*Chakra UI Modal*/
+    let petmilyModal = useDisclosure();
+    let portfolioModal = useDisclosure();
+
+    /* React 스크롤 Reveal*/
+    useEffect(() => {
+        const config = {
+            distance: "80px",
+            duration: 2000,
+            delay: 100,
+        };
+
+        ScrollReveal().reveal(".home-content, .heading", {
+            ...config,
+            origin: "top",
+        });
+        ScrollReveal().reveal(
+          ".home-img, .skills-container, .repository-container, .project-box",
+          { ...config, origin: "bottom" },
+        );
+        ScrollReveal().reveal(
+          ".home-content h1, .about-img, .brackets, .about-content",
+          { ...config, origin: "left" },
+        );
+        ScrollReveal().reveal(".home-content p, .about-content .json-content", {
+            ...config,
+            origin: "right",
+        });
+    }, []);
+
+    /* typed.js */
+    useEffect(() => {
+        const typed = new Typed(el.current, {
+            strings: [
+
+                "Change 새로운 변화를 즐깁니다.",
+                "Challenge 새로운 도전에 적극적입니다.",
+                "Challenger 변화와 도전에 또 다시 도전하는 사람입니다.",
+            ],
+            typeSpeed: 100,
+            backSpeed: 100,
+            backDelay: 1000,
+            loop: true,
+        });
+
+        return () => {
+            typed.destroy();
+        };
+    }, []);
+    const toggleMenu = () => {
+        setIsMenuOpen(!isMenuOpen);
+    };
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const shouldStick = window.scrollY > 100;
+            setIsSticky(shouldStick);
+
+            const refs = [
+                homeRef,
+                aboutRef,
+                repositoryRef,
+                skillsRef,
+                projectRef,
+                contactRef,
+            ];
+
+            let currentId = "";
+            const scrollPosition = window.scrollY + window.innerHeight / 2;
+
+            refs.forEach((ref) => {
+                const element = ref.current;
+                if (!element) return;
+                const offsetTop = element.offsetTop;
+                const offsetHeight = element.offsetHeight;
+
+                if (
+                  scrollPosition >= offsetTop &&
+                  scrollPosition < offsetTop + offsetHeight
+                ) {
+                    currentId = element.id;
+                }
+            });
+
+
+            // 페이지 맨 끝까지 스크롤했을 때 contact 강제 active
+            if (window.innerHeight + window.scrollY >= document.body.scrollHeight - 10) {
+                currentId = "contact";
+            }
+
+            if (currentId) setActiveSection(currentId);
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
+
+
+
     return (
-      <>
-          <div className="modal-info">
-              <h2 className="modal-info-heading">Summary</h2>
-              <p className="modal-info-content">
-                  반려동물과 반려인을 위한 종합 커뮤니티 “Petmily”
-              </p>
-              <br />
-              <hr />
-              <br />
-              <h2 className="modal-info-heading">Overview</h2>
-              <p className="modal-info-content">
-                  반려동물 및 반려인 인구가 폭발적으로 증가함에 따라 펫코노미(Pet+Economy)
-                  시장이 국내외적으로 관심을 받고 있습니다. 주인에게 기쁨을 준다는 의미의
-                  ‘애완동물’이라는 명칭에의 전통적인 주종관계에서, 동반자적 의미의
-                  ‘반려동물’로의 인식 전환과 함께, 양육 정보, 건강 관리, 교육, 사회화 등의
-                  다양한 정보를 반려인들이 공유하고 소통할 수 있는 플랫폼이 부족한
-                  상황이라고 생각했습니다. 이에 사용자들이 보다 쉽게 접근할 수 있는 웹
-                  애플리케이션의 필요성을 느꼈으며, 이에 프로젝트의 개발을 시작했습니다.
-              </p>
-              <br />
-              <hr />
-              <br />
-              <h2 className="modal-info-heading">Project Goals</h2>
-              <br />
-              <h4>반려동물 정보 공유 플랫폼 구축</h4>
-              <p className="modal-info-content">
-                  <span className="emphasis">*</span>반려동물 관련 정보 공유 및 소통의 장
-                  마련
-              </p>
-              <h4>커뮤니티 활성화를 통한 반려인 네트워크 강화</h4>
-              <p className="modal-info-content">
-                  <span className="emphasis">*</span>사용자 간의 커뮤니케이션을 활성화하여
-                  건전한 반려인 커뮤니티 형성
-              </p>
-              <h4>반려동물 건강 관리 및 초보자 지원</h4>
-              <p className="modal-info-content">
-                  <span className="emphasis">*</span>건강 관리 및 초보 반려인을 위한 정보를
-                  제공하여 사용자 편의성 증대
-              </p>
-              <h4>사용자 중심의 직관적인 UI/UX 제공</h4>
-              <p className="modal-info-content">
-                  <span className="emphasis">*</span>사용자 경험을 개선하고, 만족도를 높일 수
-                  있는 직관적인 UI/UX 제공
-              </p>
-              <br />
-              <hr />
-              <br />
-              <h2 className="modal-info-heading">Skills</h2>
-              <div className="modal-info-skills">
-                  <h4>Frontend:</h4>
-                  <p>HTML, CSS, JavaScript, React, Vite, Axios, ChakraUI</p>
+      <div className="container">
+          <div>
+              <Helmet>
+                  <title>박재욱 웹 포트폴리오</title>
+              </Helmet>
+          </div>
+          {/* Header - navigation */}
+          <header className={`header ${isSticky ? "sticky" : ""}`}>
+              <a href="#home" id="homeBtn" className="logo"  onClick={(e) => {
+                  e.preventDefault(); // 기본 앵커 이동 막기
+                  window.scrollTo({
+                      top: 0,
+                      behavior: "smooth", // 부드러운 스크롤
+                  });
+              }}>
+                  <Image className="project-logo" src={projectLogo}/>
+              </a>
+              <i
+                className={`bx bx-menu ${isMenuOpen ? "bx-x" : ""}`}
+                id="menu-icon"
+                onClick={toggleMenu}
+              ></i>
+              <nav className={`navbar ${isMenuOpen ? "active" : ""}`}>
+                  <a href="#home" className={activeSection === "home" ? "active" : ""}>
+                      Intro
+                  </a>
+                  <a
+                    href="#about"
+                    className={activeSection === "about" ? "active" : ""}
+                  >
+                      About
+                  </a>
+                  <a
+                    href="#skills"
+                    className={activeSection === "skills" ? "active" : ""}
+                  >
+                      Skills
+                  </a>
+                  <a
+                    href="#project"
+                    className={activeSection === "project" ? "active" : ""}
+                  >
+                      Project
+                  </a>
+                  <a
+                    href="#repository"
+                    className={activeSection === "repository" ? "active" : ""}
+                  >
+                      Repository
+                  </a>
+                  <a
+                    href="#contact"
+                    className={activeSection === "contact" ? "active" : ""}
+                  >
+                      Contact
+                  </a>
+              </nav>
+          </header>
+          {/* Intro Section */}
+          <section className="home" id="home" ref={homeRef}>
+              <div className="home-img">
+                  <Image className="home-image" src={homePic} alt=""/>
               </div>
-              <div className="modal-info-skills">
-                  <h4>Backend:</h4>
-                  <p>Java, Spring Boot, Spring Security, JWT, OAuth2, MyBatis</p>
+              <div className="home-content">
+                  <h3 className={"home-content-fullstack"}>Full<span>-</span>Stack Developer</h3>
+                  <h1>
+                      박재욱 <span>입니다.</span>
+                  </h1>
+                  <h3 className="typed-js">
+                      저는 <span ref={el}></span>
+                  </h3>
+                  <br/>
+                  <p>
+                      복잡한 문제를 풀어가는 과정에서 얻게 되는 새로운 통찰은
+                  </p>
+                  <p>저에게 끝없는 호기심과 도전 의식을 불러일으킵니다.{" "}
+                  </p>
+
+                  <br/>
+                  <p>
+                      저는 그 호기심을 창의적인 아이디어로 발전시켜,
+                  </p>
+                  <p>
+                      팀에는 신선한 관점을, 프로젝트에는 지속 가능한 성과를 더하겠습니다.
+                  </p>
+                  <br/>
+                  <br/>
+                  <p className="home-content-footer"></p>
+                  <div className="social-media">
+                      <a href="https://github.com/parkjaewook1">
+                          <i className="bx bxl-github"></i>
+                      </a>
+                  </div>
+                  <a href="/park.pdf" className="btn" download="park.pdf">
+                      이력서 다운로드
+                  </a>
               </div>
-              <div className="modal-info-skills">
-                  <h4>Database:</h4>
-                  <p>MariaDB</p>
+          </section>
+          {/* About Section */}
+          <section className="about" id="about" ref={aboutRef}>
+              <div className="about-img">
+                  <Image
+                    className="about-image"
+                    src={mainPic}
+                    alt=""
+                    w={"30vw"}
+                    bg={
+                        "linear-gradient(to top, #1F242D,#232833, #333841, #3f4654, #565c66, #7e8289)"
+                    }
+                    borderRadius={"50%"}
+                    boxShadow={"0 0 3rem black"}
+                  />
               </div>
-              <div className="modal-info-skills">
-                  <h4>Deployment:</h4>
-                  <Flex wrap="wrap" gap={3} mt={2}>
-                      {/* ✅ [수정] Oracle Cloud: 빨간 배경 제거 -> 흰색 배경 + 회색 테두리로 통일 */}
-                      <HStack
-                        bg="white"
-                        px={3}
-                        py={1}
-                        borderRadius="md"
-                        border="1px solid"
-                        borderColor="gray.200"
-                        boxShadow="sm"
-                      >
+              <div className="about-content">
+                  <h2 className="heading">
+                      About <span>Me</span>
+                  </h2>
+                  <h3>Full<span>-</span>Stack Developer</h3>
+                  <p className="about-quotes">
+                      변화의 순간마다 주변에 긍정적인 에너지를 전하고,
+                  </p>
+                  <p>
+                      서로의 잠재력을 끌어올리는 연결고리가 되겠습니다.
+                  </p>
+                  <br/>
+                  <p>회사의 목표와 제 역량이 맞물려 더 큰 시너지를 만들고,
+                  </p>
+                  <p>
+                      그 과정에서 조직과 저, 모두가 한 단계 더 도약하는 경험을 쌓겠습니다.
+                  </p>
+                  <br/>
+                  <p>
+                      단순한 구성원이 아니라,
+                  </p>
+                  <p>
+                      변화를 가속하고 성장을 확산시키는 동반자로서 나아가겠습니다.
+                  </p>
+                  <br/>
+                  <br/>
+                  <br/>
+              </div>
+          </section>
+
+          {/* Skill Section */}
+          <section className="skills" id="skills" ref={skillsRef}>
+              <h2 className="heading">
+                  My <span>Skills</span></h2>
+              <div className="skills-container">
+                  <div className="skills-box">
+                      <h3>Frontend</h3>
+                      <div className="skill-logo-box">
+                          <Image className="skill-logos" src={htmlLogo}/>
+                          <div className="skill-logo-layer">
+                              <div>HTML</div>
+                          </div>
+                      </div>
+                      <div className="skill-logo-box">
+                          <Image className="skill-logos" src={cssLogo}/>
+                          <div className="skill-logo-layer">
+                              <div>CSS</div>
+                          </div>
+                      </div>
+                      <div className="skill-logo-box">
+                          <Image className="skill-logos" src={jsLogo}/>
+                          <div className="skill-logo-layer">
+                              <div>JavaScript</div>
+                          </div>
+                      </div>
+                      <div className="skill-logo-box">
+                          <Image className="skill-logos" src={reactLogo}/>
+                          <div className="skill-logo-layer">
+                              <div>React</div>
+                          </div>
+                      </div>
+                      <div className="skill-logo-box">
+                          <Image className="skill-logos" src={viteLogo}/>
+                          <div className="skill-logo-layer">
+                              <div>Vite</div>
+                          </div>
+                      </div>
+                  </div>
+                  <div className="skills-box">
+                      <h3>Backend</h3>
+                      <div className="skill-logo-box">
+                          <Image className="skill-logos" src={javaLogo}/>
+                          <div className="skill-logo-layer">
+                              <div>Java</div>
+                          </div>
+                      </div>
+                      <div className="skill-logo-box">
+                          <Image className="skill-logos" src={springBootLogo}/>
+                          <div className="skill-logo-layer">
+                              <div>Spring Boot</div>
+                          </div>
+                      </div>
+                      <div className="skill-logo-box">
+                          <Image className="skill-logos" src={jwtLogo}/>
+                          <div className="skill-logo-layer">
+                              <div>JWT</div>
+                          </div>
+                      </div>
+                      <div className="skill-logo-box">
+                          <Image className="skill-logos" src={mybatisLogo}/>
+                          <div className="skill-logo-layer">
+                              <div>MyBatis</div>
+                          </div>
+                      </div>
+                      <div className="skill-logo-box">
+                          <Image className="skill-logos" src={mariadbLogo} h={"8rem"}/>
+                          <div className="skill-logo-layer">
+                              <div>MariaDB</div>
+                          </div>
+                      </div>
+                  </div>
+                  <div className="skills-box">
+                      <h3>etc.</h3>
+
+                      {/* ✅ [추가] Oracle Cloud 로고 (필터 적용: 빨간색) */}
+                      <div className="skill-logo-box">
                           <Image
+                            className="skill-logos"
                             src={oracleLogo}
-                            w={5}
-                            h={5}
-                            objectFit="contain"
-                            alt="Oracle Icon"
+                            h={"10rem"}
+                            filter="invert(16%) sepia(99%) saturate(7404%) hue-rotate(4deg) brightness(95%) contrast(118%)"
                           />
-                          <Text fontWeight="600" color="#C74634" fontSize="sm">
-                              Oracle Cloud
-                          </Text>
-                      </HStack>
+                          <div className="skill-logo-layer">
+                              <div>Oracle Cloud</div>
+                          </div>
+                      </div>
 
-                      {/* Vercel */}
-                      <HStack
-                        bg="white"
-                        px={3}
-                        py={1}
-                        borderRadius="md"
-                        border="1px solid"
-                        borderColor="gray.200"
-                        boxShadow="sm"
-                      >
+                      {/* ✅ [추가] Vercel 로고 (필터 적용: 흰색 반전 - 다크모드 배경용) */}
+                      <div className="skill-logo-box">
                           <Image
+                            className="skill-logos"
                             src={vercelLogo}
-                            w={5}
-                            h={5}
-                            objectFit="contain"
-                            alt="Vercel Icon"
+                            h={"10rem"}
+                            filter="invert(1)"
                           />
-                          <Text fontWeight="600" color="black" fontSize="sm">
-                              Vercel
-                          </Text>
-                      </HStack>
+                          <div className="skill-logo-layer">
+                              <div>Vercel</div>
+                          </div>
+                      </div>
 
-                      {/* AWS */}
-                      <HStack
-                        bg="white"
-                        px={3}
-                        py={1}
-                        borderRadius="md"
-                        border="1px solid"
-                        borderColor="gray.200"
-                        boxShadow="sm"
-                      >
-                          <Image
-                            src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/amazonaws.svg"
-                            w={5}
-                            h={5}
-                            filter="invert(36%) sepia(99%) saturate(1843%) hue-rotate(3deg) brightness(102%) contrast(98%)"
-                            alt="AWS Icon"
-                          />
-                          <Text fontWeight="600" color="#FF9900" fontSize="sm">
-                              AWS (Exp)
-                          </Text>
-                      </HStack>
-                  </Flex>
+                      <div className="skill-logo-box">
+                          <Image className="skill-logos" src={ec2Logo} h={"10rem"}/>
+                          <div className="skill-logo-layer">
+                              <div>EC2</div>
+                          </div>
+                      </div>
+                      <div className="skill-logo-box">
+                          <Image className="skill-logos" src={s3Logo} h={"10rem"}/>
+
+                          <div className="skill-logo-layer">
+                              <div>S3</div>
+                          </div>
+                      </div>
+                      <div className="skill-logo-box">
+                          <Image className="skill-logos" src={rdsLogo} h={"10rem"}/>
+                          <div className="skill-logo-layer">
+                              <div>RDS</div>
+                          </div>
+                      </div>
+
+                      <div className="skill-logo-box">
+                          <Image className="skill-logos" src={gitLogo} h={"10rem"}/>
+                          <div className="skill-logo-layer">
+                              <div>Git</div>
+                          </div>
+                      </div>
+                      <div className="skill-logo-box">
+                          <Image className="skill-logos" src={dockerLogo} h={"10rem"}/>
+                          <div className="skill-logo-layer">
+                              <div>Docker</div>
+                          </div>
+                      </div>
+                  </div>
               </div>
-              <br />
-              <hr />
-              <br />
-              <h2 className="modal-info-heading">Repository & Deployment URL</h2>
-              <br />
-              <h4>Github</h4>
-              <div className="modal-info-content">
-                  Frontend:{" "}
-                  <a
-                    href="https://github.com/parkjaewook1/petmily/tree/master/frontend"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                      https://github.com/parkjaewook1/petmily/tree/master/frontend
+          </section>
+
+          {/* Project Section */}
+          <section className="project" id="project" ref={projectRef}>
+              <h2 className="heading">
+                  Project <span>Experience</span>
+              </h2>
+              <div className="project-container">
+                  <div className="project-box">
+                      <Image src={project1} className="project-image"/>
+                      <div className="project-layer">
+                          <h4>Petmily</h4>
+                          <p>
+                              반려동물과 반려인을 위한 종합 커뮤니티 “Petmily”
+                          </p>
+                          <button className="project-btn" onClick={petmilyModal.onOpen}>
+                              더보기
+                          </button>
+                          {/*----Petmily Modal 시작-------------------*/}
+                          <Modal
+                            onClose={petmilyModal.onClose}
+                            isOpen={petmilyModal.isOpen}
+                            size={"5xl"}
+                            bg={""}
+                          >
+                              <ModalOverlay/>
+                              <ModalContent p={0}>
+                                  <ModalHeader bg={"#1f242d"}>
+                                      <div className="modal-header">Petmily</div>
+                                  </ModalHeader>
+                                  <ModalCloseButton
+                                    color={"#dcdcdc"}
+                                    fontSize={"1.4rem"}
+                                    pt={3}
+                                    pr={2}
+                                  />
+                                  <ModalBody bg={"#323946"}>
+                                      <PetmilyModal/>
+                                  </ModalBody>
+                                  <ModalFooter bg={"#1f242d"}>
+                                      <Button
+                                        fontSize="2rem"
+                                        variant={"link"}
+                                        onClick={petmilyModal.onClose}
+                                      >
+                                          닫기
+                                      </Button>
+                                  </ModalFooter>
+                              </ModalContent>
+                          </Modal>
+                      </div>
+                  </div>
+                  <div className="project-box webportfolio">
+                      <Image src={projectLogo} className="project-image"/>
+                      <div className="project-layer">
+                          <h4>Web Portfolio</h4>
+                          <p>
+                              기술에 대한 호기심과 새로움을 향한 도전은 제가 코딩을 즐기는
+                              이유입니다.
+                          </p>
+                          <button className="project-btn" onClick={portfolioModal.onOpen}>
+                              더보기
+                          </button>
+                          {/*---- Portfolio Modal 시작-------------------*/}
+                          <Modal
+                            onClose={portfolioModal.onClose}
+                            isOpen={portfolioModal.isOpen}
+                            size={"3xl"}
+                            bg={""}
+                          >
+                              <ModalOverlay/>
+                              <ModalContent p={0}>
+                                  <ModalHeader bg={"#1f242d"}>
+                                      <div className="modal-header">Web Portfolio</div>
+                                  </ModalHeader>
+                                  <ModalCloseButton
+                                    color={"#dcdcdc"}
+                                    fontSize={"1.4rem"}
+                                    pt={3}
+                                    pr={2}
+                                  />
+                                  <ModalBody bg={"#323946"}>
+                                      <WebPortfolioModal/>
+                                  </ModalBody>
+                                  <ModalFooter bg={"#1f242d"}>
+                                      <Button
+                                        fontSize="2rem"
+                                        variant={"link"}
+                                        onClick={portfolioModal.onClose}
+                                      >
+                                          닫기
+                                      </Button>
+                                  </ModalFooter>
+                              </ModalContent>
+                          </Modal>
+                      </div>
+                  </div>
+
+              </div>
+          </section>
+
+          {/* Repository Section */}
+          <section className="repository" id="repository" ref={repositoryRef}>
+              <h2 className="heading">
+                  My <span>Repository</span>
+              </h2>
+              <div className="repository-container">
+                  <div className="repository-box">
+                      <div className="repository-img">
+                          <Image className="repository-image" src={githubLogo}/>
+                      </div>
+                      <h3>GitHub</h3>
+                      <p>
+                          제 Github 저장소는 제 개인적인 작업물과 학습 과정에서 얻은 지식을
+                          기록하는 중요한 공간입니다. 프로젝트 소스 코드, 실험적인 코드
+                          조각, 그리고 개발 관련 학습 자료들이 이곳에 저장되어 있습니다.{" "}
+                          <br/>
+                          <br/> 이 저장소는 제가 개발자로서 성장해 나가는 과정을 보여주는
+                          디지털 아카이브 역할을 합니다. 또한, 이곳에 저장된 코드와 문서들은
+                          향후 프로젝트에 대한 이해도를 높이고, 개발 기술을 다듬는 데 도움을
+                          줍니다.
+                      </p>
+                      <a href="https://github.com/parkjaewook1" className="btn">
+                          방문하기
+                      </a>
+                  </div>
+
+              </div>
+          </section>
+          <section className="contact" id="contact" ref={contactRef}>
+              <h2 className="heading">
+                  Contact <span>Me!</span>
+              </h2>
+              <div className="contact-box">
+                  <p>
+
+                  </p>
+                  <br/>
+                  <p>
+
+                  </p>
+                  <br/>
+                  <p>
+
+                  </p>
+                  <br/>
+                  <br/>
+                  <h3>이름:박재욱</h3>
+                  <h3>연락처:010-7101-3624</h3>
+                  <h3>이메일:wodnr5050@gmail.com </h3>
+              </div>
+              <div className="footer-iconTop">
+                  <a href="#home">
+                      <FontAwesomeIcon   icon={faArrowUp}/>
                   </a>
-                  <br />
-                  Backend:{" "}
-                  <a
-                    href="https://github.com/parkjaewook1/petmily/tree/master/backend"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                      https://github.com/parkjaewook1/petmily/tree/master/backend
-                  </a>
               </div>
-              <h4>Deployment URL</h4>
-              <div className="modal-info-content">
-                  URL:{" "}
-                  <a
-                    href="https://pet-mily-project.vercel.app/"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                      https://pet-mily-project.vercel.app/
-                  </a>
-                  <br />
-                  PPT:{" "}
-                  <a
-                    href="https://jaewookpark.my.canva.site/petmily-ppt"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                      https://jaewookpark.my.canva.site/petmily-ppt
-                  </a>
-              </div>
-
-              <br />
-              <hr />
-              <br />
-              <h2 className="modal-info-heading">My Tasks in Project</h2>
-          </div>
-          <div className="modal-info-tasks">
-              {/* 로그인 시작 */}
-              <div className="project-task">
-                  <h3>1.로그인</h3>
-                  <div className="project-task-box">
-                      <Image className="project-task-images" src={login} />
-                  </div>
-                  <h3>상세 설명</h3>
-                  <p>
-                      Spring Security 및 JWT 기반 로그인 시스템: 프로젝트에서 구현한 로그인
-                      시스템은 Spring Security와 JWT(JSON Web Token)를 기반으로 하여 강화된
-                      보안과 효율성을 제공합니다.
-                  </p>
-                  <br />
-                  <p>
-                      <span>1) 강화된 보안</span>
-                      <ul>
-                          <li>
-                              <h4>XSS 방지:</h4> HTTP Only 쿠키 사용으로 클라이언트 사이드
-                              스크립트 접근을 차단, XSS 공격으로부터 토큰 탈취를 방지합니다.
-                          </li>
-                          <li>
-                              <h4>안전한 토큰 전송 및 검증:</h4> JWT는 사용자 인증 정보를 안전하게
-                              인코딩하고, 서버에서 토큰의 유효성을 검증하여 인증의 신뢰성을
-                              제공합니다.
-                          </li>
-                      </ul>
-                  </p>
-                  <br />
-                  <p>
-                      <span>2) 무상태 인증</span>
-                      <ul>
-                          <li>
-                              <h4>서버 부하 감소:</h4> JWT를 사용한 무상태 인증 방식으로 서버의
-                              세션 상태 관리 부담을 줄입니다.
-                          </li>
-                          <li>
-                              <h4>통신 간소화:</h4> 브라우저의 자동 쿠키 관리를 통해 클라이언트
-                              측의 인증 토큰 관리 필요성을 제거합니다.
-                          </li>
-                      </ul>
-                  </p>
-                  <br />
-                  <p>
-                      <span>3) 표준화된 접근</span>
-                      <ul>
-                          <li>
-                              <h4>호환성 제공:</h4> JWT는 널리 인정받는 인증 표준으로, 다양한
-                              API와의 호환성을 제공합니다.
-                          </li>
-                      </ul>
-                  </p>
-                  {/* 로그인 끝 */}
-              </div>
-              <br />
-              <hr />
-              <br />
-              {/* 회원 CRUD 시작 */}
-              <div className="project-task">
-                  <h3>2. 회원 CRUD / 프로필 CRUD</h3>
-
-                  {/* 회원가입 모달 */}
-                  <div className="project-task-box">
-                      <Image className="project-task-images" src={signUp} />
-                  </div>
-
-                  {/* 회원 정보 조회 모달 */}
-                  <div className="project-task-box">
-                      <Image className="project-task-images" src={memberRead} />
-                  </div>
-
-                  {/* 회원 정보 수정 모달 */}
-                  <div className="project-task-box">
-                      <Image className="project-task-images" src={memberUpdate} />
-                  </div>
-
-                  {/* 회원 탈퇴 모달 */}
-                  <div className="project-task-box">
-                      <Image className="project-task-images" src={memberDelete} />
-                  </div>
-                  <h3>상세 설명</h3>
-                  <p>
-                      Spring 기반 회원 CRUD 시스템: 회원 가입, 정보 조회, 수정, 탈퇴 기능을
-                      제공하는 사용자 관리 시스템입니다. RESTful API를 통해 각 기능이
-                      구현되었습니다.
-                  </p>
-                  <br />
-                  <p>
-                      <span>1) 회원 CRUD</span>
-                      <ul>
-                          <li>
-                              <h4>폼 유효성 및 보안 검증:</h4> 아이디와 비밀번호는 최소 글자 수와
-                              정규식을 통한 입력 제한을 거치며, 중복 체크 및 비밀번호 일치 확인
-                              후에 가입 버튼이 활성화됩니다. 비밀번호는 가입 완료 시 BCrypt로
-                              암호화되어 안전하게 저장됩니다.
-                          </li>
-                          <br />
-                          <li>
-                              <h4>실시간 정보 조회:</h4> 사용자는 자신의 정보를 실시간으로
-                              조회하고, 원하는 정보를 수정할 수 있습니다.
-                          </li>
-                          <br />
-                          <li>
-                              <h4>완전 삭제:</h4> 회원 탈퇴 시 사용자 정보는 영구적으로
-                              삭제됩니다.
-                          </li>
-                      </ul>
-                  </p>
-                  {/* 프로필 CRUD */}
-                  <br />
-                  <p>
-                      {/* ✅ [수정] AWS S3 -> Oracle Cloud 로 변경 설명 */}
-                      <span>4) 프로필 CRUD (Oracle Cloud 배포 & 로컬 스토리지)</span>
-                      <ul>
-                          <li>
-                              <h4>프로필 이미지 업로드 및 저장:</h4> 사용자가 프로필 이미지를
-                              업로드하면, 해당 이미지는 Oracle Cloud 서버의 스토리지에 안전하게
-                              저장됩니다. (초기 AWS S3 사용에서 비용 효율화를 위해 마이그레이션)
-                          </li>
-                          <br />
-                          <li>
-                              <h4>프로필 이미지 수정:</h4> 사용자는 기존에 업로드한 프로필 이미지를
-                              수정할 수 있으며, 수정된 이미지는 서버 내에서 기존 이미지를
-                              교체하여 저장됩니다.
-                          </li>
-                          <br />
-                          <li>
-                              <h4>프로필 이미지 삭제:</h4> 프로필 이미지 삭제 요청 시, 서버
-                              스토리지에서 해당 파일이 영구적으로 삭제됩니다.
-                          </li>
-                          <br />
-                          <li>
-                              <h4>프로필 이미지 조회:</h4> 사용자의 프로필 이미지는 Vercel 프록시를
-                              통해 보안(HTTPS) 경고 없이 안전하게 렌더링됩니다.
-                          </li>
-                      </ul>
-                  </p>
-                  {/* 회원 CRUD 끝 */}
-              </div>
-              <br />
-              <hr />
-              <br />
-              {/* 소셜 로그인 및 비밀번호 재발급 시작 */}
-              <div className="project-task">
-                  <h3>4. 소셜 로그인 / 비밀번호 재발급</h3>
-                  <div className="project-task-box">
-                      <Image className="project-task-images" src={socialLogin} />
-                  </div>
-                  <h3>상세 설명</h3>
-                  <p>
-                      OAuth 2.0 기반 소셜 로그인: 네이버 소셜 네트워크 서비스와의 통합 로그인
-                      기능을 구현하였습니다. 또한 비밀번호 재발급 시스템을 통해 사용자가 쉽게
-                      비밀번호를 재설정할 수 있도록 하였습니다.
-                  </p>
-                  <br />
-                  <p>
-                      <span>1) 소셜 로그인</span>
-                      <ul>
-                          <li>
-                              <h4>OAuth 2.0 표준:</h4> 다양한 소셜 계정으로 로그인할 수 있으며,
-                              OAuth 2.0을 통한 안전한 인증 절차를 제공합니다.
-                          </li>
-                      </ul>
-                  </p>
-                  <br />
-                  <p>
-                      <span>2) 비밀번호 재발급</span>
-                      <ul>
-                          <li>
-                              <h4>재발급 이메일:</h4> 사용자는 등록된 이메일을 통해 비밀번호를
-                              재설정할 수 있으며, 보안 절차를 강화하였습니다.
-                          </li>
-                      </ul>
-                  </p>
-                  {/* 소셜 로그인 및 비밀번호 재발급 끝 */}
-              </div>
-              <br />
-              <hr />
-              <br />
-              {/* 관리자 모드 시작 */}
-              <div className="project-task">
-                  <h3>3. 관리자 모드</h3>
-                  <div className="project-task-box">
-                      <Image className="project-task-images" src={adminPage} />
-                  </div>
-                  <h3>상세 설명</h3>
-                  <p>
-                      **관리자 모드**는 전체 사용자 목록을 관리하고, 각 사용자 정보를 수정하거나
-                      삭제할 수 있는 강력한 제어 기능을 제공합니다. 이를 통해 관리자는 플랫폼을
-                      효율적으로 운영하고, 사용자 정보를 빠르고 정확하게 관리할 수 있습니다.
-                  </p>
-                  <br />
-                  <p>
-                      <span>1) 회원 목록 관리:</span>
-                      <ul>
-                          <li>
-                              <h4>전체 회원 조회:</h4> 관리자는 모든 회원의 목록을 한눈에 볼 수
-                              있으며, 필요에 따라 특정 회원을 검색하여 관리할 수 있습니다.
-                          </li>
-                          <br />
-                          <li>
-                              <h4>회원 정보 수정:</h4> 관리자는 각 회원의 정보(예: 이름, 이메일,
-                              권한)를 수정할 수 있으며, 업데이트된 정보는 즉시 반영됩니다.
-                          </li>
-                          <br />
-                          <li>
-                              <h4>회원 삭제(탈퇴 처리):</h4> 관리자는 필요시 회원을 삭제하거나 탈퇴
-                              처리할 수 있으며, 이 과정은 안전하게 처리되어 데이터 무결성을
-                              보장합니다.
-                          </li>
-                      </ul>
-                  </p>
-                  {/* 관리자 모드 끝 */}
-              </div>
-          </div>
-      </>
+          </section>
+      </div>
     );
 }
+
+export default App;
