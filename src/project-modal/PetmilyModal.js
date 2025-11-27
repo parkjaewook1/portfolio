@@ -6,6 +6,11 @@ import memberUpdate from "./task-img/member-update.png";
 import memberDelete from "./task-img/member-delete.png";
 import socialLogin from "./task-img/social-login.png";
 import adminPage from "./task-img/admin-page.png";
+
+// ✅ [중요] 다이어리 캡처 이미지를 이 경로에 'diary.png'로 넣어주세요!
+// (파일이 없으면 배포 시 에러가 날 수 있습니다.)
+// import diary from "./task-img/diary.png";
+
 import { Image } from "@chakra-ui/react";
 
 export function PetmilyModal() {
@@ -72,7 +77,6 @@ export function PetmilyModal() {
               </div>
               <div className="modal-info-skills">
                   <h4>Deployment:</h4>
-                  {/* ✅ [수정] 배포 환경 업데이트 (Oracle Cloud, Vercel 추가) */}
                   <p>Oracle Cloud Infrastructure, Vercel, AWS (Experience)</p>
               </div>
               <br />
@@ -90,11 +94,9 @@ export function PetmilyModal() {
                   >
                       https://github.com/parkjaewook1/PetMilyProject.git
                   </a>
-                  <br />
               </div>
               <h4>Deployment URL</h4>
               <div className="modal-info-content">
-                  {/* ✅ [수정] 실제 배포된 Vercel 주소로 변경 */}
                   URL:{" "}
                   <a
                     href="https://pet-mily-project.vercel.app/"
@@ -120,9 +122,9 @@ export function PetmilyModal() {
               <h2 className="modal-info-heading">My Tasks in Project</h2>
           </div>
           <div className="modal-info-tasks">
-              {/* 로그인 시작 */}
+              {/* 1. 로그인 */}
               <div className="project-task">
-                  <h3>1.로그인</h3>
+                  <h3>1. 로그인</h3>
                   <div className="project-task-box">
                       <Image className="project-task-images" src={login} />
                   </div>
@@ -171,31 +173,24 @@ export function PetmilyModal() {
                           </li>
                       </ul>
                   </p>
-                  {/* 로그인 끝 */}
               </div>
               <br />
               <hr />
               <br />
-              {/* 회원 CRUD 시작 */}
+
+              {/* 2. 회원 CRUD */}
               <div className="project-task">
                   <h3>2. 회원 CRUD / 프로필 CRUD</h3>
 
-                  {/* 회원가입 모달 */}
                   <div className="project-task-box">
                       <Image className="project-task-images" src={signUp} />
                   </div>
-
-                  {/* 회원 정보 조회 모달 */}
                   <div className="project-task-box">
                       <Image className="project-task-images" src={memberRead} />
                   </div>
-
-                  {/* 회원 정보 수정 모달 */}
                   <div className="project-task-box">
                       <Image className="project-task-images" src={memberUpdate} />
                   </div>
-
-                  {/* 회원 탈퇴 모달 */}
                   <div className="project-task-box">
                       <Image className="project-task-images" src={memberDelete} />
                   </div>
@@ -227,11 +222,9 @@ export function PetmilyModal() {
                           </li>
                       </ul>
                   </p>
-                  {/* 프로필 CRUD */}
                   <br />
                   <p>
-                      {/* ✅ [수정] AWS S3 -> Oracle Cloud 로 변경 설명 */}
-                      <span>4) 프로필 CRUD (Oracle Cloud 배포 & 로컬 스토리지)</span>
+                      <span>2) 프로필 CRUD (Oracle Cloud 배포 & 로컬 스토리지)</span>
                       <ul>
                           <li>
                               <h4>프로필 이미지 업로드 및 저장:</h4> 사용자가 프로필 이미지를
@@ -256,49 +249,12 @@ export function PetmilyModal() {
                           </li>
                       </ul>
                   </p>
-                  {/* 회원 CRUD 끝 */}
               </div>
               <br />
               <hr />
               <br />
-              {/* 소셜 로그인 및 비밀번호 재발급 시작 */}
-              <div className="project-task">
-                  <h3>4. 소셜 로그인 / 비밀번호 재발급</h3>
-                  <div className="project-task-box">
-                      <Image className="project-task-images" src={socialLogin} />
-                  </div>
-                  <h3>상세 설명</h3>
-                  <p>
-                      OAuth 2.0 기반 소셜 로그인: 네이버 소셜 네트워크 서비스와의 통합 로그인
-                      기능을 구현하였습니다. 또한 비밀번호 재발급 시스템을 통해 사용자가 쉽게
-                      비밀번호를 재설정할 수 있도록 하였습니다.
-                  </p>
-                  <br />
-                  <p>
-                      <span>1) 소셜 로그인</span>
-                      <ul>
-                          <li>
-                              <h4>OAuth 2.0 표준:</h4> 다양한 소셜 계정으로 로그인할 수 있으며,
-                              OAuth 2.0을 통한 안전한 인증 절차를 제공합니다.
-                          </li>
-                      </ul>
-                  </p>
-                  <br />
-                  <p>
-                      <span>2) 비밀번호 재발급</span>
-                      <ul>
-                          <li>
-                              <h4>재발급 이메일:</h4> 사용자는 등록된 이메일을 통해 비밀번호를
-                              재설정할 수 있으며, 보안 절차를 강화하였습니다.
-                          </li>
-                      </ul>
-                  </p>
-                  {/* 소셜 로그인 및 비밀번호 재발급 끝 */}
-              </div>
-              <br />
-              <hr />
-              <br />
-              {/* 관리자 모드 시작 */}
+
+              {/* 3. 관리자 모드 */}
               <div className="project-task">
                   <h3>3. 관리자 모드</h3>
                   <div className="project-task-box">
@@ -331,7 +287,127 @@ export function PetmilyModal() {
                           </li>
                       </ul>
                   </p>
-                  {/* 관리자 모드 끝 */}
+              </div>
+              <br />
+              <hr />
+              <br />
+
+              {/* 4. 소셜 로그인 */}
+              <div className="project-task">
+                  <h3>4. 소셜 로그인 / 비밀번호 재발급</h3>
+                  <div className="project-task-box">
+                      <Image className="project-task-images" src={socialLogin} />
+                  </div>
+                  <h3>상세 설명</h3>
+                  <p>
+                      OAuth 2.0 기반 소셜 로그인: 네이버 소셜 네트워크 서비스와의 통합 로그인
+                      기능을 구현하였습니다. 또한 비밀번호 재발급 시스템을 통해 사용자가 쉽게
+                      비밀번호를 재설정할 수 있도록 하였습니다.
+                  </p>
+                  <br />
+                  <p>
+                      <span>1) 소셜 로그인</span>
+                      <ul>
+                          <li>
+                              <h4>OAuth 2.0 표준:</h4> 다양한 소셜 계정으로 로그인할 수 있으며,
+                              OAuth 2.0을 통한 안전한 인증 절차를 제공합니다.
+                          </li>
+                      </ul>
+                  </p>
+                  <br />
+                  <p>
+                      <span>2) 비밀번호 재발급</span>
+                      <ul>
+                          <li>
+                              <h4>재발급 이메일:</h4> 등록된 이메일을 통해 임시 비밀번호를
+                              발송하여 보안 절차를 강화하였습니다.
+                          </li>
+                      </ul>
+                  </p>
+              </div>
+              <br />
+              <hr />
+              <br />
+
+              {/* 5. 미니홈피 다이어리 (신규 기능) */}
+              <div className="project-task">
+                  <h3>5. 미니홈피 다이어리 (Pet Diary)</h3>
+                  {/*<div className="project-task-box">*/}
+                  {/*    /!* ✅ diary.png 파일이 src/components/task-img/ 폴더에 있어야 합니다 *!/*/}
+                  {/*    <Image*/}
+                  {/*      className="project-task-images"*/}
+                  {/*      // src={diary}*/}
+                  {/*      fallbackSrc="https://via.placeholder.com/800x500?text=Diary+Image+Missing"*/}
+                  {/*      alt="Diary Screenshot"*/}
+                  {/*    />*/}
+                  {/*</div>*/}
+                  <h3>상세 설명</h3>
+                  <p>
+                      레트로 감성의 개인 공간인 '미니홈피'를 구현하였습니다. 사용자 경험(UX)을
+                      고려한 직관적인 인터페이스와 다양한 소통 기능을 통해 커뮤니티 활성화를
+                      도모합니다.
+                  </p>
+                  <br />
+                  <p>
+                      <span>1) 개인화된 공간 (My Room)</span>
+                      <ul>
+                          <li>
+                              <h4>투데이(Today) 기능:</h4> 방문자가 다이어리에 접속할 때마다 실시간으로
+                              오늘의 방문자 수(Today)와 누적 방문자 수(Total)를 집계하여 보여줍니다.
+                          </li>
+                          <li>
+                              <h4>프로필 관리:</h4> 상태 메시지, 자기소개, 프로필 사진을 자유롭게
+                              꾸밀 수 있으며, 작성한 일기들의 '기분(Mood)' 데이터를 분석하여 월별 감정
+                              통계를 시각적인 도넛 차트로 제공합니다.
+                          </li>
+                      </ul>
+                  </p>
+                  <br />
+                  <p>
+                      <span>2) 일기장 (Diary Board)</span>
+                      <ul>
+                          <li>
+                              <h4>게시판 CRUD:</h4> 사진 첨부, 기분 선택 기능이 포함된 일기 작성
+                              기능을 제공하며, 오라클 클라우드 스토리지와 연동되어 안전하게
+                              저장됩니다.
+                          </li>
+                          <li>
+                              <h4>페이징 및 검색:</h4> 날짜별, 제목별 검색 기능과 커스텀
+                              페이지네이션을 통해 지난 일기를 쉽게 찾아볼 수 있습니다.
+                          </li>
+                      </ul>
+                  </p>
+                  <br />
+                  <p>
+                      <span>3) 방명록 (Guest Book) & 소통</span>
+                      <ul>
+                          <li>
+                              <h4>계층형 댓글 시스템:</h4> 대댓글뿐만 아니라 대대댓글(무한
+                              Depth)까지 지원하며, 댓글의 깊이(Depth)를 자동으로 계산하여 UI를
+                              구성합니다.
+                          </li>
+                          <li>
+                              <h4>더보기/접기 기능:</h4> 댓글이 일정 개수(3개)를 넘어가면 자동으로
+                              접히고, <strong>'더보기/접기'</strong> 버튼이 생성되어 깔끔한 댓글창을
+                              유지합니다.
+                          </li>
+                          <li>
+                              <h4>실시간 프로필 연동:</h4> 방명록 작성 시 작성자의 최신 프로필
+                              사진이 즉시 반영되어 커뮤니티 소통의 몰입감을 높였습니다.
+                          </li>
+                      </ul>
+                  </p>
+                  <br />
+                  <p>
+                      <span>4) 반응형 레이아웃 (Responsive Design)</span>
+                      <ul>
+                          <li>
+                              <h4>모바일/PC 최적화:</h4> PC에서는 미니홈피 감성의 고정형 윈도우
+                              UI를, 모바일에서는 스크롤이 자유로운 앱 스타일 UI(하단 네비게이션
+                              바)를 제공하여 어떤 기기에서도 최적의 경험을 제공합니다.
+                          </li>
+                      </ul>
+                  </p>
               </div>
           </div>
       </>
