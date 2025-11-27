@@ -6,14 +6,10 @@ import memberUpdate from "./task-img/member-update.png";
 import memberDelete from "./task-img/member-delete.png";
 import socialLogin from "./task-img/social-login.png";
 import adminPage from "./task-img/admin-page.png";
-// ✅ [추가] 다이어리 이미지 import (파일이 있는지 꼭 확인하세요!)
+// ✅ [추가] 다이어리 이미지 (스크린샷 찍어서 이 경로에 넣어주세요!)
 import diary from "./task-img/diary.png";
 
-// ✅ [추가] 로고 이미지 import
-import oracleLogo from "./task-img/oracle-logo.png";
-import vercelLogo from "./task-img/vercel-logo.png";
-
-import { Image, Flex, HStack, Text } from "@chakra-ui/react";
+import { Image } from "@chakra-ui/react";
 
 export function PetmilyModal() {
     return (
@@ -79,69 +75,8 @@ export function PetmilyModal() {
               </div>
               <div className="modal-info-skills">
                   <h4>Deployment:</h4>
-                  {/* ✅ [디자인 유지] 텍스트 대신 깔끔한 아이콘 뱃지로 적용 */}
-                  <Flex wrap="wrap" gap={3} mt={2}>
-                      <HStack
-                        bg="white"
-                        px={3}
-                        py={1}
-                        borderRadius="md"
-                        border="1px solid"
-                        borderColor="gray.200"
-                        boxShadow="sm"
-                      >
-                          <Image
-                            src={oracleLogo}
-                            w={5}
-                            h={5}
-                            objectFit="contain"
-                            alt="Oracle Icon"
-                          />
-                          <Text fontWeight="600" color="#C74634" fontSize="sm">
-                              Oracle Cloud
-                          </Text>
-                      </HStack>
-                      <HStack
-                        bg="white"
-                        px={3}
-                        py={1}
-                        borderRadius="md"
-                        border="1px solid"
-                        borderColor="gray.200"
-                        boxShadow="sm"
-                      >
-                          <Image
-                            src={vercelLogo}
-                            w={5}
-                            h={5}
-                            objectFit="contain"
-                            alt="Vercel Icon"
-                          />
-                          <Text fontWeight="600" color="black" fontSize="sm">
-                              Vercel
-                          </Text>
-                      </HStack>
-                      <HStack
-                        bg="white"
-                        px={3}
-                        py={1}
-                        borderRadius="md"
-                        border="1px solid"
-                        borderColor="gray.200"
-                        boxShadow="sm"
-                      >
-                          <Image
-                            src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/amazonaws.svg"
-                            w={5}
-                            h={5}
-                            filter="invert(36%) sepia(99%) saturate(1843%) hue-rotate(3deg) brightness(102%) contrast(98%)"
-                            alt="AWS Icon"
-                          />
-                          <Text fontWeight="600" color="#FF9900" fontSize="sm">
-                              AWS (Exp)
-                          </Text>
-                      </HStack>
-                  </Flex>
+                  {/* ✅ 로고 이미지 제거하고 텍스트로 깔끔하게 복원 */}
+                  <p>Oracle Cloud Infrastructure, Vercel, AWS (Experience)</p>
               </div>
               <br />
               <hr />
@@ -364,9 +299,7 @@ export function PetmilyModal() {
                   </div>
                   <h3>상세 설명</h3>
                   <p>
-                      OAuth 2.0 기반 소셜 로그인: 네이버 소셜 네트워크 서비스와의 통합 로그인
-                      기능을 구현하였습니다. 또한 비밀번호 재발급 시스템을 통해 사용자가 쉽게
-                      비밀번호를 재설정할 수 있도록 하였습니다.
+                      OAuth 2.0 기반 소셜 로그인 및 비밀번호 재발급 시스템입니다.
                   </p>
                   <br />
                   <p>
@@ -383,8 +316,8 @@ export function PetmilyModal() {
                       <span>2) 비밀번호 재발급</span>
                       <ul>
                           <li>
-                              <h4>재발급 이메일:</h4> 사용자는 등록된 이메일을 통해 비밀번호를
-                              재설정할 수 있으며, 보안 절차를 강화하였습니다.
+                              <h4>재발급 이메일:</h4> 등록된 이메일을 통해 임시 비밀번호를
+                              발송하여 보안 절차를 강화하였습니다.
                           </li>
                       </ul>
                   </p>
@@ -393,11 +326,11 @@ export function PetmilyModal() {
               <hr />
               <br />
 
-              {/* ✅ [추가] 5. 미니홈피 다이어리 */}
+              {/* 🆕 [추가] 5. 미니홈피 다이어리 */}
               <div className="project-task">
                   <h3>5. 미니홈피 다이어리 (Pet Diary)</h3>
                   <div className="project-task-box">
-                      {/* 📸 diary.png 파일이 있는지 꼭 확인하세요! */}
+                      {/* 📸 다이어리 이미지 (스크린샷) */}
                       <Image
                         className="project-task-images"
                         src={diary}
@@ -416,13 +349,13 @@ export function PetmilyModal() {
                       <span>1) 개인화된 공간 (My Room)</span>
                       <ul>
                           <li>
-                              <h4>프로필 관리:</h4> 상태 메시지, 자기소개, 프로필 사진을 자유롭게
-                              꾸밀 수 있으며, 방문자 수(Today/Total)를 실시간으로 집계하여
-                              보여줍니다.
+                              <h4>투데이(Today) 기능:</h4> 방문자가 다이어리에 접속할 때마다 실시간으로
+                              오늘의 방문자 수(Today)와 누적 방문자 수(Total)를 집계하여 보여줍니다.
                           </li>
                           <li>
-                              <h4>감정 분석 차트:</h4> 작성한 일기의 '기분(Mood)' 데이터를
-                              분석하여 월별 감정 통계를 시각적인 도넛 차트로 제공합니다.
+                              <h4>프로필 관리:</h4> 상태 메시지, 자기소개, 프로필 사진을 자유롭게
+                              꾸밀 수 있으며, 작성한 일기들의 '기분(Mood)' 데이터를 분석하여 월별 감정
+                              통계를 시각적인 도넛 차트로 제공합니다.
                           </li>
                       </ul>
                   </p>
@@ -447,8 +380,13 @@ export function PetmilyModal() {
                       <ul>
                           <li>
                               <h4>계층형 댓글 시스템:</h4> 대댓글뿐만 아니라 대대댓글(무한
-                              Depth)까지 지원하며, 깊이에 따라 <strong>'더보기/접기'</strong>
-                              버튼이 동적으로 생성되는 직관적인 UI를 구현했습니다.
+                              Depth)까지 지원하며, 댓글의 깊이(Depth)를 자동으로 계산하여 UI를
+                              구성합니다.
+                          </li>
+                          <li>
+                              <h4>더보기/접기 기능:</h4> 댓글이 일정 개수(3개)를 넘어가면 자동으로
+                              접히고, <strong>'더보기/접기'</strong> 버튼이 생성되어 깔끔한 댓글창을
+                              유지합니다.
                           </li>
                           <li>
                               <h4>실시간 프로필 연동:</h4> 방명록 작성 시 작성자의 최신 프로필
