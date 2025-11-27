@@ -82,23 +82,15 @@ export function PetmilyModal() {
               <br />
               <h4>Github</h4>
               <div className="modal-info-content">
-                  Frontend:{" "}
+                  Project:{" "}
                   <a
-                    href="https://github.com/parkjaewook1/petmily/tree/master/frontend"
+                    href="https://github.com/parkjaewook1/PetMilyProject.git"
                     target="_blank"
                     rel="noreferrer"
                   >
-                      https://github.com/parkjaewook1/petmily/tree/master/frontend
+                      https://github.com/parkjaewook1/PetMilyProject.git
                   </a>
                   <br />
-                  Backend:{" "}
-                  <a
-                    href="https://github.com/parkjaewook1/petmily/tree/master/backend"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                      https://github.com/parkjaewook1/petmily/tree/master/backend
-                  </a>
               </div>
               <h4>Deployment URL</h4>
               <div className="modal-info-content">
