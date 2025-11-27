@@ -36,7 +36,7 @@ import s3Logo from "./img/s3-logo.png";
 import rdsLogo from "./img/rds-logo.png";
 import githubLogo from "./img/github-logo.png";
 // ✅ [추가] Oracle, Vercel 로고 이미지 import
-import oracleLogo from "./img/oracle-logo.png"
+import oracleLogo from "./img/oracle-logo.png";
 import vercelLogo from "./img/vercel-logo.png";
 
 import {faArrowUp} from "@fortawesome/free-solid-svg-icons";
