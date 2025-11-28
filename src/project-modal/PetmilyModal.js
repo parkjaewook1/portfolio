@@ -357,13 +357,13 @@ export function PetmilyModal() {
                   <h3>상세 설명</h3>
 
                   {/* ✅ 다이어리 본문: 글씨는 키우고(1.1rem) 색상은 White */}
-                  <div style={{ color: "white", fontSize: "1.1rem", lineHeight: "1.7" }}>
+                  <div className="diary-content">
                       <p>
                           레트로 감성의 개인 공간인 '미니홈피'를 구현하였습니다. 사용자 경험(UX)을
                           고려한 직관적인 인터페이스와 다양한 소통 기능을 통해 커뮤니티 활성화를
                           도모합니다.
                       </p>
-                      <br />
+                      <br/>
                       <p>
                           {/* ✅ [스타일] 소제목은 1rem으로 고정하여 상단과 통일 */}
                           <span style={subTitleStyle}>
@@ -385,7 +385,7 @@ export function PetmilyModal() {
                               </li>
                           </ul>
                       </p>
-                      <br />
+                      <br/>
                       <p>
                           {/* ✅ [원복] "일기장 & 캘린더"로 타이틀 복구 */}
                           <span style={subTitleStyle}>
@@ -411,7 +411,7 @@ export function PetmilyModal() {
                               </li>
                           </ul>
                       </p>
-                      <br />
+                      <br/>
                       <p>
               <span style={subTitleStyle}>
                 3) 방명록 (Guest Book) & 소통
@@ -433,7 +433,7 @@ export function PetmilyModal() {
                               </li>
                           </ul>
                       </p>
-                      <br />
+                      <br/>
                       <p>
               <span style={subTitleStyle}>
                 4) 반응형 레이아웃 (Responsive Design)
@@ -447,7 +447,7 @@ export function PetmilyModal() {
                           </ul>
                       </p>
                   </div>
-                  <br />
+                  <br/>
 
                   {/* ✅ 기술적 고민 (Accordion) */}
                   <Accordion allowToggle>

@@ -608,4 +608,31 @@ span{
     font-size: 2rem;
     font-weight: 600;
 }
+/* ========================================= */
+/* 👇 [추가] 다이어리(Diary) 섹션 전용 스타일 오버라이드 👇 */
+/* ========================================= */
 
+/* 다이어리 본문 글자: 흰색, 작게 변경 */
+.project-task .diary-content p {
+    color: white !important;       /* 무조건 흰색 */
+    font-size: 1.3rem !important;  /* 글자 크기 조정 */
+    line-height: 1.8 !important;   /* 줄간격 */
+    font-weight: 500 !important;
+}
+
+/* 다이어리 소제목: 주황색, 크기 고정 */
+.project-task .diary-content span {
+    color: #ED8936 !important;     /* 무조건 주황색 */
+    font-size: 1.1rem !important;  /* 상단 소제목들과 크기 통일 */
+    font-weight: bold !important;
+}
+
+/* 리스트 스타일 */
+.project-task .diary-content ul {
+    padding-left: 2rem !important;
+    margin-top: 0.5rem !important;
+}
+
+.project-task .diary-content li {
+    margin-bottom: 0.5rem;
+}
