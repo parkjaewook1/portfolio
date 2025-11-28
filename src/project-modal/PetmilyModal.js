@@ -20,12 +20,14 @@ import {
 
 export function PetmilyModal() {
 
-    // ✅ [디자인 통일] 소제목용 공통 스타일 (주황색, 굵게)
+    // ✅ [수정] 소제목 스타일
+    // fontSize를 "1rem"(약 16px)으로 고정하여,
+    // 부모 태그(다이어리 본문)의 글씨가 커져도 소제목은 상단(로그인 등)과 똑같은 크기를 유지하도록 함.
     const subTitleStyle = {
-        fontSize: "1.1rem",   // 기존 목록과 크기 맞춤
-        fontWeight: "bold",   // 굵게
-        color: "#ED8936",     // 기존 주황색 포인트 컬러와 동일
-        marginBottom: "8px",  // 약간의 아래 여백
+        fontWeight: "bold",
+        color: "#ED8936",
+        fontSize: "1rem", // 상단 소제목과 동일한 크기로 강제 고정
+        marginBottom: "4px",
         display: "inline-block"
     };
 
@@ -354,7 +356,7 @@ export function PetmilyModal() {
                   </div>
                   <h3>상세 설명</h3>
 
-                  {/* ✅ 글자색 White, 크기 확대, 줄간격 조정 */}
+                  {/* ✅ 다이어리 본문: 글씨는 키우고(1.1rem) 색상은 White */}
                   <div style={{ color: "white", fontSize: "1.1rem", lineHeight: "1.7" }}>
                       <p>
                           레트로 감성의 개인 공간인 '미니홈피'를 구현하였습니다. 사용자 경험(UX)을
@@ -363,7 +365,7 @@ export function PetmilyModal() {
                       </p>
                       <br />
                       <p>
-                          {/* ✅ [스타일 통일] subTitleStyle 적용 */}
+                          {/* ✅ [스타일] 소제목은 1rem으로 고정하여 상단과 통일 */}
                           <span style={subTitleStyle}>
                 1) 개인화된 공간 (My Room)
               </span>
@@ -385,9 +387,9 @@ export function PetmilyModal() {
                       </p>
                       <br />
                       <p>
-                          {/* ✅ [네이밍 변경] "How was my day?" 적용 (자문자답 형식) */}
+                          {/* ✅ [원복] "일기장 & 캘린더"로 타이틀 복구 */}
                           <span style={subTitleStyle}>
-                2) How was my day? (Diary & Calendar)
+                2) 일기장 & 캘린더 (Diary Board)
               </span>
                           <ul>
                               <li>
@@ -467,7 +469,7 @@ export function PetmilyModal() {
                           <AccordionPanel pb={4} pl={2} color="white">
                               <br />
                               <p>
-                                  {/* ✅ [스타일 통일] Accordion 내부도 동일한 subTitleStyle 적용 */}
+                                  {/* ✅ [스타일] 아코디언 내부 소제목도 1rem으로 고정 */}
                                   <span style={subTitleStyle}>1) 무한 Depth 방명록 구현 (Recursive)</span>
                                   <ul>
                                       <li>
