@@ -8,7 +8,7 @@ import socialLogin from "./task-img/social-login.png";
 import adminPage from "./task-img/admin-page.png";
 // import diary from "./task-img/diary.png"; // 📸 추후 이미지 추가 시 주석 해제
 
-import { Image, Flex, HStack, Text } from "@chakra-ui/react";
+import { Image} from "@chakra-ui/react";
 
 export function PetmilyModal() {
     return (
