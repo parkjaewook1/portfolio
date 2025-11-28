@@ -19,18 +19,6 @@ import {
 } from "@chakra-ui/react";
 
 export function PetmilyModal() {
-
-    // ✅ [수정] 소제목 스타일
-    // fontSize를 "1rem"(약 16px)으로 고정하여,
-    // 부모 태그(다이어리 본문)의 글씨가 커져도 소제목은 상단(로그인 등)과 똑같은 크기를 유지하도록 함.
-    const subTitleStyle = {
-        fontWeight: "bold",
-        color: "#ED8936",
-        fontSize: "1rem", // 상단 소제목과 동일한 크기로 강제 고정
-        marginBottom: "4px",
-        display: "inline-block"
-    };
-
     return (
       <>
           <div className="modal-info">
@@ -347,7 +335,7 @@ export function PetmilyModal() {
               <hr />
               <br />
 
-              {/* 5. 미니홈피 다이어리 */}
+              {/* 5. 미니홈피 다이어리 (수정완료: 위와 동일한 구조) */}
               <div className="project-task">
                   <h3>5. 미니홈피 다이어리 (Pet Diary)</h3>
                   <div className="project-task-box">
@@ -356,100 +344,92 @@ export function PetmilyModal() {
                   </div>
                   <h3>상세 설명</h3>
 
-                  {/* ✅ 다이어리 본문: 글씨는 키우고(1.1rem) 색상은 White */}
-                  <div className="diary-content">
-                      <p>
-                          레트로 감성의 개인 공간인 '미니홈피'를 구현하였습니다. 사용자 경험(UX)을
-                          고려한 직관적인 인터페이스와 다양한 소통 기능을 통해 커뮤니티 활성화를
-                          도모합니다.
-                      </p>
-                      <br/>
-                      <p>
-                          {/* ✅ [스타일] 소제목은 1rem으로 고정하여 상단과 통일 */}
-                          <span style={subTitleStyle}>
-                1) 개인화된 공간 (My Room)
-              </span>
-                          <ul>
-                              <li>
-                                  <h4>투데이(Today) 기능:</h4> 방문자가 다이어리에 접속할 때마다 실시간으로
-                                  오늘의 방문자 수(Today)와 누적 방문자 수(Total)를 집계하여 보여줍니다.
-                              </li>
-                              <li>
-                                  <h4>월별 기분 통계 (Mood Chart):</h4> 작성한 일기들의 '기분(Mood)'
-                                  데이터를 분석하여, 이번 달의 감정 변화를 메인 화면에서 시각적인 도넛
-                                  차트로 한눈에 확인할 수 있습니다.
-                              </li>
-                              <li>
-                                  <h4>프로필 꾸미기:</h4> 상태 메시지, 자기소개, 프로필 사진 변경을 통해
-                                  자신만의 개성을 표현할 수 있습니다.
-                              </li>
-                          </ul>
-                      </p>
-                      <br/>
-                      <p>
-                          {/* ✅ [원복] "일기장 & 캘린더"로 타이틀 복구 */}
-                          <span style={subTitleStyle}>
-                2) 일기장 & 캘린더 (Diary Board)
-              </span>
-                          <ul>
-                              <li>
-                                  <h4>캘린더(Calendar) 연동:</h4> 달력에 일기가 작성된 날짜가 표시되며,
-                                  클릭 시 해당 일기 상세 페이지(수정/삭제)로 즉시 이동하여 사용자 편의성을
-                                  높였습니다.
-                              </li>
-                              <li>
-                                  <h4>1일 1기록 정책:</h4> 하루에 하나의 일기만 작성할 수 있도록 제한을
-                                  두어, '하루의 기록'이라는 다이어리의 본질을 강조했습니다.
-                              </li>
-                              <li>
-                                  <h4>게시판 CRUD:</h4> 사진 첨부, 기분 선택 기능이 포함된 일기 작성
-                                  기능을 제공하며, 오라클 클라우드 스토리지와 연동되어 안전하게 저장됩니다.
-                              </li>
-                              <li>
-                                  <h4>검색 및 페이징:</h4> 날짜별, 제목별 검색 기능과 커스텀 페이지네이션을
-                                  제공합니다.
-                              </li>
-                          </ul>
-                      </p>
-                      <br/>
-                      <p>
-              <span style={subTitleStyle}>
-                3) 방명록 (Guest Book) & 소통
-              </span>
-                          <ul>
-                              <li>
-                                  <h4>계층형 댓글 시스템:</h4> 대댓글뿐만 아니라 대대댓글(무한 Depth)까지
-                                  지원하며, 댓글의 깊이(Depth)를 자동으로 계산하여 계층 구조 UI를
-                                  구성합니다.
-                              </li>
-                              <li>
-                                  <h4>더보기/접기 기능:</h4> 댓글이 일정 개수(3개)를 넘어가면 자동으로
-                                  접히고, <strong>'더보기/접기'</strong> 버튼이 생성되어 깔끔한 댓글창을
-                                  유지합니다.
-                              </li>
-                              <li>
-                                  <h4>실시간 프로필 연동:</h4> 방명록 작성 시 작성자의 최신 프로필 사진이
-                                  즉시 반영되어 커뮤니티 소통의 몰입감을 높였습니다.
-                              </li>
-                          </ul>
-                      </p>
-                      <br/>
-                      <p>
-              <span style={subTitleStyle}>
-                4) 반응형 레이아웃 (Responsive Design)
-              </span>
-                          <ul>
-                              <li>
-                                  <h4>모바일/PC 최적화:</h4> PC에서는 미니홈피 감성의 고정형 윈도우 UI를,
-                                  모바일에서는 스크롤이 자유로운 앱 스타일 UI(하단 네비게이션 바)를
-                                  제공하여 어떤 기기에서도 최적의 경험을 제공합니다.
-                              </li>
-                          </ul>
-                      </p>
-                  </div>
-                  <br/>
+                  {/* ✅ [중요] 여기부터 위쪽 코드들과 똑같은 <p>, <span> 태그 구조 사용 */}
+                  <p>
+                      레트로 감성의 개인 공간인 '미니홈피'를 구현하였습니다. 사용자 경험(UX)을
+                      고려한 직관적인 인터페이스와 다양한 소통 기능을 통해 커뮤니티 활성화를
+                      도모합니다.
+                  </p>
+                  <br />
 
-                  {/* ✅ 기술적 고민 (Accordion) */}
+                  <p>
+                      <span>1) 개인화된 공간 (My Room)</span>
+                      <ul>
+                          <li>
+                              <h4>투데이(Today) 기능:</h4> 방문자가 다이어리에 접속할 때마다 실시간으로
+                              오늘의 방문자 수(Today)와 누적 방문자 수(Total)를 집계하여 보여줍니다.
+                          </li>
+                          <li>
+                              <h4>월별 기분 통계 (Mood Chart):</h4> 작성한 일기들의 '기분(Mood)'
+                              데이터를 분석하여, 이번 달의 감정 변화를 메인 화면에서 시각적인 도넛
+                              차트로 한눈에 확인할 수 있습니다.
+                          </li>
+                          <li>
+                              <h4>프로필 꾸미기:</h4> 상태 메시지, 자기소개, 프로필 사진 변경을 통해
+                              자신만의 개성을 표현할 수 있습니다.
+                          </li>
+                      </ul>
+                  </p>
+                  <br />
+
+                  <p>
+                      <span>2) 일기장 & 캘린더 (Diary Board)</span>
+                      <ul>
+                          <li>
+                              <h4>캘린더(Calendar) 연동:</h4> 달력에 일기가 작성된 날짜가 표시되며,
+                              클릭 시 해당 일기 상세 페이지(수정/삭제)로 즉시 이동하여 사용자 편의성을
+                              높였습니다.
+                          </li>
+                          <li>
+                              <h4>1일 1기록 정책:</h4> 하루에 하나의 일기만 작성할 수 있도록 제한을
+                              두어, '하루의 기록'이라는 다이어리의 본질을 강조했습니다.
+                          </li>
+                          <li>
+                              <h4>게시판 CRUD:</h4> 사진 첨부, 기분 선택 기능이 포함된 일기 작성
+                              기능을 제공하며, 오라클 클라우드 스토리지와 연동되어 안전하게 저장됩니다.
+                          </li>
+                          <li>
+                              <h4>검색 및 페이징:</h4> 날짜별, 제목별 검색 기능과 커스텀 페이지네이션을
+                              제공합니다.
+                          </li>
+                      </ul>
+                  </p>
+                  <br />
+
+                  <p>
+                      <span>3) 방명록 (Guest Book) & 소통</span>
+                      <ul>
+                          <li>
+                              <h4>계층형 댓글 시스템:</h4> 대댓글뿐만 아니라 대대댓글(무한 Depth)까지
+                              지원하며, 댓글의 깊이(Depth)를 자동으로 계산하여 계층 구조 UI를
+                              구성합니다.
+                          </li>
+                          <li>
+                              <h4>더보기/접기 기능:</h4> 댓글이 일정 개수(3개)를 넘어가면 자동으로
+                              접히고, <strong>'더보기/접기'</strong> 버튼이 생성되어 깔끔한 댓글창을
+                              유지합니다.
+                          </li>
+                          <li>
+                              <h4>실시간 프로필 연동:</h4> 방명록 작성 시 작성자의 최신 프로필 사진이
+                              즉시 반영되어 커뮤니티 소통의 몰입감을 높였습니다.
+                          </li>
+                      </ul>
+                  </p>
+                  <br />
+
+                  <p>
+                      <span>4) 반응형 레이아웃 (Responsive Design)</span>
+                      <ul>
+                          <li>
+                              <h4>모바일/PC 최적화:</h4> PC에서는 미니홈피 감성의 고정형 윈도우 UI를,
+                              모바일에서는 스크롤이 자유로운 앱 스타일 UI(하단 네비게이션 바)를
+                              제공하여 어떤 기기에서도 최적의 경험을 제공합니다.
+                          </li>
+                      </ul>
+                  </p>
+                  <br />
+
+                  {/* ✅ 기술적 고민 (Accordion) - 이 부분은 흰색 글씨로 유지 (Chakra UI 속성 사용) */}
                   <Accordion allowToggle>
                       <AccordionItem border="none">
                           <h2>
@@ -468,54 +448,57 @@ export function PetmilyModal() {
                           </h2>
                           <AccordionPanel pb={4} pl={2} color="white">
                               <br />
-                              <p>
-                                  {/* ✅ [스타일] 아코디언 내부 소제목도 1rem으로 고정 */}
-                                  <span style={subTitleStyle}>1) 무한 Depth 방명록 구현 (Recursive)</span>
-                                  <ul>
-                                      <li>
-                                          <h4>[문제 상황]</h4>
-                                          단순한 2중 반복문으로는 '댓글의 대댓글의 대댓글'처럼
-                                          깊이가 정해지지 않은 <strong>N-Depth 계층 구조</strong>를 렌더링하기에 한계가 있었습니다.
-                                      </li>
-                                      <li>
-                                          <h4>[기술적 해결] 재귀 컴포넌트(Recursive Component)</h4>
-                                          컴포넌트가 자기 자신을 다시 호출하는 <strong>재귀적 구조</strong>를 설계하였습니다.
-                                          각 댓글 컴포넌트는 `children` 속성을 확인하고, 자식 댓글이 존재하면
-                                          동일한 컴포넌트를 렌더링하며 `padding-left` 값을 동적으로 계산해 시각적인 계층을 표현했습니다.
-                                      </li>
-                                  </ul>
-                              </p>
-                              <br />
-                              <p>
-                                  <span style={subTitleStyle}>2) Oracle Cloud 이미지 마이그레이션</span>
-                                  <ul>
-                                      <li>
-                                          <h4>[문제 상황]</h4>
-                                          배포 환경(Vercel)은 휘발성 스토리지라 로컬 저장이 불가능했고,
-                                          AWS S3는 비용 부담이 있었습니다. 또한, HTTPS 환경에서 HTTP 이미지를 불러올 때
-                                          <strong>Mixed Content(혼합 콘텐츠)</strong> 보안 에러가 발생했습니다.
-                                      </li>
-                                      <li>
-                                          <h4>[기술적 해결] Vercel Proxy & OCI</h4>
-                                          Oracle Cloud Object Storage(OCI)로 저장소를 이전하여 비용을 절감했습니다.
-                                          Mixed Content 문제는 Vercel의 프록시(Proxy) 설정을 통해 클라이언트가 보안 경고 없이
-                                          이미지를 로드할 수 있도록 네트워크 구성을 최적화했습니다.
-                                      </li>
-                                  </ul>
-                              </p>
-                              <br />
-                              <p>
-                                  <span style={subTitleStyle}>3) 데이터 시각화 로직</span>
-                                  <ul>
-                                      <li>
-                                          <h4>[기술적 해결]</h4>
-                                          단순 DB 조회뿐만 아니라, 월별로 기분 데이터(MOOD)를 그룹화(Grouping)하여
-                                          카운팅하는 로직을 백엔드 쿼리 단에서 최적화하였고,
-                                          Frontend에서는 Chart.js를 활용해 이를 즉각적으로 시각화하여
-                                          사용자가 본인의 감정 패턴을 직관적으로 파악하게 했습니다.
-                                      </li>
-                                  </ul>
-                              </p>
+                              {/* ⚠️ 여기서부터는 p와 span 태그가 아닌 div나 다른 방식을 써야 하지만,
+                     일단 가독성을 위해 color="white"가 상속되도록 함. */}
+                              <div style={{ color: "white" }}>
+                                  <p style={{ color: "white" }}>
+                                      <span style={{ color: "#ED8936", fontWeight: "bold" }}>1) 무한 Depth 방명록 구현 (Recursive)</span>
+                                      <ul>
+                                          <li>
+                                              <h4>[문제 상황]</h4>
+                                              단순한 2중 반복문으로는 '댓글의 대댓글의 대댓글'처럼
+                                              깊이가 정해지지 않은 <strong>N-Depth 계층 구조</strong>를 렌더링하기에 한계가 있었습니다.
+                                          </li>
+                                          <li>
+                                              <h4>[기술적 해결] 재귀 컴포넌트(Recursive Component)</h4>
+                                              컴포넌트가 자기 자신을 다시 호출하는 <strong>재귀적 구조</strong>를 설계하였습니다.
+                                              각 댓글 컴포넌트는 `children` 속성을 확인하고, 자식 댓글이 존재하면
+                                              동일한 컴포넌트를 렌더링하며 `padding-left` 값을 동적으로 계산해 시각적인 계층을 표현했습니다.
+                                          </li>
+                                      </ul>
+                                  </p>
+                                  <br />
+                                  <p style={{ color: "white" }}>
+                                      <span style={{ color: "#ED8936", fontWeight: "bold" }}>2) Oracle Cloud 이미지 마이그레이션</span>
+                                      <ul>
+                                          <li>
+                                              <h4>[문제 상황]</h4>
+                                              배포 환경(Vercel)은 휘발성 스토리지라 로컬 저장이 불가능했고,
+                                              AWS S3는 비용 부담이 있었습니다. 또한, HTTPS 환경에서 HTTP 이미지를 불러올 때
+                                              <strong>Mixed Content(혼합 콘텐츠)</strong> 보안 에러가 발생했습니다.
+                                          </li>
+                                          <li>
+                                              <h4>[기술적 해결] Vercel Proxy & OCI</h4>
+                                              Oracle Cloud Object Storage(OCI)로 저장소를 이전하여 비용을 절감했습니다.
+                                              Mixed Content 문제는 Vercel의 프록시(Proxy) 설정을 통해 클라이언트가 보안 경고 없이
+                                              이미지를 로드할 수 있도록 네트워크 구성을 최적화했습니다.
+                                          </li>
+                                      </ul>
+                                  </p>
+                                  <br />
+                                  <p style={{ color: "white" }}>
+                                      <span style={{ color: "#ED8936", fontWeight: "bold" }}>3) 데이터 시각화 로직</span>
+                                      <ul>
+                                          <li>
+                                              <h4>[기술적 해결]</h4>
+                                              단순 DB 조회뿐만 아니라, 월별로 기분 데이터(MOOD)를 그룹화(Grouping)하여
+                                              카운팅하는 로직을 백엔드 쿼리 단에서 최적화하였고,
+                                              Frontend에서는 Chart.js를 활용해 이를 즉각적으로 시각화하여
+                                              사용자가 본인의 감정 패턴을 직관적으로 파악하게 했습니다.
+                                          </li>
+                                      </ul>
+                                  </p>
+                              </div>
                           </AccordionPanel>
                       </AccordionItem>
                   </Accordion>
