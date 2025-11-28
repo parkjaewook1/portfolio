@@ -19,6 +19,16 @@ import {
 } from "@chakra-ui/react";
 
 export function PetmilyModal() {
+
+    // ✅ [디자인 통일] 소제목용 공통 스타일 (주황색, 굵게)
+    const subTitleStyle = {
+        fontSize: "1.1rem",   // 기존 목록과 크기 맞춤
+        fontWeight: "bold",   // 굵게
+        color: "#ED8936",     // 기존 주황색 포인트 컬러와 동일
+        marginBottom: "8px",  // 약간의 아래 여백
+        display: "inline-block"
+    };
+
     return (
       <>
           <div className="modal-info">
@@ -335,7 +345,7 @@ export function PetmilyModal() {
               <hr />
               <br />
 
-              {/* 5. 미니홈피 다이어리 (스타일 통일 및 내용 보강) */}
+              {/* 5. 미니홈피 다이어리 */}
               <div className="project-task">
                   <h3>5. 미니홈피 다이어리 (Pet Diary)</h3>
                   <div className="project-task-box">
@@ -344,7 +354,7 @@ export function PetmilyModal() {
                   </div>
                   <h3>상세 설명</h3>
 
-                  {/* ✅ [가독성] 글자색 White, 크기 확대, 줄간격 조정 */}
+                  {/* ✅ 글자색 White, 크기 확대, 줄간격 조정 */}
                   <div style={{ color: "white", fontSize: "1.1rem", lineHeight: "1.7" }}>
                       <p>
                           레트로 감성의 개인 공간인 '미니홈피'를 구현하였습니다. 사용자 경험(UX)을
@@ -353,8 +363,8 @@ export function PetmilyModal() {
                       </p>
                       <br />
                       <p>
-                          {/* ✅ [디자인 통일] 기존 로그인/회원가입 쪽과 동일한 주황색(#ED8936) 및 크기 적용 */}
-                          <span style={{ fontSize: "1.2rem", fontWeight: "bold", color: "#ED8936" }}>
+                          {/* ✅ [스타일 통일] subTitleStyle 적용 */}
+                          <span style={subTitleStyle}>
                 1) 개인화된 공간 (My Room)
               </span>
                           <ul>
@@ -375,8 +385,9 @@ export function PetmilyModal() {
                       </p>
                       <br />
                       <p>
-              <span style={{ fontSize: "1.2rem", fontWeight: "bold", color: "#ED8936" }}>
-                2) 일기장 & 캘린더 (Diary Board)
+                          {/* ✅ [네이밍 변경] "How was my day?" 적용 (자문자답 형식) */}
+                          <span style={subTitleStyle}>
+                2) How was my day? (Diary & Calendar)
               </span>
                           <ul>
                               <li>
@@ -400,7 +411,7 @@ export function PetmilyModal() {
                       </p>
                       <br />
                       <p>
-              <span style={{ fontSize: "1.2rem", fontWeight: "bold", color: "#ED8936" }}>
+              <span style={subTitleStyle}>
                 3) 방명록 (Guest Book) & 소통
               </span>
                           <ul>
@@ -422,7 +433,7 @@ export function PetmilyModal() {
                       </p>
                       <br />
                       <p>
-              <span style={{ fontSize: "1.2rem", fontWeight: "bold", color: "#ED8936" }}>
+              <span style={subTitleStyle}>
                 4) 반응형 레이아웃 (Responsive Design)
               </span>
                           <ul>
@@ -436,7 +447,7 @@ export function PetmilyModal() {
                   </div>
                   <br />
 
-                  {/* ✅ [내용 보강] 문제 해결 및 기술적 깊이 강조 */}
+                  {/* ✅ 기술적 고민 (Accordion) */}
                   <Accordion allowToggle>
                       <AccordionItem border="none">
                           <h2>
@@ -456,11 +467,12 @@ export function PetmilyModal() {
                           <AccordionPanel pb={4} pl={2} color="white">
                               <br />
                               <p>
-                                  <span style={{ fontWeight: "bold", color: "#ED8936" }}>1) 무한 Depth 방명록 구현 (Recursive)</span>
+                                  {/* ✅ [스타일 통일] Accordion 내부도 동일한 subTitleStyle 적용 */}
+                                  <span style={subTitleStyle}>1) 무한 Depth 방명록 구현 (Recursive)</span>
                                   <ul>
                                       <li>
                                           <h4>[문제 상황]</h4>
-                                          단순한 2중 반복문(`for/map`)으로는 '댓글의 대댓글의 대댓글'처럼
+                                          단순한 2중 반복문으로는 '댓글의 대댓글의 대댓글'처럼
                                           깊이가 정해지지 않은 <strong>N-Depth 계층 구조</strong>를 렌더링하기에 한계가 있었습니다.
                                       </li>
                                       <li>
@@ -473,7 +485,7 @@ export function PetmilyModal() {
                               </p>
                               <br />
                               <p>
-                                  <span style={{ fontWeight: "bold", color: "#ED8936" }}>2) Oracle Cloud 이미지 마이그레이션</span>
+                                  <span style={subTitleStyle}>2) Oracle Cloud 이미지 마이그레이션</span>
                                   <ul>
                                       <li>
                                           <h4>[문제 상황]</h4>
@@ -484,19 +496,18 @@ export function PetmilyModal() {
                                       <li>
                                           <h4>[기술적 해결] Vercel Proxy & OCI</h4>
                                           Oracle Cloud Object Storage(OCI)로 저장소를 이전하여 비용을 절감했습니다.
-                                          Mixed Content 문제는 Vercel의 `next.config.js` (혹은 `vite.config`)에서
-                                          <strong>프록시(Proxy) 설정</strong>을 통해 클라이언트가 보안 경고 없이
+                                          Mixed Content 문제는 Vercel의 프록시(Proxy) 설정을 통해 클라이언트가 보안 경고 없이
                                           이미지를 로드할 수 있도록 네트워크 구성을 최적화했습니다.
                                       </li>
                                   </ul>
                               </p>
                               <br />
                               <p>
-                                  <span style={{ fontWeight: "bold", color: "#ED8936" }}>3) 데이터 시각화 로직</span>
+                                  <span style={subTitleStyle}>3) 데이터 시각화 로직</span>
                                   <ul>
                                       <li>
                                           <h4>[기술적 해결]</h4>
-                                          단순 DB 조회뿐만 아니라, 월별로 기분 데이터(`MOOD`)를 그룹화(Grouping)하여
+                                          단순 DB 조회뿐만 아니라, 월별로 기분 데이터(MOOD)를 그룹화(Grouping)하여
                                           카운팅하는 로직을 백엔드 쿼리 단에서 최적화하였고,
                                           Frontend에서는 Chart.js를 활용해 이를 즉각적으로 시각화하여
                                           사용자가 본인의 감정 패턴을 직관적으로 파악하게 했습니다.
