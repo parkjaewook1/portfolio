@@ -19,6 +19,16 @@ import {
 } from "@chakra-ui/react";
 
 export function PetmilyModal() {
+
+    // ✅ 소제목 스타일 (상단 섹션과 통일)
+    const subTitleStyle = {
+        fontWeight: "bold",
+        color: "#ED8936",
+        fontSize: "1rem",
+        marginBottom: "4px",
+        display: "inline-block"
+    };
+
     return (
       <>
           <div className="modal-info">
@@ -335,7 +345,7 @@ export function PetmilyModal() {
               <hr />
               <br />
 
-              {/* 5. 미니홈피 다이어리 (수정완료: 위와 동일한 구조) */}
+              {/* 5. 미니홈피 다이어리 (기능 대거 추가됨) */}
               <div className="project-task">
                   <h3>5. 미니홈피 다이어리 (Pet Diary)</h3>
                   <div className="project-task-box">
@@ -344,92 +354,87 @@ export function PetmilyModal() {
                   </div>
                   <h3>상세 설명</h3>
 
-                  {/* ✅ [중요] 여기부터 위쪽 코드들과 똑같은 <p>, <span> 태그 구조 사용 */}
-                  <p>
-                      레트로 감성의 개인 공간인 '미니홈피'를 구현하였습니다. 사용자 경험(UX)을
-                      고려한 직관적인 인터페이스와 다양한 소통 기능을 통해 커뮤니티 활성화를
-                      도모합니다.
-                  </p>
+                  <div style={{ color: "white", fontSize: "1.1rem", lineHeight: "1.7" }}>
+                      <p>
+                          레트로 감성의 개인 공간인 '미니홈피'를 구현하였습니다. 사용자 경험(UX)을
+                          고려한 직관적인 인터페이스와 다양한 소통 기능을 통해 커뮤니티 활성화를
+                          도모합니다.
+                      </p>
+                      <br />
+                      <p>
+              <span style={subTitleStyle}>
+                1) 개인화된 공간 (My Room) & UI/UX
+              </span>
+                          <ul>
+                              <li>
+                                  <h4>대시보드(Dashboard) 뷰:</h4> 다이어리 메인 화면에 최신 일기와 방명록을
+                                  <strong>카드(Card) 형태</strong>로 시각화하여 보여주어, 사용자가 최근 활동을
+                                  한눈에 파악하고 접근할 수 있도록 편의성을 높였습니다.
+                              </li>
+                              <li>
+                                  <h4>Dark/Light 모드 지원:</h4> 사용자의 환경에 따라 테마를 변경할 수 있는
+                                  다크 모드를 지원하여 시각적 편안함과 접근성을 개선했습니다.
+                              </li>
+                              <li>
+                                  <h4>투데이(Today) 및 감정 통계:</h4> 방문자 수 집계와 월별 감정 상태를
+                                  도넛 차트로 제공하여 '나만의 공간'이라는 애착을 형성합니다.
+                              </li>
+                          </ul>
+                      </p>
+                      <br />
+                      <p>
+              <span style={subTitleStyle}>
+                2) 일기장 & 캘린더 (Diary Board)
+              </span>
+                          <ul>
+                              <li>
+                                  <h4>권한 관리(Permission):</h4> 일기장은 철저하게 <strong>'주인(Owner)'만 작성/수정/삭제</strong>가
+                                  가능하도록 권한을 분리하여 프라이빗한 기록 공간을 보장합니다. (방문자는 읽기 전용)
+                              </li>
+                              <li>
+                                  <h4>1일 1기록 & 캘린더:</h4> 하루에 하나의 추억만 기록할 수 있는 정책을 적용하고,
+                                  작성된 날짜는 캘린더에 스탬프로 표시되어 직관적인 탐색이 가능합니다.
+                              </li>
+                          </ul>
+                      </p>
+                      <br />
+                      <p>
+              <span style={subTitleStyle}>
+                3) 방명록 (Guest Book) & 소통
+              </span>
+                          <ul>
+                              <li>
+                                  <h4>방명록 관리 권한:</h4> 누구나 자유롭게 작성할 수 있지만,
+                                  <strong>다이어리 주인</strong>은 방문자가 쓴 글을 삭제할 수 있는 관리 권한을
+                                  가집니다. (데이터 무결성을 위해 수정 기능은 제한)
+                              </li>
+                              <li>
+                                  <h4>프로필 이미지 연동:</h4> 방명록 작성 시 작성자의 최신 프로필 이미지가
+                                  실시간으로 연동되어, 누가 방문했는지 직관적으로 알 수 있습니다.
+                              </li>
+                              <li>
+                                  <h4>계층형 댓글 시스템:</h4> 무한 Depth의 대댓글과 '더보기/접기' 기능을
+                                  통해 깊이 있는 소통 환경을 제공합니다.
+                              </li>
+                          </ul>
+                      </p>
+                      <br />
+                      <p>
+              <span style={subTitleStyle}>
+                4) 반응형 레이아웃 (Responsive Design)
+              </span>
+                          <ul>
+                              <li>
+                                  <h4>모바일/PC 최적화:</h4> PC에서는 미니홈피 감성의 고정형 윈도우 UI를,
+                                  모바일에서는 스크롤이 자유로운 앱 스타일 UI(하단 네비게이션 바)를
+                                  제공하여 어떤 기기에서도 최적의 경험을 제공합니다.
+                              </li>
+                          </ul>
+                      </p>
+                  </div>
                   <br />
 
-                  <p>
-                      <span>1) 개인화된 공간 (My Room)</span>
-                      <ul>
-                          <li>
-                              <h4>투데이(Today) 기능:</h4> 방문자가 다이어리에 접속할 때마다 실시간으로
-                              오늘의 방문자 수(Today)와 누적 방문자 수(Total)를 집계하여 보여줍니다.
-                          </li>
-                          <li>
-                              <h4>월별 기분 통계 (Mood Chart):</h4> 작성한 일기들의 '기분(Mood)'
-                              데이터를 분석하여, 이번 달의 감정 변화를 메인 화면에서 시각적인 도넛
-                              차트로 한눈에 확인할 수 있습니다.
-                          </li>
-                          <li>
-                              <h4>프로필 꾸미기:</h4> 상태 메시지, 자기소개, 프로필 사진 변경을 통해
-                              자신만의 개성을 표현할 수 있습니다.
-                          </li>
-                      </ul>
-                  </p>
-                  <br />
-
-                  <p>
-                      <span>2) 일기장 & 캘린더 (Diary Board)</span>
-                      <ul>
-                          <li>
-                              <h4>캘린더(Calendar) 연동:</h4> 달력에 일기가 작성된 날짜가 표시되며,
-                              클릭 시 해당 일기 상세 페이지(수정/삭제)로 즉시 이동하여 사용자 편의성을
-                              높였습니다.
-                          </li>
-                          <li>
-                              <h4>1일 1기록 정책:</h4> 하루에 하나의 일기만 작성할 수 있도록 제한을
-                              두어, '하루의 기록'이라는 다이어리의 본질을 강조했습니다.
-                          </li>
-                          <li>
-                              <h4>게시판 CRUD:</h4> 사진 첨부, 기분 선택 기능이 포함된 일기 작성
-                              기능을 제공하며, 오라클 클라우드 스토리지와 연동되어 안전하게 저장됩니다.
-                          </li>
-                          <li>
-                              <h4>검색 및 페이징:</h4> 날짜별, 제목별 검색 기능과 커스텀 페이지네이션을
-                              제공합니다.
-                          </li>
-                      </ul>
-                  </p>
-                  <br />
-
-                  <p>
-                      <span>3) 방명록 (Guest Book) & 소통</span>
-                      <ul>
-                          <li>
-                              <h4>계층형 댓글 시스템:</h4> 대댓글뿐만 아니라 대대댓글(무한 Depth)까지
-                              지원하며, 댓글의 깊이(Depth)를 자동으로 계산하여 계층 구조 UI를
-                              구성합니다.
-                          </li>
-                          <li>
-                              <h4>더보기/접기 기능:</h4> 댓글이 일정 개수(3개)를 넘어가면 자동으로
-                              접히고, <strong>'더보기/접기'</strong> 버튼이 생성되어 깔끔한 댓글창을
-                              유지합니다.
-                          </li>
-                          <li>
-                              <h4>실시간 프로필 연동:</h4> 방명록 작성 시 작성자의 최신 프로필 사진이
-                              즉시 반영되어 커뮤니티 소통의 몰입감을 높였습니다.
-                          </li>
-                      </ul>
-                  </p>
-                  <br />
-
-                  <p>
-                      <span>4) 반응형 레이아웃 (Responsive Design)</span>
-                      <ul>
-                          <li>
-                              <h4>모바일/PC 최적화:</h4> PC에서는 미니홈피 감성의 고정형 윈도우 UI를,
-                              모바일에서는 스크롤이 자유로운 앱 스타일 UI(하단 네비게이션 바)를
-                              제공하여 어떤 기기에서도 최적의 경험을 제공합니다.
-                          </li>
-                      </ul>
-                  </p>
-                  <br />
-
-                  {/* ✅ 기술적 고민 (Accordion) - 이 부분은 흰색 글씨로 유지 (Chakra UI 속성 사용) */}
+                  {/* ✅ 기술적 고민 (Oracle & Ubuntu 내용 수정됨) */}
                   <Accordion allowToggle>
                       <AccordionItem border="none">
                           <h2>
@@ -448,8 +453,6 @@ export function PetmilyModal() {
                           </h2>
                           <AccordionPanel pb={4} pl={2} color="white">
                               <br />
-                              {/* ⚠️ 여기서부터는 p와 span 태그가 아닌 div나 다른 방식을 써야 하지만,
-                     일단 가독성을 위해 color="white"가 상속되도록 함. */}
                               <div style={{ color: "white" }}>
                                   <p style={{ color: "white" }}>
                                       <span style={{ color: "#ED8936", fontWeight: "bold" }}>1) 무한 Depth 방명록 구현 (Recursive)</span>
@@ -469,19 +472,19 @@ export function PetmilyModal() {
                                   </p>
                                   <br />
                                   <p style={{ color: "white" }}>
-                                      <span style={{ color: "#ED8936", fontWeight: "bold" }}>2) Oracle Cloud 이미지 마이그레이션</span>
+                                      {/* ✅ [수정] 오라클 VM & 우분투 서버 저장소 활용 내용으로 변경 */}
+                                      <span style={{ color: "#ED8936", fontWeight: "bold" }}>2) 효율적인 서버 리소스 활용 (Oracle Cloud VM)</span>
                                       <ul>
                                           <li>
                                               <h4>[문제 상황]</h4>
-                                              배포 환경(Vercel)은 휘발성 스토리지라 로컬 저장이 불가능했고,
-                                              AWS S3는 비용 부담이 있었습니다. 또한, HTTPS 환경에서 HTTP 이미지를 불러올 때
-                                              <strong>Mixed Content(혼합 콘텐츠)</strong> 보안 에러가 발생했습니다.
+                                              초기 AWS 프리티어 종료 후, 비용 절감과 안정적인 서버 환경 구축이 필요했습니다.
+                                              또한, 외부 스토리지(S3 등) 연동 시 발생하는 복잡한 인증 절차와 네트워크 지연 시간을 최소화하고 싶었습니다.
                                           </li>
                                           <li>
-                                              <h4>[기술적 해결] Vercel Proxy & OCI</h4>
-                                              Oracle Cloud Object Storage(OCI)로 저장소를 이전하여 비용을 절감했습니다.
-                                              Mixed Content 문제는 Vercel의 프록시(Proxy) 설정을 통해 클라이언트가 보안 경고 없이
-                                              이미지를 로드할 수 있도록 네트워크 구성을 최적화했습니다.
+                                              <h4>[기술적 해결] Oracle Cloud & Ubuntu 정적 리소스 관리</h4>
+                                              <strong>Oracle Cloud의 평생 무료 인스턴스(Ubuntu)</strong>를 도입하여 서버 비용을 절감했습니다.
+                                              이미지는 외부 스토리지 대신 <strong>서버 내부(Local Volume)</strong>에서 직접 관리하도록 설계하여,
+                                              별도의 외부 API 호출 없이 <strong>서버가 즉시 이미지를 서빙</strong>할 수 있는 고성능 환경을 구축했습니다.
                                           </li>
                                       </ul>
                                   </p>
