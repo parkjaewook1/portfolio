@@ -6,10 +6,7 @@ import memberUpdate from "./task-img/member-update.png";
 import memberDelete from "./task-img/member-delete.png";
 import socialLogin from "./task-img/social-login.png";
 import adminPage from "./task-img/admin-page.png";
-
-// ✅ [중요] 다이어리 캡처 이미지를 이 경로에 'diary.png'로 넣어주세요!
-// (파일이 없으면 배포 시 에러가 날 수 있습니다.)
-// import diary from "./task-img/diary.png";
+// import diary from "./task-img/diary.png"; // 📸 추후 이미지 추가 시 주석 해제
 
 import { Image } from "@chakra-ui/react";
 
@@ -77,6 +74,7 @@ export function PetmilyModal() {
               </div>
               <div className="modal-info-skills">
                   <h4>Deployment:</h4>
+                  {/* ✅ 요청하신 대로 텍스트로만 깔끔하게 유지 */}
                   <p>Oracle Cloud Infrastructure, Vercel, AWS (Experience)</p>
               </div>
               <br />
@@ -94,6 +92,7 @@ export function PetmilyModal() {
                   >
                       https://github.com/parkjaewook1/PetMilyProject.git
                   </a>
+                  <br />
               </div>
               <h4>Deployment URL</h4>
               <div className="modal-info-content">
@@ -319,8 +318,8 @@ export function PetmilyModal() {
                       <span>2) 비밀번호 재발급</span>
                       <ul>
                           <li>
-                              <h4>재발급 이메일:</h4> 등록된 이메일을 통해 임시 비밀번호를
-                              발송하여 보안 절차를 강화하였습니다.
+                              <h4>재발급 이메일:</h4> 사용자는 등록된 이메일을 통해 비밀번호를
+                              재설정할 수 있으며, 보안 절차를 강화하였습니다.
                           </li>
                       </ul>
                   </p>
@@ -329,82 +328,73 @@ export function PetmilyModal() {
               <hr />
               <br />
 
-              {/* 5. 미니홈피 다이어리 (신규 기능) */}
+              {/* 5. 미니홈피 다이어리 */}
               <div className="project-task">
                   <h3>5. 미니홈피 다이어리 (Pet Diary)</h3>
-                  {/*<div className="project-task-box">*/}
-                  {/*    /!* ✅ diary.png 파일이 src/components/task-img/ 폴더에 있어야 합니다 *!/*/}
-                  {/*    <Image*/}
-                  {/*      className="project-task-images"*/}
-                  {/*      // src={diary}*/}
-                  {/*      fallbackSrc="https://via.placeholder.com/800x500?text=Diary+Image+Missing"*/}
-                  {/*      alt="Diary Screenshot"*/}
-                  {/*    />*/}
-                  {/*</div>*/}
+                  {/* ✅ 추후 사진 넣을 공간 (주석 처리됨) */}
+                  {/* <div className="project-task-box">
+            <Image
+              className="project-task-images"
+              src={diary}
+              fallbackSrc="https://via.placeholder.com/800x500?text=Diary+Image"
+              alt="Diary Screenshot"
+            />
+          </div> */}
+
                   <h3>상세 설명</h3>
                   <p>
-                      레트로 감성의 개인 공간인 '미니홈피'를 구현하였습니다. 사용자 경험(UX)을
-                      고려한 직관적인 인터페이스와 다양한 소통 기능을 통해 커뮤니티 활성화를
-                      도모합니다.
+                      레트로 감성의 개인 공간인 '미니홈피'를 구현하였습니다.
+                      단순 게시판을 넘어 <strong>복잡한 계층형 데이터 처리</strong>와
+                      <strong>UX 최적화</strong>에 중점을 두어 개발했습니다.
                   </p>
                   <br />
                   <p>
-                      <span>1) 개인화된 공간 (My Room)</span>
+                      <span>1) 계층형 댓글 시스템 (Recursive Comment System)</span>
                       <ul>
                           <li>
-                              <h4>투데이(Today) 기능:</h4> 방문자가 다이어리에 접속할 때마다 실시간으로
-                              오늘의 방문자 수(Today)와 누적 방문자 수(Total)를 집계하여 보여줍니다.
+                              <h4>문제 상황:</h4>
+                              대댓글(답글)이 꼬리에 꼬리를 물고 계속 달릴 경우(무한 Depth),
+                              화면 폭이 좁아지고 가독성이 떨어지는 문제가 있었습니다.
                           </li>
                           <li>
-                              <h4>프로필 관리:</h4> 상태 메시지, 자기소개, 프로필 사진을 자유롭게
-                              꾸밀 수 있으며, 작성한 일기들의 '기분(Mood)' 데이터를 분석하여 월별 감정
-                              통계를 시각적인 도넛 차트로 제공합니다.
+                              <h4>해결 방법 (재귀 컴포넌트 & UI 최적화):</h4>
+                              - <strong>재귀 컴포넌트</strong>를 활용하여 깊이 제한 없는 댓글 구조를 구현했습니다.<br/>
+                              - <strong>Depth별 노출 제어:</strong> 최상위 댓글은 3개까지 보여주고,
+                              대댓글부터는 기본적으로 접어두어(0개 노출) 화면 공간을 확보했습니다.<br/>
+                              - <strong>더보기 버튼:</strong> 숨겨진 댓글이 있는 경우에만 '답글 N개 더보기' 버튼을 동적으로 생성하여,
+                              사용자가 원할 때만 펼쳐볼 수 있도록 UX를 개선했습니다.
                           </li>
                       </ul>
                   </p>
                   <br />
                   <p>
-                      <span>2) 일기장 (Diary Board)</span>
+                      <span>2) 반응형 레이아웃 (Responsive Layout Locking)</span>
                       <ul>
                           <li>
-                              <h4>게시판 CRUD:</h4> 사진 첨부, 기분 선택 기능이 포함된 일기 작성
-                              기능을 제공하며, 오라클 클라우드 스토리지와 연동되어 안전하게
-                              저장됩니다.
+                              <h4>PC 환경:</h4>
+                              미니홈피 특유의 '창(Window)' 느낌을 살리기 위해 배경 스크롤을 막고(Lock),
+                              내부 콘텐츠 박스에서만 스크롤이 동작하도록 구현했습니다.
                           </li>
                           <li>
-                              <h4>페이징 및 검색:</h4> 날짜별, 제목별 검색 기능과 커스텀
-                              페이지네이션을 통해 지난 일기를 쉽게 찾아볼 수 있습니다.
+                              <h4>Mobile 환경:</h4>
+                              좁은 화면에서는 고정된 레이아웃을 풀고(Unlock) 자연스러운 전체 스크롤을 허용했으며,
+                              탭 메뉴를 <strong>하단 네비게이션 바</strong>로 변환하여 모바일 앱과 유사한 경험을 제공합니다.
                           </li>
                       </ul>
                   </p>
                   <br />
                   <p>
-                      <span>3) 방명록 (Guest Book) & 소통</span>
+                      <span>3) 실시간 데이터 연동</span>
                       <ul>
                           <li>
-                              <h4>계층형 댓글 시스템:</h4> 대댓글뿐만 아니라 대대댓글(무한
-                              Depth)까지 지원하며, 댓글의 깊이(Depth)를 자동으로 계산하여 UI를
-                              구성합니다.
+                              <h4>프로필 동기화:</h4>
+                              방명록 작성 시 로컬 데이터가 아닌 서버의 최신 유저 정보를 조회하여,
+                              변경된 프로필 사진이 즉시 반영되도록 구현했습니다.
                           </li>
                           <li>
-                              <h4>더보기/접기 기능:</h4> 댓글이 일정 개수(3개)를 넘어가면 자동으로
-                              접히고, <strong>'더보기/접기'</strong> 버튼이 생성되어 깔끔한 댓글창을
-                              유지합니다.
-                          </li>
-                          <li>
-                              <h4>실시간 프로필 연동:</h4> 방명록 작성 시 작성자의 최신 프로필
-                              사진이 즉시 반영되어 커뮤니티 소통의 몰입감을 높였습니다.
-                          </li>
-                      </ul>
-                  </p>
-                  <br />
-                  <p>
-                      <span>4) 반응형 레이아웃 (Responsive Design)</span>
-                      <ul>
-                          <li>
-                              <h4>모바일/PC 최적화:</h4> PC에서는 미니홈피 감성의 고정형 윈도우
-                              UI를, 모바일에서는 스크롤이 자유로운 앱 스타일 UI(하단 네비게이션
-                              바)를 제공하여 어떤 기기에서도 최적의 경험을 제공합니다.
+                              <h4>투데이(Today) 카운터:</h4>
+                              세션 스토리지와 DB를 연동하여, 새로고침 시 중복 집계를 방지하면서도
+                              실시간 방문자 수를 정확히 카운팅합니다.
                           </li>
                       </ul>
                   </p>
