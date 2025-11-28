@@ -19,16 +19,6 @@ import {
 } from "@chakra-ui/react";
 
 export function PetmilyModal() {
-
-    // ✅ 소제목 스타일 (상단 섹션과 통일)
-    const subTitleStyle = {
-        fontWeight: "bold",
-        color: "#ED8936",
-        fontSize: "1rem",
-        marginBottom: "4px",
-        display: "inline-block"
-    };
-
     return (
       <>
           <div className="modal-info">
@@ -345,7 +335,7 @@ export function PetmilyModal() {
               <hr />
               <br />
 
-              {/* 5. 미니홈피 다이어리 (기능 대거 추가됨) */}
+              {/* 5. 미니홈피 다이어리 (스타일 원복 + 기능 설명 추가) */}
               <div className="project-task">
                   <h3>5. 미니홈피 다이어리 (Pet Diary)</h3>
                   <div className="project-task-box">
@@ -354,87 +344,82 @@ export function PetmilyModal() {
                   </div>
                   <h3>상세 설명</h3>
 
-                  <div style={{ color: "white", fontSize: "1.1rem", lineHeight: "1.7" }}>
-                      <p>
-                          레트로 감성의 개인 공간인 '미니홈피'를 구현하였습니다. 사용자 경험(UX)을
-                          고려한 직관적인 인터페이스와 다양한 소통 기능을 통해 커뮤니티 활성화를
-                          도모합니다.
-                      </p>
-                      <br />
-                      <p>
-              <span style={subTitleStyle}>
-                1) 개인화된 공간 (My Room) & UI/UX
-              </span>
-                          <ul>
-                              <li>
-                                  <h4>대시보드(Dashboard) 뷰:</h4> 다이어리 메인 화면에 최신 일기와 방명록을
-                                  <strong>카드(Card) 형태</strong>로 시각화하여 보여주어, 사용자가 최근 활동을
-                                  한눈에 파악하고 접근할 수 있도록 편의성을 높였습니다.
-                              </li>
-                              <li>
-                                  <h4>Dark/Light 모드 지원:</h4> 사용자의 환경에 따라 테마를 변경할 수 있는
-                                  다크 모드를 지원하여 시각적 편안함과 접근성을 개선했습니다.
-                              </li>
-                              <li>
-                                  <h4>투데이(Today) 및 감정 통계:</h4> 방문자 수 집계와 월별 감정 상태를
-                                  도넛 차트로 제공하여 '나만의 공간'이라는 애착을 형성합니다.
-                              </li>
-                          </ul>
-                      </p>
-                      <br />
-                      <p>
-              <span style={subTitleStyle}>
-                2) 일기장 & 캘린더 (Diary Board)
-              </span>
-                          <ul>
-                              <li>
-                                  <h4>권한 관리(Permission):</h4> 일기장은 철저하게 <strong>'주인(Owner)'만 작성/수정/삭제</strong>가
-                                  가능하도록 권한을 분리하여 프라이빗한 기록 공간을 보장합니다. (방문자는 읽기 전용)
-                              </li>
-                              <li>
-                                  <h4>1일 1기록 & 캘린더:</h4> 하루에 하나의 추억만 기록할 수 있는 정책을 적용하고,
-                                  작성된 날짜는 캘린더에 스탬프로 표시되어 직관적인 탐색이 가능합니다.
-                              </li>
-                          </ul>
-                      </p>
-                      <br />
-                      <p>
-              <span style={subTitleStyle}>
-                3) 방명록 (Guest Book) & 소통
-              </span>
-                          <ul>
-                              <li>
-                                  <h4>방명록 관리 권한:</h4> 누구나 자유롭게 작성할 수 있지만,
-                                  <strong>다이어리 주인</strong>은 방문자가 쓴 글을 삭제할 수 있는 관리 권한을
-                                  가집니다. (데이터 무결성을 위해 수정 기능은 제한)
-                              </li>
-                              <li>
-                                  <h4>프로필 이미지 연동:</h4> 방명록 작성 시 작성자의 최신 프로필 이미지가
-                                  실시간으로 연동되어, 누가 방문했는지 직관적으로 알 수 있습니다.
-                              </li>
-                              <li>
-                                  <h4>계층형 댓글 시스템:</h4> 무한 Depth의 대댓글과 '더보기/접기' 기능을
-                                  통해 깊이 있는 소통 환경을 제공합니다.
-                              </li>
-                          </ul>
-                      </p>
-                      <br />
-                      <p>
-              <span style={subTitleStyle}>
-                4) 반응형 레이아웃 (Responsive Design)
-              </span>
-                          <ul>
-                              <li>
-                                  <h4>모바일/PC 최적화:</h4> PC에서는 미니홈피 감성의 고정형 윈도우 UI를,
-                                  모바일에서는 스크롤이 자유로운 앱 스타일 UI(하단 네비게이션 바)를
-                                  제공하여 어떤 기기에서도 최적의 경험을 제공합니다.
-                              </li>
-                          </ul>
-                      </p>
-                  </div>
+                  {/* ✅ [수정] 인라인 스타일(div style={{...}}) 제거하고 기본 구조만 사용하여 CSS 상속 유도 */}
+                  <p>
+                      레트로 감성의 개인 공간인 '미니홈피'를 구현하였습니다. 사용자 경험(UX)을
+                      고려한 직관적인 인터페이스와 다양한 소통 기능을 통해 커뮤니티 활성화를
+                      도모합니다.
+                  </p>
                   <br />
 
-                  {/* ✅ 기술적 고민 (Oracle & Ubuntu 내용 수정됨) */}
+                  <p>
+                      <span>1) 개인화된 공간 (My Room) & UI/UX</span>
+                      <ul>
+                          <li>
+                              <h4>대시보드(Dashboard) 뷰:</h4> 다이어리 메인 화면에 최신 일기와 방명록을
+                              <strong>카드(Card) 형태</strong>로 시각화하여 보여주어, 사용자가 최근 활동을
+                              한눈에 파악하고 접근할 수 있도록 편의성을 높였습니다.
+                          </li>
+                          <li>
+                              <h4>Dark/Light 모드 지원:</h4> 사용자의 환경에 따라 테마를 변경할 수 있는
+                              다크 모드를 지원하여 시각적 편안함과 접근성을 개선했습니다.
+                          </li>
+                          <li>
+                              <h4>투데이(Today) 및 감정 통계:</h4> 방문자 수 집계와 월별 감정 상태를
+                              도넛 차트로 제공하여 '나만의 공간'이라는 애착을 형성합니다.
+                          </li>
+                      </ul>
+                  </p>
+                  <br />
+
+                  <p>
+                      <span>2) 일기장 & 캘린더 (Diary Board)</span>
+                      <ul>
+                          <li>
+                              <h4>권한 관리(Permission):</h4> 일기장은 철저하게 <strong>'주인(Owner)'만 작성/수정/삭제</strong>가
+                              가능하도록 권한을 분리하여 프라이빗한 기록 공간을 보장합니다. (방문자는 읽기 전용)
+                          </li>
+                          <li>
+                              <h4>1일 1기록 & 캘린더:</h4> 하루에 하나의 추억만 기록할 수 있는 정책을 적용하고,
+                              작성된 날짜는 캘린더에 스탬프로 표시되어 직관적인 탐색이 가능합니다.
+                          </li>
+                      </ul>
+                  </p>
+                  <br />
+
+                  <p>
+                      <span>3) 방명록 (Guest Book) & 소통</span>
+                      <ul>
+                          <li>
+                              <h4>방명록 관리 권한:</h4> 누구나 자유롭게 작성할 수 있지만,
+                              <strong>다이어리 주인</strong>은 방문자가 쓴 글을 삭제할 수 있는 관리 권한을
+                              가집니다. (데이터 무결성을 위해 수정 기능은 제한)
+                          </li>
+                          <li>
+                              <h4>프로필 이미지 연동:</h4> 방명록 작성 시 작성자의 최신 프로필 이미지가
+                              실시간으로 연동되어, 누가 방문했는지 직관적으로 알 수 있습니다.
+                          </li>
+                          <li>
+                              <h4>계층형 댓글 시스템:</h4> 무한 Depth의 대댓글과 '더보기/접기' 기능을
+                              통해 깊이 있는 소통 환경을 제공합니다.
+                          </li>
+                      </ul>
+                  </p>
+                  <br />
+
+                  <p>
+                      <span>4) 반응형 레이아웃 (Responsive Design)</span>
+                      <ul>
+                          <li>
+                              <h4>모바일/PC 최적화:</h4> PC에서는 미니홈피 감성의 고정형 윈도우 UI를,
+                              모바일에서는 스크롤이 자유로운 앱 스타일 UI(하단 네비게이션 바)를
+                              제공하여 어떤 기기에서도 최적의 경험을 제공합니다.
+                          </li>
+                      </ul>
+                  </p>
+                  <br />
+
+                  {/* ✅ 기술적 고민 (Accordion) - 여긴 Chakra UI 컴포넌트라 color='white' 유지 필요 */}
                   <Accordion allowToggle>
                       <AccordionItem border="none">
                           <h2>
@@ -453,6 +438,7 @@ export function PetmilyModal() {
                           </h2>
                           <AccordionPanel pb={4} pl={2} color="white">
                               <br />
+                              {/* ⚠️ 아코디언 내부는 배경이 어두우므로 가독성을 위해 흰색 스타일 유지 */}
                               <div style={{ color: "white" }}>
                                   <p style={{ color: "white" }}>
                                       <span style={{ color: "#ED8936", fontWeight: "bold" }}>1) 무한 Depth 방명록 구현 (Recursive)</span>
@@ -472,19 +458,18 @@ export function PetmilyModal() {
                                   </p>
                                   <br />
                                   <p style={{ color: "white" }}>
-                                      {/* ✅ [수정] 오라클 VM & 우분투 서버 저장소 활용 내용으로 변경 */}
                                       <span style={{ color: "#ED8936", fontWeight: "bold" }}>2) 효율적인 서버 리소스 활용 (Oracle Cloud VM)</span>
                                       <ul>
                                           <li>
                                               <h4>[문제 상황]</h4>
                                               초기 AWS 프리티어 종료 후, 비용 절감과 안정적인 서버 환경 구축이 필요했습니다.
-                                              또한, 외부 스토리지(S3 등) 연동 시 발생하는 복잡한 인증 절차와 네트워크 지연 시간을 최소화하고 싶었습니다.
+                                              또한, 외부 스토리지(S3 등) 연동 시 발생하는 복잡한 인증 절차와 지연 시간을 최소화하고 싶었습니다.
                                           </li>
                                           <li>
                                               <h4>[기술적 해결] Oracle Cloud & Ubuntu 정적 리소스 관리</h4>
                                               <strong>Oracle Cloud의 평생 무료 인스턴스(Ubuntu)</strong>를 도입하여 서버 비용을 절감했습니다.
                                               이미지는 외부 스토리지 대신 <strong>서버 내부(Local Volume)</strong>에서 직접 관리하도록 설계하여,
-                                              별도의 외부 API 호출 없이 <strong>서버가 즉시 이미지를 서빙</strong>할 수 있는 고성능 환경을 구축했습니다.
+                                              외부 API 호출 없이 <strong>서버가 즉시 이미지를 서빙</strong>할 수 있는 고성능 환경을 구축했습니다.
                                           </li>
                                       </ul>
                                   </p>
