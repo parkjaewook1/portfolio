@@ -6,7 +6,18 @@ import memberUpdate from "./task-img/member-update.png";
 import memberDelete from "./task-img/member-delete.png";
 import socialLogin from "./task-img/social-login.png";
 import adminPage from "./task-img/admin-page.png";
-// import diary from "./task-img/diary.png"; // 📸 추후 이미지 추가 시 주석 해제
+import diaryDashboard from "./task-img/diary-dashboard.png";
+import diaryList from "./task-img/diary-list.png";
+import diaryWrite from "./task-img/diary-write.png";
+import diaryEdit from "./task-img/diary-edit.png";
+import diaryCalendar from "./task-img/diary-calendar.png";
+import diaryGuestbook from "./task-img/diary-guestbook.png";
+
+import responsiveMain from "./task-img/responsive-main.png";
+import responsiveDiary from "./task-img/responsive-list.png";
+import responsiveGuestbook from "./task-img/responsive-guestbook.png";
+import responsiveCalendar from "./task-img/responsive-calendar.png";
+
 
 import {
     Image,
@@ -339,7 +350,7 @@ export function PetmilyModal() {
               <div className="project-task">
                   <h3>5. 미니홈피 다이어리 (Pet Diary)</h3>
                   <div className="project-task-box">
-                      {/* 📸 추후 이미지 추가 */}
+                      {/*  추후 이미지 추가 */}
                       {/* <Image className="project-task-images" src={diary} alt="Diary Screenshot" /> */}
                   </div>
                   <h3>상세 설명</h3>
@@ -356,6 +367,11 @@ export function PetmilyModal() {
                       <span>1) 개인화된 공간 (My Room) & UI/UX</span>
                       <ul>
                           <li>
+                              <Image
+                                className="project-task-images"
+                                src={diaryDashboard}
+                                alt="다이어리 대시보드 메인 화면"
+                              />
                               <h4>대시보드(Dashboard) 뷰:</h4> 다이어리 메인 화면에 최신 일기와 방명록을
                               <strong>카드(Card) 형태</strong>로 시각화하여 보여주어, 사용자가 최근 활동을
                               한눈에 파악하고 접근할 수 있도록 편의성을 높였습니다.
@@ -375,10 +391,31 @@ export function PetmilyModal() {
                   <p>
                       <span>2) 일기장 & 캘린더 (Diary Board)</span>
                       <ul>
+                          <Image
+                            className="project-task-images"
+                            src={diaryList}
+                            alt="다이어리 일기 리스트"
+                          />
+                          <Image
+                            className="project-task-images"
+                            src={diaryWrite}
+                            alt="다이어리 일기 작성 화면"
+                          />
+                          <Image
+                            className="project-task-images"
+                            src={diaryEdit}
+                            alt="다이어리 일기 수정 화면"
+                          />
                           <li>
                               <h4>권한 관리(Permission):</h4> 일기장은 철저하게 <strong>'주인(Owner)'만 작성/수정/삭제</strong>가
                               가능하도록 권한을 분리하여 프라이빗한 기록 공간을 보장합니다. (방문자는 읽기 전용)
                           </li>
+                          <Image
+                            className="project-task-images"
+                            src={diaryCalendar}
+                            alt="다이어리 캘린더 화면"
+                          />
+
                           <li>
                               <h4>1일 1기록 & 캘린더:</h4> 하루에 하나의 추억만 기록할 수 있는 정책을 적용하고,
                               작성된 날짜는 캘린더에 스탬프로 표시되어 직관적인 탐색이 가능합니다.
@@ -390,6 +427,11 @@ export function PetmilyModal() {
                   <p>
                       <span>3) 방명록 (Guest Book) & 소통</span>
                       <ul>
+                          <Image
+                            className="project-task-images"
+                            src={diaryGuestbook}
+                            alt="다이어리 방명록 화면"
+                          />
                           <li>
                               <h4>방명록 관리 권한:</h4> 누구나 자유롭게 작성할 수 있지만,
                               <strong>다이어리 주인</strong>은 방문자가 쓴 글을 삭제할 수 있는 관리 권한을
@@ -410,6 +452,26 @@ export function PetmilyModal() {
                   <p>
                       <span>4) 반응형 레이아웃 (Responsive Design)</span>
                       <ul>
+                          <Image
+                            className="project-task-images"
+                            src={responsiveMain}
+                            alt="반응형 다이어리 메인 화면"
+                          />
+                          <Image
+                            className="project-task-images"
+                            src={responsiveDiary}
+                            alt="반응형 다이어리 일기 화면"
+                          />
+                          <Image
+                            className="project-task-images"
+                            src={responsiveGuestbook}
+                            alt="반응형 다이어리 방명록 화면"
+                          />
+                          <Image
+                            className="project-task-images"
+                            src={responsiveCalendar}
+                            alt="반응형 다이어리 캘린더 화면"
+                          />
                           <li>
                               <h4>모바일/PC 최적화:</h4> PC에서는 미니홈피 감성의 고정형 윈도우 UI를,
                               모바일에서는 스크롤이 자유로운 앱 스타일 UI(하단 네비게이션 바)를
@@ -418,8 +480,6 @@ export function PetmilyModal() {
                       </ul>
                   </p>
                   <br />
-
-                  {/* ✅ 기술적 고민 (Accordion) - 여긴 Chakra UI 컴포넌트라 color='white' 유지 필요 */}
                   <Accordion allowToggle>
                       <AccordionItem border="none">
                           <h2>
@@ -438,7 +498,6 @@ export function PetmilyModal() {
                           </h2>
                           <AccordionPanel pb={4} pl={2} color="white">
                               <br />
-                              {/* ⚠️ 아코디언 내부는 배경이 어두우므로 가독성을 위해 흰색 스타일 유지 */}
                               <div style={{ color: "white" }}>
                                   <p style={{ color: "white" }}>
                                       <span style={{ color: "#ED8936", fontWeight: "bold" }}>1) 무한 Depth 방명록 구현 (Recursive)</span>
