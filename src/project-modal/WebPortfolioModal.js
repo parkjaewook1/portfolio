@@ -41,8 +41,8 @@ export function WebPortfolioModal() {
         <h4>Github</h4>
         <div className="modal-info-content">
           URL:{" "}
-          <a href="https://github.com/parkjaewook1/Web-Portfolio">
-            https://github.com/parkjaewook1/Web-Portfolio
+          <a href="https://github.com/parkjaewook1/portfolio">
+            https://github.com/parkjaewook1/portfolio
           </a>
         </div>
         <br />
