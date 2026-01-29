@@ -259,7 +259,7 @@ function App(props) {
                           <i className="bx bxl-github"></i>
                       </a>
                   </div>
-                  <a href="park.pdf" className="btn" download>
+                  <a href="/public/parkP.pdf" className="btn" download>
                       이력서 다운로드
                   </a>
               </div>
