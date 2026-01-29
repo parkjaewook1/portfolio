@@ -260,7 +260,7 @@ function App(props) {
                       </a>
                   </div>
                   <a href="/parkP.pdf" className="btn" download>
-                      이력서 다운로드
+                      이력서 다운로드1
                   </a>
               </div>
           </section>
