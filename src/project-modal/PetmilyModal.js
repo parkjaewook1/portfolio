@@ -173,12 +173,12 @@ export function PetmilyModal() {
                       <span>1) 강화된 보안</span>
                       <ul>
                           <li>
-                              <h4>XSS 방지:</h4> HTTP Only 쿠키 사용으로 클라이언트 사이드 스크립트 접근을 차단,
-                              XSS 공격으로부터 토큰 탈취를 방지합니다.
+                              <h4>XSS 방지:</h4> HTTP Only 쿠키 사용으로 클라이언트 사이드
+                              스크립트 접근을 차단, XSS 공격으로부터 토큰 탈취를 방지합니다.
                           </li>
                           <li>
-                              <h4>안전한 토큰 전송 및 검증:</h4> JWT는 사용자 인증 정보를 안전하게 인코딩하고,
-                              서버에서 토큰의 유효성을 검증하여 인증의 신뢰성을 제공합니다.
+                              <h4>안전한 토큰 전송 및 검증:</h4> JWT는 사용자 인증 정보를 안전하게
+                              인코딩하고, 서버에서 토큰의 유효성을 검증하여 인증의 신뢰성을 제공합니다.
                           </li>
                       </ul>
                   </div>
@@ -189,10 +189,12 @@ export function PetmilyModal() {
                       <span>2) 무상태 인증</span>
                       <ul>
                           <li>
-                              <h4>서버 부하 감소:</h4> JWT를 사용한 무상태 인증 방식으로 서버의 세션 상태 관리 부담을 줄입니다.
+                              <h4>서버 부하 감소:</h4> JWT를 사용한 무상태 인증 방식으로 서버의
+                              세션 상태 관리 부담을 줄입니다.
                           </li>
                           <li>
-                              <h4>통신 간소화:</h4> 브라우저의 자동 쿠키 관리를 통해 클라이언트 측의 인증 토큰 관리 필요성을 제거합니다.
+                              <h4>통신 간소화:</h4> 브라우저의 자동 쿠키 관리를 통해 클라이언트
+                              측의 인증 토큰 관리 필요성을 제거합니다.
                           </li>
                       </ul>
                   </div>
@@ -203,7 +205,8 @@ export function PetmilyModal() {
                       <span>3) 표준화된 접근</span>
                       <ul>
                           <li>
-                              <h4>호환성 제공:</h4> JWT는 널리 인정받는 인증 표준으로, 다양한 API와의 호환성을 제공합니다.
+                              <h4>호환성 제공:</h4> JWT는 널리 인정받는 인증 표준으로, 다양한
+                              API와의 호환성을 제공합니다.
                           </li>
                       </ul>
                   </div>
@@ -263,13 +266,12 @@ export function PetmilyModal() {
                       <span>2) 프로필 CRUD (Oracle Cloud 배포 & 로컬 스토리지)</span>
                       <ul>
                           <li>
-                              <h4>프로필 이미지 업로드 및 저장:</h4> 사용자가 프로필 이미지를 업로드하면, 해당 이미지는 Oracle Cloud 서버의
-                              스토리지에 안전하게 저장됩니다. (초기 AWS S3 사용에서 비용 효율화를 위해 마이그레이션)
+                              <h4>프로필 이미지 업로드 및 저장:</h4> 사용자가 프로필 이미지를 업로드하면, 해당 이미지는 Oracle Cloud 서버의 스토리지에 안전하게 저장됩니다.
+                              (초기 AWS S3 사용에서 비용 효율화를 위해 마이그레이션)
                           </li>
                           <br />
                           <li>
-                              <h4>프로필 이미지 수정:</h4> 사용자는 기존에 업로드한 프로필 이미지를 수정할 수 있으며, 수정된 이미지는 서버 내에서
-                              기존 이미지를 교체하여 저장됩니다.
+                              <h4>프로필 이미지 수정:</h4> 사용자는 기존에 업로드한 프로필 이미지를 수정할 수 있으며, 수정된 이미지는 서버 내에서 기존 이미지를 교체하여 저장됩니다.
                           </li>
                           <br />
                           <li>
@@ -296,8 +298,9 @@ export function PetmilyModal() {
 
                   <h3>상세 설명</h3>
                   <p>
-                      <strong>관리자 모드</strong>는 전체 사용자 목록을 관리하고, 각 사용자 정보를 수정하거나 삭제할 수 있는 제어 기능을 제공합니다.
-                      이를 통해 운영자는 플랫폼을 효율적으로 운영하고, 사용자 정보를 빠르고 정확하게 관리할 수 있습니다.
+                      <strong>관리자 모드</strong>는 전체 사용자 목록을 관리하고, 각 사용자 정보를 수정하거나
+                      삭제할 수 있는 제어 기능을 제공합니다. 이를 통해 운영자는 플랫폼을 효율적으로 운영하고,
+                      사용자 정보를 빠르고 정확하게 관리할 수 있습니다.
                   </p>
 
                   <br />
@@ -381,11 +384,7 @@ export function PetmilyModal() {
                       <span>1) 개인화된 공간 (My Room) & UI/UX</span>
                       <ul>
                           <li>
-                              <Image
-                                className="project-task-images"
-                                src={diaryDashboard}
-                                alt="다이어리 대시보드 메인 화면"
-                              />
+                              <Image className="project-task-images" src={diaryDashboard} alt="다이어리 대시보드 메인 화면" />
                               <h4>대시보드(Dashboard) 뷰:</h4> 다이어리 메인 화면에 최신 일기와 방명록을{" "}
                               <strong>카드(Card) 형태</strong>로 시각화하여 보여주어, 사용자가 최근 활동을 한눈에 파악하고 접근할 수 있도록 편의성을 높였습니다.
                           </li>
@@ -469,84 +468,72 @@ export function PetmilyModal() {
                   <Accordion allowToggle>
                       <AccordionItem border="none">
                           <h2>
-                              <AccordionButton
-                                _expanded={{ bg: "blue.500", color: "white" }}
-                                bg="gray.700"
-                                color="white"
-                                borderRadius="md"
-                                _hover={{ bg: "gray.600" }}
-                              >
-                                  <Box flex="1" textAlign="left" fontWeight="bold" fontSize="1.1rem">
+                              <AccordionButton className="petmily-accordion-button">
+                                  <Box flex="1" textAlign="left" className="petmily-accordion-title">
                                       🛠️ 기술적 고민 & 트러블 슈팅 (Click)
                                   </Box>
                                   <AccordionIcon />
                               </AccordionButton>
                           </h2>
 
-                          <AccordionPanel pb={4} pl={2} color="white">
+                          <AccordionPanel className="petmily-accordion-panel">
                               <br />
-                              <div style={{ color: "white" }}>
-                                  {/* 1 */}
-                                  <div style={{ marginBottom: "18px" }}>
-                    <span style={{ color: "#ED8936", fontWeight: "bold" }}>
-                      1) 무한 Depth 방명록 구현 (Recursive)
-                    </span>
+                              <div className="petmily-troubleshooting">
+                                  <p>
+                                      <span>1) 무한 Depth 방명록 구현 (Recursive)</span>
                                       <ul>
                                           <li>
                                               <h4>[문제 상황]</h4>
-                                              단순한 반복문으로는 ‘댓글의 대댓글’처럼 깊이가 정해지지 않은{" "}
-                                              <strong>N-Depth 계층 구조</strong>를 렌더링하기에 한계가 있었습니다.
+                                              단순한 2중 반복문으로는 '댓글의 대댓글의 대댓글'처럼
+                                              깊이가 정해지지 않은 <strong>N-Depth 계층 구조</strong>를 렌더링하기에 한계가 있었습니다.
                                           </li>
                                           <li>
                                               <h4>[기술적 해결] 재귀 컴포넌트(Recursive Component)</h4>
-                                              컴포넌트가 자기 자신을 다시 호출하는 <strong>재귀적 구조</strong>를 설계했습니다.
-                                              각 댓글 컴포넌트는 children 유무를 확인하고, 자식 댓글이 존재하면 동일 컴포넌트를 렌더링하며
-                                              depth에 따라 padding 값을 동적으로 적용해 시각적 계층을 표현했습니다.
+                                              컴포넌트가 자기 자신을 다시 호출하는 <strong>재귀적 구조</strong>를 설계하였습니다.
+                                              각 댓글 컴포넌트는 `children` 속성을 확인하고, 자식 댓글이 존재하면
+                                              동일한 컴포넌트를 렌더링하며 `padding-left` 값을 동적으로 계산해 시각적인 계층을 표현했습니다.
                                           </li>
                                       </ul>
-                                  </div>
+                                  </p>
 
-                                  {/* 2 */}
-                                  <div style={{ marginBottom: "18px" }}>
-                    <span style={{ color: "#ED8936", fontWeight: "bold" }}>
-                      2) 효율적인 서버 리소스 활용 (Oracle Cloud VM)
-                    </span>
+                                  <br />
+
+                                  <p>
+                                      <span>2) 효율적인 서버 리소스 활용 (Oracle Cloud VM)</span>
                                       <ul>
                                           <li>
                                               <h4>[문제 상황]</h4>
-                                              초기 AWS 프리티어 종료 후 비용 절감과 안정적인 서버 환경 구축이 필요했습니다.
-                                              또한 외부 스토리지(S3 등) 연동 시 인증/지연/구성 복잡도를 최소화하고 싶었습니다.
+                                              초기 AWS 프리티어 종료 후, 비용 절감과 안정적인 서버 환경 구축이 필요했습니다.
+                                              또한, 외부 스토리지(S3 등) 연동 시 발생하는 복잡한 인증 절차와 지연 시간을 최소화하고 싶었습니다.
                                           </li>
                                           <li>
                                               <h4>[기술적 해결] Oracle Cloud & Ubuntu 정적 리소스 관리</h4>
-                                              <strong>Oracle Cloud 평생 무료 인스턴스(Ubuntu)</strong>를 도입해 서버 비용을 절감했고,
-                                              이미지는 외부 스토리지 대신 <strong>서버 내부(Local Volume)</strong>에서 직접 관리하여
-                                              외부 API 호출 없이 서버가 즉시 이미지를 서빙할 수 있도록 설계했습니다.
+                                              <strong>Oracle Cloud의 평생 무료 인스턴스(Ubuntu)</strong>를 도입하여 서버 비용을 절감했습니다.
+                                              이미지는 외부 스토리지 대신 <strong>서버 내부(Local Volume)</strong>에서 직접 관리하도록 설계하여,
+                                              외부 API 호출 없이 <strong>서버가 즉시 이미지를 서빙</strong>할 수 있는 고성능 환경을 구축했습니다.
                                           </li>
                                       </ul>
-                                  </div>
+                                  </p>
 
-                                  {/* 3 */}
-                                  <div style={{ marginBottom: "18px" }}>
-                    <span style={{ color: "#ED8936", fontWeight: "bold" }}>
-                      3) 데이터 시각화 로직 (월별 감정 통계)
-                    </span>
+                                  <br />
+
+                                  <p>
+                                      <span>3) 데이터 시각화 로직</span>
                                       <ul>
                                           <li>
                                               <h4>[기술적 해결]</h4>
-                                              월별 MOOD 데이터를 그룹화(Grouping)하여 카운팅하는 로직을 백엔드 쿼리 단에서 구성했고,
-                                              프론트에서는 Chart.js로 즉각 시각화하여 사용자가 본인의 감정 패턴을 직관적으로 파악할 수 있게 했습니다.
+                                              단순 DB 조회뿐만 아니라, 월별로 기분 데이터(MOOD)를 그룹화(Grouping)하여
+                                              카운팅하는 로직을 백엔드 쿼리 단에서 최적화하였고,
+                                              Frontend에서는 Chart.js를 활용해 이를 즉각적으로 시각화하여
+                                              사용자가 본인의 감정 패턴을 직관적으로 파악하게 했습니다.
                                           </li>
                                       </ul>
-                                  </div>
+                                  </p>
 
-                                  <hr style={{ opacity: 0.25 }} />
+                                  <br />
 
-                                  {/* 4 */}
-                                  <div style={{ marginTop: "18px", marginBottom: "18px" }}>
-                    <span style={{ color: "#ED8936", fontWeight: "bold" }}>
-                      4) JWT 인증 흐름 책임 분리 (발급/검증/무효화)
-                    </span>
+                                  <p>
+                                      <span>4) JWT 인증 흐름 책임 분리 (발급/검증/무효화)</span>
                                       <ul>
                                           <li>
                                               <h4>[문제 상황]</h4>
@@ -558,13 +545,12 @@ export function PetmilyModal() {
                                               유지보수성과 보안 정책 확장성을 확보했습니다.
                                           </li>
                                       </ul>
-                                  </div>
+                                  </p>
 
-                                  {/* 5 */}
-                                  <div style={{ marginBottom: "18px" }}>
-                    <span style={{ color: "#ED8936", fontWeight: "bold" }}>
-                      5) Refresh Token 서버 통제 (로그아웃/강제 로그아웃 대응)
-                    </span>
+                                  <br />
+
+                                  <p>
+                                      <span>5) Refresh Token 서버 통제 (로그아웃/강제 로그아웃 대응)</span>
                                       <ul>
                                           <li>
                                               <h4>[문제 상황]</h4>
@@ -577,13 +563,12 @@ export function PetmilyModal() {
                                               로그아웃 시 쿠키 삭제와 함께 서버 저장 토큰도 제거하여 재발급 루트를 차단했습니다.
                                           </li>
                                       </ul>
-                                  </div>
+                                  </p>
 
-                                  {/* 6 */}
-                                  <div style={{ marginBottom: "18px" }}>
-                    <span style={{ color: "#ED8936", fontWeight: "bold" }}>
-                      6) 권한(Role) 매핑 불일치 예외 대응 (ROLE_ prefix)
-                    </span>
+                                  <br />
+
+                                  <p>
+                                      <span>6) 권한(Role) 매핑 불일치 예외 대응 (ROLE_ prefix)</span>
                                       <ul>
                                           <li>
                                               <h4>[문제 상황]</h4>
@@ -595,13 +580,12 @@ export function PetmilyModal() {
                                               JWT 파싱 단계에서 Role 값을 서버 규칙에 맞게 정규화하고, 예외 케이스에서도 인증 흐름이 깨지지 않도록 방어 로직을 추가했습니다.
                                           </li>
                                       </ul>
-                                  </div>
+                                  </p>
 
-                                  {/* 7 */}
-                                  <div>
-                    <span style={{ color: "#ED8936", fontWeight: "bold" }}>
-                      7) 인증(Authentication)과 로그인 상태(State) 분리
-                    </span>
+                                  <br />
+
+                                  <p>
+                                      <span>7) 인증(Authentication)과 로그인 상태(State) 분리</span>
                                       <ul>
                                           <li>
                                               <h4>[기술적 판단]</h4>
@@ -612,7 +596,7 @@ export function PetmilyModal() {
                                               인증 로직은 Filter/SecurityContext 중심으로 유지하고, 상태 표시는 최소한의 이벤트(로그인/로그아웃) 기준으로 관리하여 결합도를 낮췄습니다.
                                           </li>
                                       </ul>
-                                  </div>
+                                  </p>
                               </div>
                           </AccordionPanel>
                       </AccordionItem>

@@ -188,3 +188,210 @@
     cursor: pointer;
 }
 
+/* ✅ FIX: p 안에 있든 div 안에 있든 동일 스타일 적용 */
+.project-task ul{
+    padding-top: 1rem;
+    padding-left: 3rem;
+}
+
+.project-task li{
+    font-size: 1.7rem;
+    color: var(--text-color);
+}
+
+/* 기존엔 .project-task p h4 만 적용돼서 div 안에서는 깨짐 */
+.project-task li h4{
+    margin: 2rem 0;
+    display: inline;
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+/* Chakra AccordionPanel 기본색(검정) 덮어쓰기 */
+.petmily-accordion-panel,
+.petmily-accordion-panel *{
+    color: var(--text-color) !important;
+}
+/* =========================================================
+   Petmily Modal - Typography & Trendy UI polish (override)
+   - 소제목(span) 더 크게
+   - 본문(p/li) 조금 더 작게
+   - 트러블슈팅 주황 포인트 복구
+   - Accordion hover/active 모션 강화
+   ========================================================= */
+
+/* ✅ 전체 본문 기본(내용) 글씨 살짝 줄이기 */
+.project-task p{
+    font-size: 1.55rem; /* 기존 1.7rem -> 살짝 다운 */
+    line-height: 1.7;
+    color: var(--text-color);
+}
+
+/* ✅ 리스트(li)도 본문 톤으로 정리 */
+.project-task li{
+    font-size: 1.55rem; /* 내용 줄이기 */
+    line-height: 1.75;
+    color: var(--text-color);
+}
+
+/* ✅ 섹션 소제목(span) = 내용보다 확실히 크게 */
+.project-task > div > span,
+.project-task span{
+    display: inline-block;
+    font-size: 1.85rem; /* 내용보다 크게 */
+    font-weight: 800;
+    letter-spacing: -0.2px;
+    margin: 0.2rem 0 0.8rem;
+    color: tomato; /* 기존 톤 유지 */
+}
+
+/* ✅ “4) 반응형 레이아웃…” 같은 소제목(같은 span) 더 강조 */
+.project-task > div > span{
+    position: relative;
+    padding-left: 0.2rem;
+}
+
+/* 소제목 왼쪽 포인트 바(트렌디하게) */
+.project-task > div > span::before{
+    content: "";
+    display: inline-block;
+    width: 0.6rem;
+    height: 0.6rem;
+    border-radius: 50%;
+    margin-right: 0.8rem;
+    transform: translateY(-0.1rem);
+    background: linear-gradient(135deg, tomato, #ffb347);
+    box-shadow: 0 0 0.8rem rgba(255, 99, 71, 0.35);
+}
+
+/* ✅ 리스트 내부 h4(라벨)도 본문보다 확실히 크게 */
+.project-task li h4{
+    font-size: 1.65rem;
+    font-weight: 900;
+    color: var(--text-color);
+    margin: 1.2rem 0 0.4rem;
+    display: inline;
+}
+
+/* ✅ ul/padding은 p 안/밖 상관없이 적용되게 유지 */
+.project-task ul{
+    padding-top: 0.8rem;
+    padding-left: 3rem;
+}
+
+/* ✅ 리스트 bullet이 너무 올드하면 약간 정리 */
+.project-task ul li{
+    margin-bottom: 0.8rem;
+}
+
+/* =========================================================
+   Troubleshooting (Accordion) - Orange accent & modern card
+   ========================================================= */
+
+/* AccordionPanel 전체 텍스트 색상 고정(검정 방지) */
+.petmily-accordion-panel,
+.petmily-accordion-panel *{
+    color: var(--text-color) !important;
+}
+
+/* 트러블슈팅 전체 영역을 카드처럼 */
+.petmily-troubleshooting{
+    padding: 1.6rem 1.6rem;
+    border-radius: 1.6rem;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.10);
+    box-shadow: 0 0 1.2rem rgba(0,0,0,0.20);
+    backdrop-filter: blur(6px);
+}
+
+/* 트러블슈팅 소제목(span) 주황 포인트 복구 + 더 세련되게 */
+.petmily-troubleshooting p > span{
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-size: 1.9rem;
+    font-weight: 900;
+    color: #ff8a3d !important; /* 주황 포인트 */
+    margin-bottom: 0.8rem;
+    letter-spacing: -0.2px;
+}
+
+/* 주황 글로우 도트 */
+.petmily-troubleshooting p > span::before{
+    content: "";
+    width: 0.8rem;
+    height: 0.8rem;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #ff8a3d, tomato);
+    box-shadow: 0 0 1.2rem rgba(255, 138, 61, 0.45);
+}
+
+/* 트러블슈팅 항목 간 간격 */
+.petmily-troubleshooting p{
+    margin: 0 0 1.6rem;
+}
+
+/* 트러블슈팅 내부 h4도 살짝 강조 */
+.petmily-troubleshooting li h4{
+    font-size: 1.65rem;
+    font-weight: 900;
+    margin: 1.1rem 0 0.4rem;
+    color: var(--text-color) !important;
+}
+
+/* code 하이라이트 (너무 튀지 않게) */
+.petmily-troubleshooting code{
+    padding: 0.15rem 0.5rem;
+    border-radius: 0.6rem;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.10);
+    font-size: 1.45rem;
+}
+
+/* =========================================================
+   Accordion Button - hover/active reaction (scale/glow)
+   ========================================================= */
+
+/* 버튼 베이스를 트렌디하게 */
+.petmily-accordion-button{
+    border-radius: 1.2rem !important;
+    transition: transform 180ms ease, box-shadow 180ms ease, filter 180ms ease;
+    background: rgba(255,255,255,0.06) !important;
+    border: 1px solid rgba(255,255,255,0.12) !important;
+    box-shadow: 0 0 1.0rem rgba(0,0,0,0.18);
+}
+
+/* hover 시 살짝 커지고 glow */
+.petmily-accordion-button:hover{
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 0 1.6rem rgba(119,197,242,0.22), 0 0 1.2rem rgba(0,0,0,0.22);
+    filter: brightness(1.05);
+}
+
+/* 클릭(열림) 상태도 더 강조 */
+.petmily-accordion-button[aria-expanded="true"]{
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 0 2.0rem rgba(255,138,61,0.18), 0 0 1.2rem rgba(0,0,0,0.22);
+    border-color: rgba(255,138,61,0.35) !important;
+}
+
+/* 타이틀도 조금 더 세련되게 */
+.petmily-accordion-title{
+    font-size: 1.85rem;
+    font-weight: 900;
+    letter-spacing: -0.2px;
+}
+
+/* Accordion 아이콘도 hover/active에 반응 */
+.petmily-accordion-button svg{
+    transition: transform 180ms ease, opacity 180ms ease;
+    opacity: 0.9;
+}
+.petmily-accordion-button:hover svg{
+    transform: rotate(6deg) scale(1.06);
+    opacity: 1;
+}
+.petmily-accordion-button[aria-expanded="true"] svg{
+    transform: rotate(8deg) scale(1.08);
+    opacity: 1;
+}
