@@ -67,8 +67,8 @@ export function PetmilyModal() {
 
               <h4>커뮤니티 활성화를 통한 반려인 네트워크 강화</h4>
               <p className="modal-info-content">
-                  <span className="emphasis">*</span>사용자 간의 커뮤니케이션을 활성화하여 건전한
-                  반려인 커뮤니티 형성
+                  <span className="emphasis">*</span>사용자 간의 커뮤니케이션을 활성화하여
+                  건전한 반려인 커뮤니티 형성
               </p>
 
               <h4>반려동물 건강 관리 및 초보자 지원</h4>
@@ -79,8 +79,8 @@ export function PetmilyModal() {
 
               <h4>사용자 중심의 직관적인 UI/UX 제공</h4>
               <p className="modal-info-content">
-                  <span className="emphasis">*</span>사용자 경험을 개선하고, 만족도를 높일 수 있는
-                  직관적인 UI/UX 제공
+                  <span className="emphasis">*</span>사용자 경험을 개선하고, 만족도를 높일 수
+                  있는 직관적인 UI/UX 제공
               </p>
 
               <br />
@@ -158,55 +158,59 @@ export function PetmilyModal() {
               <div className="project-task">
                   <h3>1. 로그인</h3>
                   <div className="project-task-box">
-                      <Image className="project-task-images" src={login} />
+                      <Image className="project-task-images" src={login} alt="로그인 화면" />
                   </div>
 
                   <h3>상세 설명</h3>
                   <p>
-                      Spring Security 및 JWT 기반 로그인 시스템: 프로젝트에서 구현한 로그인 시스템은
-                      Spring Security와 JWT(JSON Web Token)를 기반으로 하여 강화된 보안과 효율성을 제공합니다.
+                      Spring Security 및 JWT 기반 로그인 시스템: 프로젝트에서 구현한 로그인
+                      시스템은 Spring Security와 JWT(JSON Web Token)를 기반으로 하여 강화된
+                      보안과 효율성을 제공합니다.
                   </p>
 
                   <br />
 
-                  <div>
+                  <p>
                       <span>1) 강화된 보안</span>
-                      <ul>
-                          <li>
-                              <h4>XSS 방지:</h4> HTTP Only 쿠키 사용으로 클라이언트 사이드 스크립트 접근을 차단,
-                              XSS 공격으로부터 토큰 탈취를 방지합니다.
-                          </li>
-                          <li>
-                              <h4>안전한 토큰 전송 및 검증:</h4> JWT는 사용자 인증 정보를 안전하게 인코딩하고,
-                              서버에서 토큰의 유효성을 검증하여 인증의 신뢰성을 제공합니다.
-                          </li>
-                      </ul>
-                  </div>
+                  </p>
+                  <ul>
+                      <li>
+                          <h4>XSS 방지:</h4> HTTP Only 쿠키 사용으로 클라이언트 사이드 스크립트 접근을
+                          차단, XSS 공격으로부터 토큰 탈취를 방지합니다.
+                      </li>
+                      <li>
+                          <h4>안전한 토큰 전송 및 검증:</h4> JWT는 사용자 인증 정보를 안전하게
+                          인코딩하고, 서버에서 토큰의 유효성을 검증하여 인증의 신뢰성을 제공합니다.
+                      </li>
+                  </ul>
 
                   <br />
 
-                  <div>
+                  <p>
                       <span>2) 무상태 인증</span>
-                      <ul>
-                          <li>
-                              <h4>서버 부하 감소:</h4> JWT를 사용한 무상태 인증 방식으로 서버의 세션 상태 관리 부담을 줄입니다.
-                          </li>
-                          <li>
-                              <h4>통신 간소화:</h4> 브라우저의 자동 쿠키 관리를 통해 클라이언트 측의 인증 토큰 관리 필요성을 제거합니다.
-                          </li>
-                      </ul>
-                  </div>
+                  </p>
+                  <ul>
+                      <li>
+                          <h4>서버 부하 감소:</h4> JWT를 사용한 무상태 인증 방식으로 서버의 세션 상태
+                          관리 부담을 줄입니다.
+                      </li>
+                      <li>
+                          <h4>통신 간소화:</h4> 브라우저의 자동 쿠키 관리를 통해 클라이언트 측의 인증
+                          토큰 관리 필요성을 제거합니다.
+                      </li>
+                  </ul>
 
                   <br />
 
-                  <div>
+                  <p>
                       <span>3) 표준화된 접근</span>
-                      <ul>
-                          <li>
-                              <h4>호환성 제공:</h4> JWT는 널리 인정받는 인증 표준으로, 다양한 API와의 호환성을 제공합니다.
-                          </li>
-                      </ul>
-                  </div>
+                  </p>
+                  <ul>
+                      <li>
+                          <h4>호환성 제공:</h4> JWT는 널리 인정받는 인증 표준으로, 다양한 API와의
+                          호환성을 제공합니다.
+                      </li>
+                  </ul>
               </div>
 
               <br />
@@ -218,69 +222,73 @@ export function PetmilyModal() {
                   <h3>2. 회원 CRUD / 프로필 CRUD</h3>
 
                   <div className="project-task-box">
-                      <Image className="project-task-images" src={signUp} />
+                      <Image className="project-task-images" src={signUp} alt="회원가입 화면" />
                   </div>
                   <div className="project-task-box">
-                      <Image className="project-task-images" src={memberRead} />
+                      <Image className="project-task-images" src={memberRead} alt="회원 조회 화면" />
                   </div>
                   <div className="project-task-box">
-                      <Image className="project-task-images" src={memberUpdate} />
+                      <Image className="project-task-images" src={memberUpdate} alt="회원 수정 화면" />
                   </div>
                   <div className="project-task-box">
-                      <Image className="project-task-images" src={memberDelete} />
+                      <Image className="project-task-images" src={memberDelete} alt="회원 삭제 화면" />
                   </div>
 
                   <h3>상세 설명</h3>
                   <p>
-                      Spring 기반 회원 CRUD 시스템: 회원 가입, 정보 조회, 수정, 탈퇴 기능을 제공하는 사용자 관리 시스템입니다.
-                      RESTful API를 통해 각 기능이 구현되었습니다.
+                      Spring 기반 회원 CRUD 시스템: 회원 가입, 정보 조회, 수정, 탈퇴 기능을 제공하는
+                      사용자 관리 시스템입니다. RESTful API를 통해 각 기능이 구현되었습니다.
                   </p>
 
                   <br />
 
-                  <div>
+                  <p>
                       <span>1) 회원 CRUD</span>
-                      <ul>
-                          <li>
-                              <h4>폼 유효성 및 보안 검증:</h4> 아이디와 비밀번호는 최소 글자 수와 정규식을 통한 입력 제한을 거치며,
-                              중복 체크 및 비밀번호 일치 확인 후에 가입 버튼이 활성화됩니다. 비밀번호는 가입 완료 시 BCrypt로 암호화되어
-                              안전하게 저장됩니다.
-                          </li>
-                          <br />
-                          <li>
-                              <h4>실시간 정보 조회:</h4> 사용자는 자신의 정보를 실시간으로 조회하고, 원하는 정보를 수정할 수 있습니다.
-                          </li>
-                          <br />
-                          <li>
-                              <h4>완전 삭제:</h4> 회원 탈퇴 시 사용자 정보는 영구적으로 삭제됩니다.
-                          </li>
-                      </ul>
-                  </div>
+                  </p>
+                  <ul>
+                      <li>
+                          <h4>폼 유효성 및 보안 검증:</h4> 아이디와 비밀번호는 최소 글자 수와 정규식을 통한
+                          입력 제한을 거치며, 중복 체크 및 비밀번호 일치 확인 후에 가입 버튼이 활성화됩니다.
+                          비밀번호는 가입 완료 시 BCrypt로 암호화되어 안전하게 저장됩니다.
+                      </li>
+                      <br />
+                      <li>
+                          <h4>실시간 정보 조회:</h4> 사용자는 자신의 정보를 실시간으로 조회하고, 원하는 정보를
+                          수정할 수 있습니다.
+                      </li>
+                      <br />
+                      <li>
+                          <h4>완전 삭제:</h4> 회원 탈퇴 시 사용자 정보는 영구적으로 삭제됩니다.
+                      </li>
+                  </ul>
 
                   <br />
 
-                  <div>
+                  <p>
                       <span>2) 프로필 CRUD (Oracle Cloud 배포 & 로컬 스토리지)</span>
-                      <ul>
-                          <li>
-                              <h4>프로필 이미지 업로드 및 저장:</h4> 사용자가 프로필 이미지를 업로드하면, 해당 이미지는 Oracle Cloud 서버의
-                              스토리지에 안전하게 저장됩니다. (초기 AWS S3 사용에서 비용 효율화를 위해 마이그레이션)
-                          </li>
-                          <br />
-                          <li>
-                              <h4>프로필 이미지 수정:</h4> 사용자는 기존에 업로드한 프로필 이미지를 수정할 수 있으며, 수정된 이미지는 서버 내에서
-                              기존 이미지를 교체하여 저장됩니다.
-                          </li>
-                          <br />
-                          <li>
-                              <h4>프로필 이미지 삭제:</h4> 프로필 이미지 삭제 요청 시, 서버 스토리지에서 해당 파일이 영구적으로 삭제됩니다.
-                          </li>
-                          <br />
-                          <li>
-                              <h4>프로필 이미지 조회:</h4> 사용자의 프로필 이미지는 Vercel 프록시를 통해 보안(HTTPS) 경고 없이 안전하게 렌더링됩니다.
-                          </li>
-                      </ul>
-                  </div>
+                  </p>
+                  <ul>
+                      <li>
+                          <h4>프로필 이미지 업로드 및 저장:</h4> 사용자가 프로필 이미지를 업로드하면,
+                          해당 이미지는 Oracle Cloud 서버의 스토리지에 안전하게 저장됩니다.
+                          (초기 AWS S3 사용에서 비용 효율화를 위해 마이그레이션)
+                      </li>
+                      <br />
+                      <li>
+                          <h4>프로필 이미지 수정:</h4> 사용자는 기존에 업로드한 프로필 이미지를 수정할 수 있으며,
+                          수정된 이미지는 서버 내에서 기존 이미지를 교체하여 저장됩니다.
+                      </li>
+                      <br />
+                      <li>
+                          <h4>프로필 이미지 삭제:</h4> 프로필 이미지 삭제 요청 시, 서버 스토리지에서 해당 파일이
+                          영구적으로 삭제됩니다.
+                      </li>
+                      <br />
+                      <li>
+                          <h4>프로필 이미지 조회:</h4> 사용자의 프로필 이미지는 Vercel 프록시를 통해 보안(HTTPS) 경고 없이
+                          안전하게 렌더링됩니다.
+                      </li>
+                  </ul>
               </div>
 
               <br />
@@ -291,33 +299,53 @@ export function PetmilyModal() {
               <div className="project-task">
                   <h3>3. 관리자 모드</h3>
                   <div className="project-task-box">
-                      <Image className="project-task-images" src={adminPage} />
+                      <Image className="project-task-images" src={adminPage} alt="관리자 페이지" />
                   </div>
 
                   <h3>상세 설명</h3>
                   <p>
-                      <strong>관리자 모드</strong>는 전체 사용자 목록을 관리하고, 각 사용자 정보를 수정하거나 삭제할 수 있는 제어 기능을 제공합니다.
-                      이를 통해 운영자는 플랫폼을 효율적으로 운영하고, 사용자 정보를 빠르고 정확하게 관리할 수 있습니다.
+                      <strong>관리자 모드</strong>는 전체 사용자 목록을 관리하고, 각 사용자 정보를 수정하거나
+                      삭제할 수 있는 제어 기능을 제공합니다. 이를 통해 관리자는 플랫폼을 효율적으로 운영하고,
+                      사용자 정보를 빠르고 정확하게 관리할 수 있습니다.
                   </p>
 
                   <br />
 
-                  <div>
+                  <p>
                       <span>1) 회원 목록 관리:</span>
-                      <ul>
-                          <li>
-                              <h4>전체 회원 조회:</h4> 관리자는 모든 회원의 목록을 한눈에 볼 수 있으며, 필요에 따라 특정 회원을 검색하여 관리할 수 있습니다.
-                          </li>
-                          <br />
-                          <li>
-                              <h4>회원 정보 수정:</h4> 관리자는 각 회원의 정보(예: 이름, 이메일, 권한)를 수정할 수 있으며, 업데이트된 정보는 즉시 반영됩니다.
-                          </li>
-                          <br />
-                          <li>
-                              <h4>회원 삭제(탈퇴 처리):</h4> 관리자는 필요시 회원을 삭제하거나 탈퇴 처리할 수 있으며, 이 과정은 안전하게 처리되어 데이터 무결성을 보장합니다.
-                          </li>
-                      </ul>
-                  </div>
+                  </p>
+                  <ul>
+                      <li>
+                          <h4>전체 회원 조회:</h4> 관리자는 모든 회원의 목록을 한눈에 볼 수 있으며, 필요에 따라
+                          특정 회원을 검색하여 관리할 수 있습니다.
+                      </li>
+                      <br />
+                      <li>
+                          <h4>회원 정보 수정:</h4> 관리자는 각 회원의 정보(예: 이름, 이메일, 권한)를 수정할 수 있으며,
+                          업데이트된 정보는 즉시 반영됩니다.
+                      </li>
+                      <br />
+                      <li>
+                          <h4>회원 삭제(탈퇴 처리):</h4> 관리자는 필요시 회원을 삭제하거나 탈퇴 처리할 수 있으며,
+                          이 과정은 안전하게 처리되어 데이터 무결성을 보장합니다.
+                      </li>
+                  </ul>
+
+                  <br />
+
+                  <p>
+                      <span>2) 권한/보안 관점 설계 포인트</span>
+                  </p>
+                  <ul>
+                      <li>
+                          <h4>Role 기반 접근 제어:</h4> 관리자 권한(Role)을 기준으로 API 접근을 분리하여
+                          일반 사용자 기능과 운영 기능을 명확히 분리했습니다.
+                      </li>
+                      <li>
+                          <h4>민감 작업 보호:</h4> 회원 삭제/권한 변경 등 민감 작업은 관리자만 수행 가능하도록
+                          서버 단에서 권한 검증을 우선 적용했습니다.
+                      </li>
+                  </ul>
               </div>
 
               <br />
@@ -328,7 +356,7 @@ export function PetmilyModal() {
               <div className="project-task">
                   <h3>4. 소셜 로그인 / 비밀번호 재발급</h3>
                   <div className="project-task-box">
-                      <Image className="project-task-images" src={socialLogin} />
+                      <Image className="project-task-images" src={socialLogin} alt="소셜 로그인" />
                   </div>
 
                   <h3>상세 설명</h3>
@@ -339,25 +367,34 @@ export function PetmilyModal() {
 
                   <br />
 
-                  <div>
+                  <p>
                       <span>1) 소셜 로그인</span>
-                      <ul>
-                          <li>
-                              <h4>OAuth 2.0 표준:</h4> 다양한 소셜 계정으로 로그인할 수 있으며, OAuth 2.0을 통한 안전한 인증 절차를 제공합니다.
-                          </li>
-                      </ul>
-                  </div>
+                  </p>
+                  <ul>
+                      <li>
+                          <h4>OAuth 2.0 표준:</h4> 다양한 소셜 계정으로 로그인할 수 있으며, OAuth 2.0을 통한
+                          인증 절차를 제공합니다.
+                      </li>
+                      <li>
+                          <h4>로그인/회원 흐름 통합:</h4> 소셜 계정 최초 로그인 시 가입/연동 플로우를 분리하여
+                          사용자 경험을 유지하면서도 서버에서 동일한 인증 체계로 관리할 수 있게 구성했습니다.
+                      </li>
+                  </ul>
 
                   <br />
 
-                  <div>
+                  <p>
                       <span>2) 비밀번호 재발급</span>
-                      <ul>
-                          <li>
-                              <h4>재발급 이메일:</h4> 등록된 이메일을 통해 임시 비밀번호를 발송하여 보안 절차를 강화하였습니다.
-                          </li>
-                      </ul>
-                  </div>
+                  </p>
+                  <ul>
+                      <li>
+                          <h4>재발급 이메일:</h4> 등록된 이메일을 통해 임시 비밀번호를 발송하여 보안 절차를 강화하였습니다.
+                      </li>
+                      <li>
+                          <h4>서버 검증 우선:</h4> 사용자 식별/유효성 검증을 서버에서 처리하고, 임시 비밀번호는
+                          발급 즉시 암호화 저장되도록 구성했습니다.
+                      </li>
+                  </ul>
               </div>
 
               <br />
@@ -367,7 +404,6 @@ export function PetmilyModal() {
               {/* 5. 미니홈피 다이어리 */}
               <div className="project-task">
                   <h3>5. 미니홈피 다이어리 (Pet Diary)</h3>
-                  <div className="project-task-box">{/* 이미지 추가 가능 */}</div>
 
                   <h3>상세 설명</h3>
                   <p>
@@ -377,95 +413,89 @@ export function PetmilyModal() {
 
                   <br />
 
-                  <div>
+                  <p>
                       <span>1) 개인화된 공간 (My Room) & UI/UX</span>
-                      <ul>
-                          <li>
-                              <Image
-                                className="project-task-images"
-                                src={diaryDashboard}
-                                alt="다이어리 대시보드 메인 화면"
-                              />
-                              <h4>대시보드(Dashboard) 뷰:</h4> 다이어리 메인 화면에 최신 일기와 방명록을{" "}
-                              <strong>카드(Card) 형태</strong>로 시각화하여 보여주어, 사용자가 최근 활동을 한눈에 파악하고 접근할 수 있도록 편의성을 높였습니다.
-                          </li>
-                          <li>
-                              <h4>Dark/Light 모드 지원:</h4> 사용자의 환경에 따라 테마를 변경할 수 있는 다크 모드를 지원하여 시각적 편안함과 접근성을 개선했습니다.
-                          </li>
-                          <li>
-                              <h4>투데이(Today) 및 감정 통계:</h4> 방문자 수 집계와 월별 감정 상태를 도넛 차트로 제공하여 '나만의 공간'이라는 애착을 형성합니다.
-                          </li>
-                      </ul>
-                  </div>
+                  </p>
+                  <ul>
+                      <li>
+                          <Image
+                            className="project-task-images"
+                            src={diaryDashboard}
+                            alt="다이어리 대시보드 메인 화면"
+                          />
+                          <h4>대시보드(Dashboard) 뷰:</h4> 다이어리 메인 화면에 최신 일기와 방명록을
+                          <strong> 카드(Card) 형태</strong>로 시각화하여 보여주어, 사용자가 최근 활동을 한눈에 파악하고
+                          접근할 수 있도록 편의성을 높였습니다.
+                      </li>
+                      <li>
+                          <h4>Dark/Light 모드 지원:</h4> 사용자의 환경에 따라 테마를 변경할 수 있는 다크 모드를 지원하여
+                          시각적 편안함과 접근성을 개선했습니다.
+                      </li>
+                      <li>
+                          <h4>투데이(Today) 및 감정 통계:</h4> 방문자 수 집계와 월별 감정 상태를 도넛 차트로 제공하여
+                          '나만의 공간'이라는 애착을 형성합니다.
+                      </li>
+                  </ul>
 
                   <br />
 
-                  <div>
+                  <p>
                       <span>2) 일기장 & 캘린더 (Diary Board)</span>
-                      <ul>
-                          <li>
-                              <Image className="project-task-images" src={diaryList} alt="다이어리 일기 리스트" />
-                              <Image className="project-task-images" src={diaryWrite} alt="다이어리 일기 작성 화면" />
-                              <Image className="project-task-images" src={diaryEdit} alt="다이어리 일기 수정 화면" />
-                          </li>
-
-                          <li>
-                              <h4>권한 관리(Permission):</h4> 일기장은 철저하게{" "}
-                              <strong>'주인(Owner)'만 작성/수정/삭제</strong>가 가능하도록 권한을 분리하여 프라이빗한 기록 공간을 보장합니다. (방문자는 읽기 전용)
-                          </li>
-
-                          <li>
-                              <Image className="project-task-images" src={diaryCalendar} alt="다이어리 캘린더 화면" />
-                          </li>
-
-                          <li>
-                              <h4>1일 1기록 & 캘린더:</h4> 하루에 하나의 추억만 기록할 수 있는 정책을 적용하고,
-                              작성된 날짜는 캘린더에 스탬프로 표시되어 직관적인 탐색이 가능합니다.
-                          </li>
-                      </ul>
-                  </div>
+                  </p>
+                  <ul>
+                      <Image className="project-task-images" src={diaryList} alt="다이어리 일기 리스트" />
+                      <Image className="project-task-images" src={diaryWrite} alt="다이어리 일기 작성 화면" />
+                      <Image className="project-task-images" src={diaryEdit} alt="다이어리 일기 수정 화면" />
+                      <li>
+                          <h4>권한 관리(Permission):</h4> 일기장은 철저하게 <strong>'주인(Owner)'만 작성/수정/삭제</strong>가
+                          가능하도록 권한을 분리하여 프라이빗한 기록 공간을 보장합니다. (방문자는 읽기 전용)
+                      </li>
+                      <Image className="project-task-images" src={diaryCalendar} alt="다이어리 캘린더 화면" />
+                      <li>
+                          <h4>1일 1기록 & 캘린더:</h4> 하루에 하나의 추억만 기록할 수 있는 정책을 적용하고, 작성된 날짜는
+                          캘린더에 스탬프로 표시되어 직관적인 탐색이 가능합니다.
+                      </li>
+                  </ul>
 
                   <br />
 
-                  <div>
+                  <p>
                       <span>3) 방명록 (Guest Book) & 소통</span>
-                      <ul>
-                          <li>
-                              <Image className="project-task-images" src={diaryGuestbook} alt="다이어리 방명록 화면" />
-                          </li>
-                          <li>
-                              <h4>방명록 관리 권한:</h4> 누구나 자유롭게 작성할 수 있지만,{" "}
-                              <strong>다이어리 주인</strong>은 방문자가 쓴 글을 삭제할 수 있는 관리 권한을 가집니다. (데이터 무결성을 위해 수정 기능은 제한)
-                          </li>
-                          <li>
-                              <h4>프로필 이미지 연동:</h4> 방명록 작성 시 작성자의 최신 프로필 이미지가 실시간으로 연동되어, 누가 방문했는지 직관적으로 알 수 있습니다.
-                          </li>
-                          <li>
-                              <h4>계층형 댓글 시스템:</h4> 무한 Depth의 대댓글과 '더보기/접기' 기능을 통해 깊이 있는 소통 환경을 제공합니다.
-                          </li>
-                      </ul>
-                  </div>
+                  </p>
+                  <ul>
+                      <Image className="project-task-images" src={diaryGuestbook} alt="다이어리 방명록 화면" />
+                      <li>
+                          <h4>방명록 관리 권한:</h4> 누구나 자유롭게 작성할 수 있지만, <strong>다이어리 주인</strong>은
+                          방문자가 쓴 글을 삭제할 수 있는 관리 권한을 가집니다. (데이터 무결성을 위해 수정 기능은 제한)
+                      </li>
+                      <li>
+                          <h4>프로필 이미지 연동:</h4> 방명록 작성 시 작성자의 최신 프로필 이미지가 실시간으로 연동되어,
+                          누가 방문했는지 직관적으로 알 수 있습니다.
+                      </li>
+                      <li>
+                          <h4>계층형 댓글 시스템:</h4> 무한 Depth의 대댓글과 '더보기/접기' 기능을 통해 깊이 있는 소통 환경을 제공합니다.
+                      </li>
+                  </ul>
 
                   <br />
 
-                  <div>
+                  <p>
                       <span>4) 반응형 레이아웃 (Responsive Design)</span>
-                      <ul>
-                          <li>
-                              <Image className="project-task-images" src={responsiveMain} alt="반응형 다이어리 메인 화면" />
-                              <Image className="project-task-images" src={responsiveDiary} alt="반응형 다이어리 일기 화면" />
-                              <Image className="project-task-images" src={responsiveGuestbook} alt="반응형 다이어리 방명록 화면" />
-                              <Image className="project-task-images" src={responsiveCalendar} alt="반응형 다이어리 캘린더 화면" />
-                          </li>
-                          <li>
-                              <h4>모바일/PC 최적화:</h4> PC에서는 미니홈피 감성의 고정형 윈도우 UI를,
-                              모바일에서는 스크롤이 자유로운 앱 스타일 UI(하단 네비게이션 바)를 제공하여 어떤 기기에서도 최적의 경험을 제공합니다.
-                          </li>
-                      </ul>
-                  </div>
+                  </p>
+                  <ul>
+                      <Image className="project-task-images" src={responsiveMain} alt="반응형 다이어리 메인 화면" />
+                      <Image className="project-task-images" src={responsiveDiary} alt="반응형 다이어리 일기 화면" />
+                      <Image className="project-task-images" src={responsiveGuestbook} alt="반응형 다이어리 방명록 화면" />
+                      <Image className="project-task-images" src={responsiveCalendar} alt="반응형 다이어리 캘린더 화면" />
+                      <li>
+                          <h4>모바일/PC 최적화:</h4> PC에서는 미니홈피 감성의 고정형 윈도우 UI를, 모바일에서는 스크롤이 자유로운
+                          앱 스타일 UI(하단 네비게이션 바)를 제공하여 어떤 기기에서도 최적의 경험을 제공합니다.
+                      </li>
+                  </ul>
 
                   <br />
 
+                  {/* ✅ 텍스트/폰트/색상은 기존 CSS 기준 유지. (인라인 스타일/폰트 사이즈 지정 제거) */}
                   <Accordion allowToggle>
                       <AccordionItem border="none">
                           <h2>
@@ -476,7 +506,7 @@ export function PetmilyModal() {
                                 borderRadius="md"
                                 _hover={{ bg: "gray.600" }}
                               >
-                                  <Box flex="1" textAlign="left" fontWeight="bold" fontSize="1.1rem">
+                                  <Box flex="1" textAlign="left" fontWeight="bold">
                                       🛠️ 기술적 고민 & 트러블 슈팅 (Click)
                                   </Box>
                                   <AccordionIcon />
@@ -485,135 +515,96 @@ export function PetmilyModal() {
 
                           <AccordionPanel pb={4} pl={2} color="white">
                               <br />
-                              <div style={{ color: "white" }}>
-                                  {/* 1 */}
-                                  <div style={{ marginBottom: "18px" }}>
-                    <span style={{ color: "#ED8936", fontWeight: "bold" }}>
-                      1) 무한 Depth 방명록 구현 (Recursive)
-                    </span>
-                                      <ul>
-                                          <li>
-                                              <h4>[문제 상황]</h4>
-                                              단순한 반복문으로는 ‘댓글의 대댓글’처럼 깊이가 정해지지 않은{" "}
-                                              <strong>N-Depth 계층 구조</strong>를 렌더링하기에 한계가 있었습니다.
-                                          </li>
-                                          <li>
-                                              <h4>[기술적 해결] 재귀 컴포넌트(Recursive Component)</h4>
-                                              컴포넌트가 자기 자신을 다시 호출하는 <strong>재귀적 구조</strong>를 설계했습니다.
-                                              각 댓글 컴포넌트는 children 유무를 확인하고, 자식 댓글이 존재하면 동일 컴포넌트를 렌더링하며
-                                              depth에 따라 padding 값을 동적으로 적용해 시각적 계층을 표현했습니다.
-                                          </li>
-                                      </ul>
-                                  </div>
 
-                                  {/* 2 */}
-                                  <div style={{ marginBottom: "18px" }}>
-                    <span style={{ color: "#ED8936", fontWeight: "bold" }}>
-                      2) 효율적인 서버 리소스 활용 (Oracle Cloud VM)
-                    </span>
-                                      <ul>
-                                          <li>
-                                              <h4>[문제 상황]</h4>
-                                              초기 AWS 프리티어 종료 후 비용 절감과 안정적인 서버 환경 구축이 필요했습니다.
-                                              또한 외부 스토리지(S3 등) 연동 시 인증/지연/구성 복잡도를 최소화하고 싶었습니다.
-                                          </li>
-                                          <li>
-                                              <h4>[기술적 해결] Oracle Cloud & Ubuntu 정적 리소스 관리</h4>
-                                              <strong>Oracle Cloud 평생 무료 인스턴스(Ubuntu)</strong>를 도입해 서버 비용을 절감했고,
-                                              이미지는 외부 스토리지 대신 <strong>서버 내부(Local Volume)</strong>에서 직접 관리하여
-                                              외부 API 호출 없이 서버가 즉시 이미지를 서빙할 수 있도록 설계했습니다.
-                                          </li>
-                                      </ul>
-                                  </div>
+                              <p>
+                                  <span className="emphasis">1) 무한 Depth 방명록 구현 (Recursive)</span>
+                              </p>
+                              <ul>
+                                  <li>
+                                      <h4>[문제 상황]</h4>
+                                      단순한 2중 반복문으로는 '댓글의 대댓글의 대댓글'처럼 깊이가 정해지지 않은
+                                      <strong> N-Depth 계층 구조</strong>를 렌더링하기에 한계가 있었습니다.
+                                  </li>
+                                  <li>
+                                      <h4>[기술적 해결] 재귀 컴포넌트(Recursive Component)</h4>
+                                      컴포넌트가 자기 자신을 다시 호출하는 <strong>재귀적 구조</strong>를 설계하였습니다.
+                                      각 댓글 컴포넌트는 children 데이터를 기반으로 동일 컴포넌트를 재호출하며,
+                                      depth에 따라 들여쓰기 값이 적용되도록 구조화하여 계층을 안정적으로 표현했습니다.
+                                  </li>
+                              </ul>
 
-                                  {/* 3 */}
-                                  <div style={{ marginBottom: "18px" }}>
-                    <span style={{ color: "#ED8936", fontWeight: "bold" }}>
-                      3) 데이터 시각화 로직 (월별 감정 통계)
-                    </span>
-                                      <ul>
-                                          <li>
-                                              <h4>[기술적 해결]</h4>
-                                              월별 MOOD 데이터를 그룹화(Grouping)하여 카운팅하는 로직을 백엔드 쿼리 단에서 구성했고,
-                                              프론트에서는 Chart.js로 즉각 시각화하여 사용자가 본인의 감정 패턴을 직관적으로 파악할 수 있게 했습니다.
-                                          </li>
-                                      </ul>
-                                  </div>
+                              <br />
 
-                                  <hr style={{ opacity: 0.25 }} />
+                              <p>
+                                  <span className="emphasis">2) 효율적인 서버 리소스 활용 (Oracle Cloud VM)</span>
+                              </p>
+                              <ul>
+                                  <li>
+                                      <h4>[문제 상황]</h4>
+                                      AWS 프리티어 종료 이후 비용 절감과 안정적인 서버 환경이 필요했습니다.
+                                      또한 외부 스토리지(S3 등) 연동 시 발생하는 인증/지연/구성 복잡도를 줄이고 싶었습니다.
+                                  </li>
+                                  <li>
+                                      <h4>[기술적 해결] Oracle Cloud & Ubuntu 정적 리소스 관리</h4>
+                                      <strong>Oracle Cloud의 평생 무료 인스턴스(Ubuntu)</strong>를 도입하여 서버 비용을 절감했습니다.
+                                      이미지는 외부 스토리지 대신 <strong>서버 내부(Local Volume)</strong>에서 직접 관리하도록 설계하여,
+                                      외부 API 호출 없이 서버가 즉시 이미지를 서빙하도록 구성했습니다.
+                                  </li>
+                              </ul>
 
-                                  {/* 4 */}
-                                  <div style={{ marginTop: "18px", marginBottom: "18px" }}>
-                    <span style={{ color: "#ED8936", fontWeight: "bold" }}>
-                      4) JWT 인증 흐름 책임 분리 (발급/검증/무효화)
-                    </span>
-                                      <ul>
-                                          <li>
-                                              <h4>[문제 상황]</h4>
-                                              로그인(토큰 발급), 요청 검증, 로그아웃(무효화) 로직이 섞이면 정책 변경/예외 처리에서 사이드 이펙트가 발생하기 쉬웠습니다.
-                                          </li>
-                                          <li>
-                                              <h4>[기술적 해결] Spring Security Filter Chain 기반 책임 분리</h4>
-                                              발급(로그인) / 검증(요청 필터) / 무효화(로그아웃) 흐름을 분리하여 인증 구조를 명확히 했고,
-                                              유지보수성과 보안 정책 확장성을 확보했습니다.
-                                          </li>
-                                      </ul>
-                                  </div>
+                              <br />
 
-                                  {/* 5 */}
-                                  <div style={{ marginBottom: "18px" }}>
-                    <span style={{ color: "#ED8936", fontWeight: "bold" }}>
-                      5) Refresh Token 서버 통제 (로그아웃/강제 로그아웃 대응)
-                    </span>
-                                      <ul>
-                                          <li>
-                                              <h4>[문제 상황]</h4>
-                                              JWT는 무상태라 “로그아웃 후에도 토큰이 살아있는 문제”, “토큰 탈취 시 대응”에 한계가 있었습니다.
-                                          </li>
-                                          <li>
-                                              <h4>[기술적 해결] Refresh Token 저장 + 무효화 전략</h4>
-                                              Refresh Token을 HttpOnly 쿠키로 전달하되, 서버(DB)에 저장하여{" "}
-                                              <strong>서버가 무효화 가능한 구조</strong>로 설계했습니다.
-                                              로그아웃 시 쿠키 삭제와 함께 서버 저장 토큰도 제거하여 재발급 루트를 차단했습니다.
-                                          </li>
-                                      </ul>
-                                  </div>
+                              <p>
+                                  <span className="emphasis">3) 데이터 시각화 로직 (백엔드 집계 최적화)</span>
+                              </p>
+                              <ul>
+                                  <li>
+                                      <h4>[기술적 해결]</h4>
+                                      단순 조회가 아닌, 월별 기분 데이터(MOOD)를 그룹화(Grouping)하여 카운팅하는 집계 로직을
+                                      <strong> 백엔드 쿼리/서비스 레벨</strong>에서 정리했습니다.
+                                      프론트에서는 시각화 라이브러리로 결과만 렌더링하도록 분리하여,
+                                      데이터 처리 책임을 서버로 가져가고 화면은 가볍게 유지했습니다.
+                                  </li>
+                              </ul>
 
-                                  {/* 6 */}
-                                  <div style={{ marginBottom: "18px" }}>
-                    <span style={{ color: "#ED8936", fontWeight: "bold" }}>
-                      6) 권한(Role) 매핑 불일치 예외 대응 (ROLE_ prefix)
-                    </span>
-                                      <ul>
-                                          <li>
-                                              <h4>[문제 상황]</h4>
-                                              토큰에는 <code>ROLE_USER</code>, 서버는 Enum <code>USER</code> 형태를 사용할 때
-                                              매핑이 어긋나면 인증 객체 생성 과정에서 예외가 발생할 수 있었습니다.
-                                          </li>
-                                          <li>
-                                              <h4>[기술적 해결] 권한 값 정규화 + 방어 로직</h4>
-                                              JWT 파싱 단계에서 Role 값을 서버 규칙에 맞게 정규화하고, 예외 케이스에서도 인증 흐름이 깨지지 않도록 방어 로직을 추가했습니다.
-                                          </li>
-                                      </ul>
-                                  </div>
+                              <br />
 
-                                  {/* 7 */}
-                                  <div>
-                    <span style={{ color: "#ED8936", fontWeight: "bold" }}>
-                      7) 인증(Authentication)과 로그인 상태(State) 분리
-                    </span>
-                                      <ul>
-                                          <li>
-                                              <h4>[기술적 판단]</h4>
-                                              인증은 보안 영역, 로그인 상태(표시/운영)는 UX/운영 영역이라 성격이 달라 두 책임을 분리했습니다.
-                                          </li>
-                                          <li>
-                                              <h4>[구현]</h4>
-                                              인증 로직은 Filter/SecurityContext 중심으로 유지하고, 상태 표시는 최소한의 이벤트(로그인/로그아웃) 기준으로 관리하여 결합도를 낮췄습니다.
-                                          </li>
-                                      </ul>
-                                  </div>
-                              </div>
+                              <p>
+                                  <span className="emphasis">4) 인증/권한 설계 (서버 중심 검증)</span>
+                              </p>
+                              <ul>
+                                  <li>
+                                      <h4>[핵심 포인트]</h4>
+                                      “보여주지 않는다”가 아니라 “서버에서 막는다”를 기준으로 설계했습니다.
+                                      다이어리/방명록/관리자 기능은 요청 단계에서 권한을 검증하고,
+                                      주인(Owner) / 방문자(Guest) / 관리자(Admin) 권한을 기능 단위로 분리해
+                                      데이터 접근을 제어했습니다.
+                                  </li>
+                                  <li>
+                                      <h4>[효과]</h4>
+                                      프론트에서 UI를 제한하더라도 우회 요청이 가능하므로,
+                                      서버에서 최종 권한 검증을 강제해 보안 일관성을 유지했습니다.
+                                  </li>
+                              </ul>
+
+                              <br />
+
+                              <p>
+                                  <span className="emphasis">5) 트랜잭션 관점의 데이터 무결성</span>
+                              </p>
+                              <ul>
+                                  <li>
+                                      <h4>[문제 상황]</h4>
+                                      회원 탈퇴/프로필 삭제/방명록 삭제처럼 연관 데이터가 있는 기능에서
+                                      “중간 실패”가 발생하면 데이터가 불완전하게 남을 수 있습니다.
+                                  </li>
+                                  <li>
+                                      <h4>[기술적 접근]</h4>
+                                      기능별로 삭제/수정 흐름을 정리하고, 실패 시 롤백이 가능하도록
+                                      서버 로직을 트랜잭션 관점으로 점검했습니다.
+                                      (특히 파일 삭제 + DB 업데이트처럼 이종 리소스가 같이 움직이는 케이스를 의식해서 처리 순서를 정리)
+                                  </li>
+                              </ul>
                           </AccordionPanel>
                       </AccordionItem>
                   </Accordion>
