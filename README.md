@@ -48,8 +48,8 @@ https://parkjaewook1.github.io/portfolio
 ## 🛠 Tech Stack
 - Frontend: React, JavaScript, CSS
 - Backend: Spring Boot, Spring Security, JWT
-- Database: MySQL
-- Deploy: GitHub Pages
+- Database: MariaDB
+- Deploy: Oracle Cloud + Vercel
 
 ## 📫 Contact
 - GitHub: https://github.com/parkjaewook1
