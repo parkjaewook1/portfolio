@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/portfolio/static/css/main.3bc7b0c0.css",
-    "main.js": "/portfolio/static/js/main.0bc2e233.js",
+    "main.js": "/portfolio/static/js/main.44daac4d.js",
     "static/media/diary-dashboard.png": "/portfolio/static/media/diary-dashboard.ab537f593d1a3ba18d62.png",
     "static/media/responsive-main.png": "/portfolio/static/media/responsive-main.09c63cfa696f0fe9b419.png",
     "static/media/jwplogo.png": "/portfolio/static/media/jwplogo.0cbb29490639e5bac4f7.png",
@@ -24,6 +24,7 @@
     "static/media/mypic.jpg": "/portfolio/static/media/mypic.ef6553ee55243546e3e0.jpg",
     "static/media/sign-up.png": "/portfolio/static/media/sign-up.4a20918d5598b33c6b70.png",
     "static/media/vercel-logo.png": "/portfolio/static/media/vercel-logo.be0e6790217944cd9849.png",
+    "static/media/architecture.png": "/portfolio/static/media/architecture.4b686454ddaa6fa35024.png",
     "static/media/login.png": "/portfolio/static/media/login.1792a4ef7695f5c9f2f4.png",
     "static/media/social-login.png": "/portfolio/static/media/social-login.54dda0671cc82cbb2c40.png",
     "static/media/member-update.png": "/portfolio/static/media/member-update.acecbadb9e7cf3de0fc1.png",
@@ -39,10 +40,10 @@
     "static/media/mariadb-logo.png": "/portfolio/static/media/mariadb-logo.c726bb5e1c978595566d.png",
     "index.html": "/portfolio/index.html",
     "main.3bc7b0c0.css.map": "/portfolio/static/css/main.3bc7b0c0.css.map",
-    "main.0bc2e233.js.map": "/portfolio/static/js/main.0bc2e233.js.map"
+    "main.44daac4d.js.map": "/portfolio/static/js/main.44daac4d.js.map"
   },
   "entrypoints": [
     "static/css/main.3bc7b0c0.css",
-    "static/js/main.0bc2e233.js"
+    "static/js/main.44daac4d.js"
   ]
 }
