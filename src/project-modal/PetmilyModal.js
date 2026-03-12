@@ -27,6 +27,7 @@ import {
     AccordionIcon,
     Box,
 } from "@chakra-ui/react";
+import architecture from "./task-img/architecture.png";
 
 export function PetmilyModal() {
     return (
@@ -38,9 +39,9 @@ export function PetmilyModal() {
                   다이어리·방명록 중심 기능을 구현한 웹 서비스
               </p>
 
-              <br />
-              <hr />
-              <br />
+              <br/>
+              <hr/>
+              <br/>
 
               <h2 className="modal-info-heading">Overview</h2>
               <p className="modal-info-content">
@@ -53,12 +54,12 @@ export function PetmilyModal() {
                   애플리케이션의 필요성을 느꼈으며, 이에 프로젝트의 개발을 시작했습니다.
               </p>
 
-              <br />
-              <hr />
-              <br />
+              <br/>
+              <hr/>
+              <br/>
 
               <h2 className="modal-info-heading">Project Goals</h2>
-              <br />
+              <br/>
 
               <h4>반려동물 정보 공유 플랫폼 구축</h4>
               <p className="modal-info-content">
@@ -83,9 +84,9 @@ export function PetmilyModal() {
                   직관적인 UI/UX 제공
               </p>
 
-              <br />
-              <hr />
-              <br />
+              <br/>
+              <hr/>
+              <br/>
 
               <h2 className="modal-info-heading">Skills</h2>
               <div className="modal-info-skills">
@@ -104,13 +105,31 @@ export function PetmilyModal() {
                   <h4>Deployment:</h4>
                   <p>Oracle Cloud Infrastructure, Vercel, AWS (Experience)</p>
               </div>
+              <br/>
+              <hr/>
+              <br/>
 
-              <br />
-              <hr />
-              <br />
+              <h2 className="modal-info-heading">Architecture</h2>
+              <p className="modal-info-content">
+                  Spring Security 필터 체인 기반으로 인증 흐름을 설계했습니다.<br/>
+                  로그인(토큰 발급) / 요청 검증 / 로그아웃(무효화)을 각각 독립된 필터로 분리하여
+                  책임을 명확히 구분했습니다.
+              </p>
+              <br/>
+              <Image
+                src={architecture}
+                alt="Petmily 아키텍처 다이어그램"
+                w={"400px"}
+                display={"block"}
+                mx={"auto"}
+              />
+              <br/>
+              <hr/>
+              <br/>
+
 
               <h2 className="modal-info-heading">Repository & Deployment URL</h2>
-              <br />
+              <br/>
 
               <h4>Github</h4>
               <div className="modal-info-content">
@@ -122,7 +141,7 @@ export function PetmilyModal() {
                   >
                       https://github.com/parkjaewook1/PetMilyProject.git
                   </a>
-                  <br />
+                  <br/>
               </div>
 
               <h4>Deployment URL</h4>
@@ -135,7 +154,7 @@ export function PetmilyModal() {
                   >
                       https://pet-mily-project.vercel.app/
                   </a>
-                  <br />
+                  <br/>
                   PPT:{" "}
                   <a
                     href="https://jaewookpark.my.canva.site/petmily-ppt"
@@ -146,9 +165,9 @@ export function PetmilyModal() {
                   </a>
               </div>
 
-              <br />
-              <hr />
-              <br />
+              <br/>
+              <hr/>
+              <br/>
 
               <h2 className="modal-info-heading">My Tasks in Project</h2>
           </div>
@@ -158,7 +177,7 @@ export function PetmilyModal() {
               <div className="project-task">
                   <h3>1. 로그인</h3>
                   <div className="project-task-box">
-                      <Image className="project-task-images" src={login} />
+                      <Image className="project-task-images" src={login}/>
                   </div>
 
                   <h3>상세 설명</h3>

@@ -230,7 +230,7 @@ function App(props) {
                   <Image className="home-image" src={homePic} alt=""/>
               </div>
               <div className="home-content">
-                  <h3 className={"home-content-fullstack"}>Full<span>-</span>Stack Developer</h3>
+                  <h3 className={"home-content-fullstack"}>Backend<span>-</span>Focused Developer</h3>
                   <h1>
                       박재욱 <span>입니다.</span>
                   </h1>
@@ -239,17 +239,18 @@ function App(props) {
                   </h3>
                   <br/>
                   <p>
-                      복잡한 문제를 풀어가는 과정에서 얻게 되는 새로운 통찰은
+                      기능이 돌아가는 것보다, 왜 그렇게 동작하는지를
                   </p>
-                  <p>저에게 끝없는 호기심과 도전 의식을 불러일으킵니다.{" "}
+                  <p>
+                      설명할 수 있는 코드를 짜고 싶어서 다시 공부했습니다.
                   </p>
 
                   <br/>
                   <p>
-                      저는 그 호기심을 창의적인 아이디어로 발전시켜,
+                      Spring Boot · Spring Security · JWT 기반 인증 설계,
                   </p>
                   <p>
-                      팀에는 신선한 관점을, 프로젝트에는 지속 가능한 성과를 더하겠습니다.
+                      Oracle Cloud 배포까지 직접 경험한 백엔드 개발자입니다.
                   </p>
                   <br/>
                   <br/>
@@ -283,25 +284,26 @@ function App(props) {
                   <h2 className="heading">
                       About <span>Me</span>
                   </h2>
-                  <h3>Full<span>-</span>Stack Developer</h3>
+                  <h3>Backend<span>-</span>Focused Developer</h3>
                   <p className="about-quotes">
-                      변화의 순간마다 주변에 긍정적인 에너지를 전하고,
+                      Spring Boot 기반 백엔드 개발을 중심으로,
                   </p>
                   <p>
-                      서로의 잠재력을 끌어올리는 연결고리가 되겠습니다.
-                  </p>
-                  <br/>
-                  <p>회사의 목표와 제 역량이 맞물려 더 큰 시너지를 만들고,
-                  </p>
-                  <p>
-                      그 과정에서 조직과 저, 모두가 한 단계 더 도약하는 경험을 쌓겠습니다.
+                      인증/권한 설계와 API 구조에 집중합니다.
                   </p>
                   <br/>
                   <p>
-                      단순한 구성원이 아니라,
+                      기능이 동작하는 것만큼,
                   </p>
                   <p>
-                      변화를 가속하고 성장을 확산시키는 동반자로서 나아가겠습니다.
+                      왜 그렇게 동작하는지 설명할 수 있는 코드를 지향합니다.
+                  </p>
+                  <br/>
+                  <p>
+                      팀 프로젝트 이후 혼자 전면 리팩토링하며
+                  </p>
+                  <p>
+                      설계의 이유를 직접 고민한 개발자입니다.
                   </p>
                   <br/>
                   <br/>
@@ -591,7 +593,6 @@ function App(props) {
                   <br/>
                   <br/>
                   <h3>이름:박재욱</h3>
-                  <h3>연락처:010-7101-3624</h3>
                   <h3>이메일:wodnr5050@gmail.com </h3>
               </div>
               <div className="footer-iconTop">
