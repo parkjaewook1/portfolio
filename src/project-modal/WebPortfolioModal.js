@@ -7,7 +7,7 @@ export function WebPortfolioModal() {
         <h2 className="modal-info-heading">Summary</h2>
         <p className="modal-info-content">
           백엔드 중심 개발자 박재욱의 취업용 포트폴리오 사이트입니다.<br/><br/>
-          React + Vite 기반으로 제작했으며, 대표 프로젝트 Petmily를 중심으로
+          React + Create React App(react-scripts) 기반으로 제작했으며, 대표 프로젝트 Petmily를 중심으로
           기술 스택, 담당 역할, 트러블슈팅 경험을 정리했습니다.<br/><br/>
           단순한 소개 페이지를 넘어, 왜 이렇게 설계했는지 설명할 수 있는
           개발자임을 보여주기 위해 직접 기획하고 구현했습니다.

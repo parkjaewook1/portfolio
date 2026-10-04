@@ -247,7 +247,7 @@ function App(props) {
 
                   <br/>
                   <p>
-                      Spring Boot · Spring Security · JWT 기반 인증 설계,
+                      Spring Boot · Spring Security · JWT 기반 인증 흐름을 검토하고,
                   </p>
                   <p>
                       Oracle Cloud 배포까지 직접 경험한 백엔드 개발자입니다.
@@ -300,10 +300,10 @@ function App(props) {
                   </p>
                   <br/>
                   <p>
-                      팀 프로젝트 이후 혼자 전면 리팩토링하며
+                      팀 프로젝트 종료 후 인증 흐름, 배포 설정, 다이어리 기능을 중심으로
                   </p>
                   <p>
-                      설계의 이유를 직접 고민한 개발자입니다.
+                      개인 리팩토링을 진행했습니다.
                   </p>
                   <br/>
                   <br/>
