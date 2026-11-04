@@ -395,3 +395,79 @@
     transform: rotate(8deg) scale(1.08);
     opacity: 1;
 }
+
+/* Petmily content: retain the existing palette and type scale. */
+.petmily-detail > section {
+    min-height: 0;
+}
+.petmily-detail .modal-info-tasks {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+.petmily-detail .petmily-accordion-button {
+    color: var(--text-color);
+}
+.petmily-detail .petmily-accordion-panel a {
+    color: #77C5F2 !important;
+}
+.petmily-detail .petmily-accordion-button:hover,
+.petmily-detail .petmily-accordion-button[aria-expanded="true"] {
+    transform: translateY(-2px);
+}
+
+.petmily-detail .modal-info-heading {
+    overflow-wrap: anywhere;
+    margin-bottom: 1.2rem;
+}
+.petmily-detail .modal-info-content,
+.petmily-refactoring-content {
+    line-height: 1.75;
+    overflow-wrap: anywhere;
+}
+.petmily-detail .petmily-list {
+    padding-left: 3rem;
+}
+.petmily-detail .petmily-list li + li {
+    margin-top: 0.6rem;
+}
+.petmily-documentation {
+    border-block: 1px solid rgba(255,255,255,0.12);
+}
+.petmily-refactoring-content {
+    font-size: 1.5rem;
+    padding: 1rem;
+}
+.petmily-refactoring-content dt {
+    font-weight: 700;
+    margin-top: 1.2rem;
+}
+.petmily-refactoring-content dd {
+    margin: 0.4rem 0 1rem;
+}
+.petmily-detail .modal-info-skills {
+    flex-wrap: wrap;
+    gap: 0.4rem 1rem;
+    margin-bottom: 0.8rem;
+}
+.petmily-detail a:focus-visible,
+.petmily-detail button:focus-visible {
+    outline: 2px solid #77C5F2;
+    outline-offset: 4px;
+    border-radius: 0.3rem;
+}
+@media (max-width: 600px) {
+    .petmily-detail .modal-info,
+    .petmily-detail .modal-info-tasks {
+        padding: 1.6rem 0.5rem;
+    }
+    .petmily-detail .petmily-list,
+    .petmily-detail .project-task ul {
+        padding-left: 1.8rem;
+    }
+    .petmily-detail .modal-info-skills h4 {
+        padding-left: 0;
+    }
+    .petmily-detail .petmily-accordion-title {
+        font-size: 1.7rem;
+    }
+}

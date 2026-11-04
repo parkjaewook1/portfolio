@@ -1,0 +1,41 @@
+import React, { act } from "react";
+import { render, screen, within, waitFor } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
+import { ChakraProvider, Modal, ModalOverlay, ModalContent, ModalBody, ModalCloseButton, useDisclosure } from "@chakra-ui/react";
+import { PetmilyModal } from "./PetmilyModal";
+
+function Preview() {
+    const { isOpen, onOpen, onClose } = useDisclosure();
+    return <ChakraProvider>
+        <button onClick={onOpen}>Petmily 열기</button>
+        <Modal isOpen={isOpen} onClose={onClose}>
+            <ModalOverlay />
+            <ModalContent aria-label="Petmily 상세">
+                <ModalCloseButton aria-label="상세 닫기" />
+                <ModalBody><PetmilyModal /></ModalBody>
+            </ModalContent>
+        </Modal>
+    </ChakraProvider>;
+}
+
+test("Petmily opens, exposes evidence and preserved screenshots, expands by keyboard and closes", async () => {
+    const user = userEvent;
+    render(<Preview />);
+    await act(async () => { user.click(screen.getByRole("button", { name: "Petmily 열기" })); });
+    const dialog = screen.getByRole("dialog", { name: "Petmily 상세" });
+    const content = within(dialog);
+    expect(content.getByRole("heading", { name: "My Contribution" })).toBeTruthy();
+    const documentation = content.getByRole("link", { name: "Petmily 기술문서 읽기 (GitHub · 새 탭)" });
+    expect(documentation.getAttribute("href")).toMatch(/docs\/PETMILY_TECHNICAL_DOCUMENTATION.md$/);
+    expect(content.getByRole("link", { name: /소스코드 저장소/ }).getAttribute("href")).not.toEqual(documentation.getAttribute("href"));
+    expect(content.getAllByRole("img")).toHaveLength(10);
+    expect(content.getByText(/초기 Refresh Token Rotation·DB 처리 기반은 팀/)).toBeTruthy();
+    const axios = content.getByRole("button", { name: "Axios 재발급·재요청 처리" });
+    expect(axios.getAttribute("aria-expanded")).toBe("false");
+    await act(async () => { axios.focus(); user.keyboard("{Enter}"); });
+    expect(axios.getAttribute("aria-expanded")).toBe("true");
+    expect(content.getByText(/로컬 Git ea96053/)).toBeTruthy();
+    await act(async () => { user.keyboard("{Escape}"); });
+    await waitFor(() => expect(screen.queryByRole("dialog")).toBeNull());
+    expect(document.activeElement).toBe(screen.getByRole("button", { name: "Petmily 열기" }));
+});

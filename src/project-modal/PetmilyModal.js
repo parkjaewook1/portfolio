@@ -21,185 +21,147 @@ import {
     Box,
 } from "@chakra-ui/react";
 
+const documentationUrl = "https://github.com/parkjaewook1/PetMilyProject/blob/master/docs/PETMILY_TECHNICAL_DOCUMENTATION.md";
+
+const refactoringCases = [
+    {
+        title: "JWT Role 값 변환",
+        before: "JWT는 ROLE_USER / ROLE_ADMIN, 애플리케이션 Enum은 USER / ADMIN을 사용하지만 기존 JWTFilter는 문자열을 바로 Enum으로 변환했습니다.",
+        change: "ROLE_ 접두사를 제거한 뒤 Role Enum으로 변환하도록 수정했습니다.",
+        reason: "Spring Security 권한 문자열과 도메인 Enum 사이의 표현 차이를 처리하기 위해서입니다.",
+        evidence: "로컬 Git b731a19 · backend/src/main/java/com/backend/security/JWTFilter.java · domain/member/Role.java",
+        limitation: "정상·비정상 권한 값의 인증 응답과 API별 권한 정책은 추가 검증 과제입니다.",
+        section: "6-권한-값과-인증-사용자-정보",
+    },
+    {
+        title: "Axios 재발급·재요청 처리",
+        before: "전역 Axios 기본 설정과 응답 인터셉터를 사용하고, 재발급 후 원 요청도 전역 Axios로 재시도했습니다.",
+        change: "axiosInstance에 요청·응답 인터셉터를 연결해 매 요청마다 토큰을 읽도록 바꿨습니다. 재발급 요청은 별도 Axios 호출로 보내고, 원 요청은 axiosInstance로 재시도합니다.",
+        reason: "원 요청을 재시도할 때도 같은 인스턴스 설정을 유지하고, 재발급 요청에는 해당 응답 인터셉터가 적용되지 않도록 나눴습니다.",
+        evidence: "로컬 Git ea96053 · frontend/src/api/axiosConfig.js",
+        limitation: "동시 401 처리, LoginProvider와의 토큰 상태 일관성, 실제 브라우저 재발급 흐름은 추가 검증이 필요합니다. _retry는 요청별 재시도 제한입니다.",
+        section: "10-axios-및-프론트백엔드-연동",
+    },
+    {
+        title: "이미지 저장 방식 변경",
+        before: "과거 Git 코드에서 AWS S3 연동과 Azure Blob 업로드·삭제 구현을 확인했습니다. 실제 운영 사용 여부와 데이터 이전 완료 여부는 이 코드만으로 확인할 수 없습니다.",
+        change: "현재 프로필·배너 관련 코드는 Oracle Cloud VM의 로컬 파일 저장과 /uploads 정적 리소스 제공 방식입니다. Vercel은 프론트엔드와 API·이미지 요청 rewrite를 담당합니다.",
+        reason: "외부 저장소의 관리 비용과 구성을 검토한 뒤 로컬 파일 저장으로 바꿨습니다. 비용·성능 변화는 측정하지 않았습니다.",
+        evidence: "로컬 Git 9d4de1b · 5ca46f2 · cb26b24 / backend/src/main/java/com/backend/service/member/MemberService.java · config/WebConfig.java / frontend/vercel.json",
+        limitation: "Oracle Object Storage 사용 경험은 있지만, 코드 이력만으로 전체 스토리지 사용 순서를 확인하지는 못했습니다. 운영 환경의 업로드 경로와 파일 보존·백업 정책도 추가 확인이 필요합니다.",
+        section: "11-배포-및-이미지-저장-구조-변화",
+    },
+];
+
 export function PetmilyModal() {
     return (
-      <>
-          <div className="modal-info">
-              <h2 className="modal-info-heading">Summary</h2>
-              <h4>프로젝트 성격</h4>
+      <div className="petmily-detail">
+          <section className="modal-info" aria-labelledby="petmily-overview">
+              <h2 id="petmily-overview" className="modal-info-heading">Project Overview</h2>
               <p className="modal-info-content">
-                  반려동물·반려인을 위한 커뮤니티 “Petmily” — 다이어리·방명록 기능을 포함한 웹 서비스
+                  Petmily는 반려동물과 반려인을 위한 커뮤니티 서비스입니다.
+                  게시판에서 정보를 나누고, 개인 미니홈피의 다이어리와 방명록에 기록을 남기며 소통할 수 있습니다.
               </p>
+              <h4>Project Goals</h4>
+              <ul className="modal-info-content petmily-list">
+                  <li>반려동물 관련 정보 공유 및 커뮤니티</li>
+                  <li>사용자별 미니홈피 다이어리와 방명록</li>
+                  <li>PC·모바일에서 사용할 수 있는 반응형 UI</li>
+              </ul>
+          </section>
 
-              <h4>프로젝트 형태</h4>
-              <p className="modal-info-content">5인 팀 프로젝트</p>
-
-              <h4>팀 프로젝트 당시 담당</h4>
+          <section className="modal-info" aria-labelledby="petmily-contribution">
+              <h2 id="petmily-contribution" className="modal-info-heading">My Contribution</h2>
+              <h4>2024년 팀 프로젝트 · 5인</h4>
+              <p className="modal-info-content">미니홈피 다이어리 기능을 담당했습니다.</p>
+              <ul className="modal-info-content petmily-list">
+                  <li>일기 CRUD 및 캘린더 연동</li>
+                  <li>방명록과 계층형 답글</li>
+                  <li>Spring Boot API 구현 및 React 연결</li>
+              </ul>
+              <h4>프로젝트 종료 후 개인 리팩토링</h4>
+              <ul className="modal-info-content petmily-list">
+                  <li>기존 Spring Security 인증 흐름 분석, JWT Role 값 변환 등 일부 코드 수정</li>
+                  <li>Access/Refresh Token 관리 흐름 점검, Axios 인증 요청·재발급 처리 수정</li>
+                  <li>방명록 조회 SQL에 memberId·diaryId alias 추가</li>
+                  <li>배포 연결 및 이미지 저장 구조 변경</li>
+              </ul>
               <p className="modal-info-content">
-                  미니홈피 다이어리 기능
+                  로그인 필터, JWT 및 초기 Refresh Token Rotation·DB 처리 기반은 팀의 기존 구현입니다.
+                  프로젝트 종료 후에는 이 코드를 분석하고 필요한 부분을 수정했습니다.
               </p>
+          </section>
 
-              <h4>프로젝트 종료 후</h4>
+          <section className="modal-info petmily-documentation" aria-labelledby="petmily-documentation">
+              <h2 id="petmily-documentation" className="modal-info-heading">Technical Documentation</h2>
               <p className="modal-info-content">
-                  기존 인증 흐름, 토큰 처리, 배포 연결, 다이어리 기능을 중심으로 개인 리팩토링을 진행했습니다.
+                  소스코드와 Git 변경 이력을 확인하며 인증·토큰 처리, 다이어리 데이터 구조,
+                  배포 구성과 개인 리팩토링 내용을 정리했습니다.
               </p>
+              <p className="modal-info-content">
+                  <a href={documentationUrl} target="_blank" rel="noopener noreferrer">
+                      Petmily 기술문서 읽기 (GitHub · 새 탭)
+                  </a>
+              </p>
+              <p className="modal-info-content">
+                  2026-11-05에 소스코드와 Git 이력을 확인해 작성했습니다. Petmily 운영 서버와 브라우저 연동 테스트는 포함하지 않았습니다.
+              </p>
+          </section>
 
-              <br/>
-              <hr/>
-              <br/>
-
-          </div>
-
-          <div className="modal-info-tasks">
-              <div className="project-task">
-                  <Accordion allowToggle defaultIndex={0}>
-                      <AccordionItem border="none">
-                          <h2>
+          <section className="modal-info-tasks" aria-labelledby="petmily-refactoring">
+              <h2 id="petmily-refactoring" className="modal-info-heading">Key Technical Decisions / Refactoring</h2>
+              <p className="modal-info-content">프로젝트 종료 후 수정한 코드입니다. 각 항목에 변경 이유, 코드 근거와 추가로 확인할 내용을 정리했습니다.</p>
+              <Accordion allowMultiple defaultIndex={[0]}>
+                  {refactoringCases.map((item) => (
+                      <AccordionItem key={item.title} border="none" mb={3}>
+                          <h3>
                               <AccordionButton className="petmily-accordion-button">
-                                  <Box flex="1" textAlign="left" className="petmily-accordion-title">
-                                      개인 리팩토링 주요 내용
-                                  </Box>
+                                  <Box flex="1" textAlign="left" className="petmily-accordion-title">{item.title}</Box>
                                   <AccordionIcon />
                               </AccordionButton>
-                          </h2>
-
+                          </h3>
                           <AccordionPanel className="petmily-accordion-panel">
-                              <br />
-                              <div className="petmily-troubleshooting">
-                                  <p>
-                                      <span>1) Refresh Token DB 관리와 기본 Rotation</span><br/>
-                                      MyBatis로 refresh_token 테이블에 Refresh Token을 저장합니다. 재발급 시 만료·토큰 종류·DB 존재 여부를 확인하고, 기존 Refresh Token을 삭제한 뒤 새 토큰을 저장합니다. 로그아웃 시에는 해당 Refresh Token과 쿠키를 삭제해 이후 재발급을 제한합니다.
-                                  </p>
-                                  <p>
-                                      <span>2) 로그인과 API 요청 인증 흐름</span><br/>
-                                      CustomLoginFilter는 AuthenticationManager로 로그인 인증을 처리합니다. 이후 API 요청은 JWTFilter에서 Access Token을 검증하고 SecurityContext에 인증 객체를 등록합니다.
-                                  </p>
-                                  <p>
-                                      <span>3) 권한 값 변환</span><br/>
-                                      JWTFilter에서 ROLE_USER / ROLE_ADMIN의 접두사를 제거해 USER / ADMIN Enum으로 변환합니다.
-                                  </p>
-                                  <p>
-                                      <span>4) 다이어리 방명록의 계층형 댓글</span><br/>
-                                      replyCommentId로 부모 댓글을 참조합니다. 서버는 부모 댓글의 존재와 동일 다이어리 여부를 확인합니다. 프론트는 자식 댓글을 찾아 DiaryCommentItem을 재귀 렌더링하며 더보기/접기를 제공합니다.
-                                  </p>
-                                  <p>
-                                      <span>5) 배포 경로와 인증 요청 연결</span><br/>
-                                      Vercel rewrite로 /api/**와 /uploads/**는 백엔드에, 나머지 경로는 /index.html에 연결합니다. Axios는 상대 URL과 Bearer 헤더를 사용합니다. 401 응답 시 토큰 재발급을 요청하고 새 토큰을 저장한 뒤 원 요청을 재시도합니다.
-                                  </p>
-                              </div>
+                              <dl className="petmily-refactoring-content">
+                                  <dt>Before · 기존 구조 또는 문제</dt><dd>{item.before}</dd>
+                                  <dt>After · 변경 내용</dt><dd>{item.change}</dd>
+                                  <dt>기술적 이유</dt><dd>{item.reason}</dd>
+                                  <dt>코드 근거</dt><dd>{item.evidence}</dd>
+                                  <dt>아직 남은 제약</dt><dd>{item.limitation}</dd>
+                              </dl>
+                              <p className="modal-info-content">
+                                  <a href={`${documentationUrl}#${item.section}`} target="_blank" rel="noopener noreferrer">
+                                      {item.title} 상세 근거 (기술문서 · 새 탭)
+                                  </a>
+                              </p>
                           </AccordionPanel>
                       </AccordionItem>
-                  </Accordion>
-              </div>
-          </div>
+                  ))}
+              </Accordion>
+          </section>
+
+          <section className="modal-info" aria-labelledby="petmily-stack">
+              <h2 id="petmily-stack" className="modal-info-heading">Technology Stack</h2>
+              <div className="modal-info-skills"><h4>Frontend:</h4><p>HTML, CSS, JavaScript, React, Vite, Axios, Chakra UI</p></div>
+              <div className="modal-info-skills"><h4>Backend:</h4><p>Java, Spring Boot, Spring Security, JWT, MyBatis</p></div>
+              <div className="modal-info-skills"><h4>Database:</h4><p>MariaDB</p></div>
+              <div className="modal-info-skills"><h4>Deployment:</h4><p>Oracle Cloud VM (백엔드·로컬 이미지), Vercel (프론트엔드·rewrite)</p></div>
+          </section>
+
+          <section className="modal-info" aria-labelledby="petmily-architecture">
+              <h2 id="petmily-architecture" className="modal-info-heading">Architecture</h2>
+              <p className="modal-info-content">
+                  React → Axios → Vercel rewrite → Spring Security → Controller / Service → MyBatis → MariaDB.
+                  이미지 요청은 백엔드의 로컬 파일 정적 리소스로 연결하도록 구성되어 있습니다.
+              </p>
+              <p className="modal-info-content">
+                  팀에서 구현한 인증 구조는 로그인 시 AuthenticationManager, 일반 API 요청 시 JWTFilter와 SecurityContext를 사용합니다.
+                  Refresh Token은 DB 확인 후 교체하는 기본 Rotation 구조입니다. 실행 환경에서 적용되는 보안 체인과 동시 재발급 처리는 추가 확인이 필요합니다.
+              </p>
+          </section>
 
           <div className="modal-info">
-              <br/>
-              <hr/>
-              <br/>
-
-              <h2 className="modal-info-heading">Overview</h2>
-              <p className="modal-info-content">
-                  Petmily는 반려인을 위한 커뮤니티 서비스입니다.
-                  게시판과 사용자별 미니홈피 다이어리를 통해 개인 기록을 남기고 사용자 간 소통을 할 수 있습니다.
-              </p>
-
-              <br/>
-              <hr/>
-              <br/>
-
-              <h2 className="modal-info-heading">Project Goals</h2>
-              <br/>
-
-              <p className="modal-info-content">
-                  <span className="emphasis">*</span>반려동물 관련 정보 공유 및 커뮤니티
-              </p>
-              <p className="modal-info-content">
-                  <span className="emphasis">*</span>사용자별 미니홈피 다이어리와 방명록
-              </p>
-              <p className="modal-info-content">
-                  <span className="emphasis">*</span>PC·모바일에서 사용할 수 있는 반응형 UI
-              </p>
-
-              <br/>
-              <hr/>
-              <br/>
-
-              <h2 className="modal-info-heading">Skills</h2>
-              <div className="modal-info-skills">
-                  <h4>Frontend:</h4>
-                  <p>HTML, CSS, JavaScript, React, Vite, Axios, ChakraUI</p>
-              </div>
-              <div className="modal-info-skills">
-                  <h4>Backend:</h4>
-                  <p>Java, Spring Boot, Spring Security, JWT, MyBatis</p>
-              </div>
-              <div className="modal-info-skills">
-                  <h4>Database:</h4>
-                  <p>MariaDB</p>
-              </div>
-              <div className="modal-info-skills">
-                  <h4>Deployment:</h4>
-                  <p>Oracle Cloud Infrastructure, Vercel</p>
-              </div>
-              <br/>
-              <hr/>
-              <br/>
-
-              <h2 className="modal-info-heading">Architecture</h2>
-              <p className="modal-info-content">
-                  Security Filter Chain에서 로그인, Access Token 검증, 로그아웃 요청을 각각 처리합니다.
-              </p>
-              <br/>
-              <hr/>
-              <br/>
-
-
-              <h2 className="modal-info-heading">Repository & Deployment URL</h2>
-              <br/>
-
-              <h4>Github</h4>
-              <div className="modal-info-content">
-                  Project:{" "}
-                  <a
-                    href="https://github.com/parkjaewook1/PetMilyProject.git"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                      https://github.com/parkjaewook1/PetMilyProject.git
-                  </a>
-                  <br/>
-              </div>
-
-              <h4>Deployment URL</h4>
-              <div className="modal-info-content">
-                  URL:{" "}
-                  <a
-                    href="https://pet-mily-project.vercel.app/"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                      https://pet-mily-project.vercel.app/
-                  </a>
-                  <br/>
-                  PPT:{" "}
-                  <a
-                    href="https://jaewookpark.my.canva.site/petmily-ppt"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                      https://jaewookpark.my.canva.site/petmily-ppt
-                  </a>
-              </div>
-
-              <br/>
-              <hr/>
-              <br/>
-
-              <h2 className="modal-info-heading">팀 프로젝트 당시 담당</h2>
-              <p className="modal-info-content">
-                  미니홈피 다이어리의 현재 기능과 화면입니다. 프로젝트 종료 후 개인 수정 사항도 반영되어 있습니다.
-              </p>
+              <h2 className="modal-info-heading">Screenshots · 미니홈피 다이어리</h2>
+              <p className="modal-info-content">담당 기능의 현재 화면입니다. 프로젝트 종료 후 개인 수정 사항도 반영되어 있습니다.</p>
           </div>
 
           <div className="modal-info-tasks">
@@ -294,6 +256,14 @@ export function PetmilyModal() {
               </div>
           </div>
 
-      </>
+          <section className="modal-info" aria-labelledby="petmily-links">
+              <h2 id="petmily-links" className="modal-info-heading">GitHub / Project Links</h2>
+              <ul className="modal-info-content petmily-list">
+                  <li><a href="https://github.com/parkjaewook1/PetMilyProject" target="_blank" rel="noopener noreferrer">Petmily 소스코드 저장소 (GitHub · 새 탭)</a></li>
+                  <li><a href="https://pet-mily-project.vercel.app/" target="_blank" rel="noopener noreferrer">Petmily 서비스 (Vercel · 새 탭)</a></li>
+                  <li><a href="https://jaewookpark.my.canva.site/petmily-ppt" target="_blank" rel="noopener noreferrer">Petmily 프로젝트 발표 자료 (새 탭)</a></li>
+              </ul>
+          </section>
+      </div>
     );
 }
