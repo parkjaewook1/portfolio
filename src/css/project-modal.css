@@ -471,3 +471,65 @@
         font-size: 1.7rem;
     }
 }
+
+/* Only Petmily's replacement screenshots: preserve aspect ratio and other projects. */
+.petmily-detail .petmily-shot {
+    min-width: 0;
+    margin: 1.6rem 0 2.8rem;
+}
+.petmily-detail .petmily-shot img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    max-height: none;
+    object-fit: contain;
+    border: 1px solid rgba(255,255,255,0.14);
+    border-radius: 0.4rem;
+}
+.petmily-detail .petmily-shot figcaption {
+    margin-top: 0.8rem;
+    font-size: 1.3rem;
+    line-height: 1.65;
+    color: var(--text-color);
+    overflow-wrap: anywhere;
+}
+.petmily-detail .petmily-shot-mobile {
+    width: min(100%, 390px);
+    margin-inline: auto;
+}
+.petmily-detail .petmily-screen-group {
+    margin-top: 3rem;
+}
+.petmily-detail .petmily-screen-group h3 {
+    font-size: 2rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+}
+
+/* Petmily backend evidence only; existing UI screenshots keep their styles. */
+.petmily-detail .petmily-tech-number {
+    color: #e5d4ec;
+    font-size: 1.3rem;
+    margin-right: 1.2rem;
+    flex-shrink: 0;
+}
+.petmily-detail .petmily-tech-button { min-height: 5rem; }
+.petmily-detail .petmily-tech-panel { padding: 1.2rem 0 2rem; }
+.petmily-detail .petmily-tech-figure { margin: 0; min-width: 0; }
+.petmily-detail .petmily-tech-figure picture { display: block; }
+.petmily-detail .petmily-tech-figure img {
+    width: 100%; max-width: 100%; height: auto; display: block;
+    border-radius: 0.4rem; background: #faf8f4;
+}
+.petmily-detail .petmily-tech-figure figcaption,
+.petmily-detail .petmily-tech-evidence,
+.petmily-detail .petmily-tech-limit {
+    font-size: 1.3rem; line-height: 1.75; margin-top: 1rem;
+    color: var(--text-color); overflow-wrap: anywhere;
+}
+.petmily-detail .petmily-tech-explanation { padding: 0; }
+.petmily-detail .petmily-tech-explanation dt { color: #e5d4ec; }
+.petmily-detail .petmily-existing-decisions {
+    font-size: 1.7rem; line-height: 1.5; margin: 2rem 0 1rem;
+}

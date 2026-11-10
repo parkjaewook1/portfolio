@@ -22,7 +22,7 @@ import htmlLogo from "./img/html-logo.png";
 import cssLogo from "./img/css-logo.png";
 import jsLogo from "./img/js-logo.png";
 import reactLogo from "./img/react-logo.png";
-import project1 from "./img/project1.png";
+import project1 from "./project-modal/task-img/petmily-latest/main-1440.png";
 import viteLogo from "./img/vite-js-logo.png";
 import dockerLogo from "./img/docker-logo.png";
 import javaLogo from "./img/java-logo.png";
@@ -471,7 +471,7 @@ function App(props) {
                             bg={""}
                           >
                               <ModalOverlay/>
-                              <ModalContent p={0}>
+                              <ModalContent p={0} w="calc(100% - 24px)" maxW="1100px">
                                   <ModalHeader bg={"#1f242d"}>
                                       <div className="modal-header">Petmily</div>
                                   </ModalHeader>

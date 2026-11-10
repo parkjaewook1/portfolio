@@ -1,15 +1,19 @@
 import React from "react";
-import diaryDashboard from "./task-img/diary-dashboard.png";
-import diaryList from "./task-img/diary-list.png";
-import diaryWrite from "./task-img/diary-write.png";
-import diaryEdit from "./task-img/diary-edit.png";
-import diaryCalendar from "./task-img/diary-calendar.png";
-import diaryGuestbook from "./task-img/diary-guestbook.png";
-
-import responsiveMain from "./task-img/responsive-main.png";
-import responsiveDiary from "./task-img/responsive-list.png";
-import responsiveGuestbook from "./task-img/responsive-guestbook.png";
-import responsiveCalendar from "./task-img/responsive-calendar.png";
+import { backendCases } from "./PetmilyBackendContent";
+import mainPC from "./task-img/petmily-latest/main-1440.png";
+import miniPC from "./task-img/petmily-latest/mini-1440.png";
+import miniMobile from "./task-img/petmily-latest/mini-390.png";
+import diaryPC from "./task-img/petmily-latest/diary-1440.png";
+import diaryWritePC from "./task-img/petmily-latest/diary-write-1440.png";
+import diaryEditPC from "./task-img/petmily-latest/diary-edit-1440.png";
+import calendarPC from "./task-img/petmily-latest/calendar-1440.png";
+import calendarMobile from "./task-img/petmily-latest/calendar-390.png";
+import guestbookPC from "./task-img/petmily-latest/guestbook-1440.png";
+import guestbookMobile from "./task-img/petmily-latest/guestbook-390.png";
+import boardPC from "./task-img/petmily-latest/board-1440.png";
+import boardDetailPC from "./task-img/petmily-latest/board-detail-1440.png";
+import diaryDetailPC from "./task-img/petmily-latest/diary-detail-1440.png";
+import loginPC from "./task-img/petmily-latest/member-login-1440.png";
 
 import {
     Image,
@@ -56,6 +60,10 @@ const refactoringCases = [
 export function PetmilyModal() {
     return (
       <div className="petmily-detail">
+          <figure className="petmily-shot petmily-shot-hero">
+              <Image src={mainPC} alt="Petmily 메인 PC — Modern Pet Journal" />
+              <figcaption>최신 메인 화면 · 기존 Petmily 로고와 Modern Pet Journal 디자인</figcaption>
+          </figure>
           <section className="modal-info" aria-labelledby="petmily-overview">
               <h2 id="petmily-overview" className="modal-info-heading">Project Overview</h2>
               <p className="modal-info-content">
@@ -85,6 +93,7 @@ export function PetmilyModal() {
                   <li>Access/Refresh Token 관리 흐름 점검, Axios 인증 요청·재발급 처리 수정</li>
                   <li>방명록 조회 SQL에 memberId·diaryId alias 추가</li>
                   <li>배포 연결 및 이미지 저장 구조 변경</li>
+                  <li>후속 개인 개선: 관리자 현재 DB Role 확인, 회원 DTO·SQL 프로젝션 분리, 선택적 비밀번호 수정의 해시 보존 및 격리 회귀 검증</li>
               </ul>
               <p className="modal-info-content">
                   로그인 필터, JWT 및 초기 Refresh Token Rotation·DB 처리 기반은 팀의 기존 구현입니다.
@@ -108,11 +117,46 @@ export function PetmilyModal() {
               </p>
           </section>
 
-          <section className="modal-info-tasks" aria-labelledby="petmily-refactoring">
-              <h2 id="petmily-refactoring" className="modal-info-heading">Key Technical Decisions / Refactoring</h2>
-              <p className="modal-info-content">프로젝트 종료 후 수정한 코드입니다. 각 항목에 변경 이유, 코드 근거와 추가로 확인할 내용을 정리했습니다.</p>
-              <Accordion allowMultiple defaultIndex={[0]}>
-                  {refactoringCases.map((item) => (
+          <section className="modal-info-tasks petmily-backend" aria-labelledby="petmily-backend">
+              <h2 id="petmily-backend" className="modal-info-heading">기술 구현 및 보안 개선</h2>
+              <p className="modal-info-content">팀의 기존 Spring Security·JWT·Refresh 기반 위에 수행한 후속 개인 개선입니다. 현재 로컬 소스와 기존 격리 테스트 기록을 근거로 정리했습니다. 운영 서버 보안 감사나 이번 이미지 작업에서 새로 수행한 운영 검증 결과는 아닙니다.</p>
+              <p className="modal-info-content">주제를 펼치면 코드 기반 설명과 검증 범위를 볼 수 있습니다. 기존 H2·MockMvc API 84건과 회원 보안 단위 13건의 통과 기록, 별도의 격리 MariaDB HTTP 기록을 구분해 사용했습니다.</p>
+              <Accordion allowMultiple defaultIndex={[]}>
+                  {backendCases.map((item, index) => (
+                      <AccordionItem key={item.key} border="none" mb={3}>
+                          <h3>
+                              <AccordionButton className="petmily-accordion-button petmily-tech-button">
+                                  <Box as="span" className="petmily-tech-number">0{index + 1}</Box>
+                                  <Box flex="1" textAlign="left" className="petmily-accordion-title">{item.title}</Box>
+                                  <AccordionIcon />
+                              </AccordionButton>
+                          </h3>
+                          <AccordionPanel className="petmily-accordion-panel petmily-tech-panel">
+                              <figure className="petmily-tech-figure">
+                                  <picture>
+                                      <source media="(max-width: 600px)" srcSet={item.mobileDiagram} />
+                                      <img src={item.diagram} alt={`${item.title} — 실제 코드 기반 설명도`} loading="lazy" />
+                                  </picture>
+                                  <figcaption>설명용 벡터 도식 · <a href={item.diagram} target="_blank" rel="noopener noreferrer">PC 원본</a> · <a href={item.mobileDiagram} target="_blank" rel="noopener noreferrer">모바일 원본</a></figcaption>
+                              </figure>
+                              <dl className="petmily-refactoring-content petmily-tech-explanation">
+                                  <dt>해결하려던 문제</dt><dd>{item.problem}</dd>
+                                  <dt>적용한 기술</dt><dd>{item.technology}</dd>
+                                  <dt>직접 수행한 개선</dt><dd>{item.improvement}</dd>
+                                  <dt>검증한 결과</dt><dd>{item.verification}</dd>
+                              </dl>
+                              <p className="petmily-tech-evidence">코드·테스트 근거: {item.evidence}</p>
+                              <p className="petmily-tech-limit">범위와 한계: {item.limitation}</p>
+                              {item.key === "jwt-flow" && (
+                                  <p className="modal-info-content"><a href={`${documentationUrl}#${refactoringCases[0].section}`} target="_blank" rel="noopener noreferrer">JWT Role 값 변환 상세 근거 (기술문서 · 새 탭)</a></p>
+                              )}
+                          </AccordionPanel>
+                      </AccordionItem>
+                  ))}
+              </Accordion>
+              <h3 id="petmily-refactoring" className="petmily-existing-decisions">기존 Axios·이미지 저장 구조 검토</h3>
+              <Accordion allowMultiple defaultIndex={[]}>
+                  {refactoringCases.slice(1).map((item) => (
                       <AccordionItem key={item.title} border="none" mb={3}>
                           <h3>
                               <AccordionButton className="petmily-accordion-button">
@@ -129,9 +173,7 @@ export function PetmilyModal() {
                                   <dt>아직 남은 제약</dt><dd>{item.limitation}</dd>
                               </dl>
                               <p className="modal-info-content">
-                                  <a href={`${documentationUrl}#${item.section}`} target="_blank" rel="noopener noreferrer">
-                                      {item.title} 상세 근거 (기술문서 · 새 탭)
-                                  </a>
+                                  <a href={`${documentationUrl}#${item.section}`} target="_blank" rel="noopener noreferrer">{item.title} 상세 근거 (기술문서 · 새 탭)</a>
                               </p>
                           </AccordionPanel>
                       </AccordionItem>
@@ -159,102 +201,86 @@ export function PetmilyModal() {
               </p>
           </section>
 
-          <div className="modal-info">
-              <h2 className="modal-info-heading">Screenshots · 미니홈피 다이어리</h2>
-              <p className="modal-info-content">담당 기능의 현재 화면입니다. 프로젝트 종료 후 개인 수정 사항도 반영되어 있습니다.</p>
-          </div>
-
-          <div className="modal-info-tasks">
-              {/* 5. 미니홈피 다이어리 */}
-              <div className="project-task">
-                  <h3>미니홈피 다이어리 (Pet Diary)</h3>
-
-                  <h3>상세 설명</h3>
-                  <p>
-                      일기 작성·조회·수정·삭제, 캘린더, 방명록을 제공하는 미니홈피입니다.
-                  </p>
-
-                  <br />
-
-                  <div>
-                      <span>1) 개인화된 공간 (My Room) & UI/UX</span>
-                      <ul>
-                          <li>
-                              <Image className="project-task-images" src={diaryDashboard} alt="다이어리 대시보드 메인 화면" />
-                              <h4>대시보드(Dashboard) 뷰:</h4> 다이어리 메인 화면에 최신 일기와 방명록을{" "}
-                              <strong>카드(Card) 형태</strong>로 표시합니다.
-                          </li>
-                          <li>
-                              <h4>Dark/Light 모드 지원:</h4> 다크·라이트 테마를 전환할 수 있습니다.
-                          </li>
-                          <li>
-                              <h4>투데이(Today) 및 감정 통계:</h4> 방문자 수를 집계하고 월별 감정 상태를 도넛 차트로 표시합니다.
-                          </li>
-                      </ul>
-                  </div>
-
-                  <br />
-
-                  <div>
-                      <span>2) 일기장 & 캘린더 (Diary Board)</span>
-                      <ul>
-                          <li>
-                              <Image className="project-task-images" src={diaryList} alt="다이어리 일기 리스트" />
-                              <Image className="project-task-images" src={diaryWrite} alt="다이어리 일기 작성 화면" />
-                              <Image className="project-task-images" src={diaryEdit} alt="다이어리 일기 수정 화면" />
-                          </li>
-
-                          <li>
-                              <h4>일기 CRUD:</h4> 일기를 작성·조회·수정·삭제할 수 있습니다.
-                          </li>
-
-                          <li>
-                              <Image className="project-task-images" src={diaryCalendar} alt="다이어리 캘린더 화면" />
-                          </li>
-
-                          <li>
-                              <h4>1일 1기록 & 캘린더:</h4> 하루 1회 기록 정책을 적용하고, 작성한 날짜를 캘린더에 스탬프로 표시합니다.
-                          </li>
-                      </ul>
-                  </div>
-
-                  <br />
-
-                  <div>
-                      <span>3) 방명록 (Guest Book) & 소통</span>
-                      <ul>
-                          <li>
-                              <Image className="project-task-images" src={diaryGuestbook} alt="다이어리 방명록 화면" />
-                          </li>
-                          <li>
-                              <h4>프로필 이미지 연동:</h4> 방명록에 작성자의 프로필 이미지를 함께 표시합니다.
-                          </li>
-                          <li>
-                              <h4>다이어리 방명록의 계층형 댓글:</h4> 부모 댓글 참조와 React 재귀 렌더링으로 대댓글을 표시하고 더보기/접기를 제공합니다.
-                          </li>
-                      </ul>
-                  </div>
-
-                  <br />
-
-                  <div>
-                      <span>4) 반응형 레이아웃 (Responsive Design)</span>
-                      <ul>
-                          <li>
-                              <Image className="project-task-images" src={responsiveMain} alt="반응형 다이어리 메인 화면" />
-                              <Image className="project-task-images" src={responsiveDiary} alt="반응형 다이어리 일기 화면" />
-                              <Image className="project-task-images" src={responsiveGuestbook} alt="반응형 다이어리 방명록 화면" />
-                              <Image className="project-task-images" src={responsiveCalendar} alt="반응형 다이어리 캘린더 화면" />
-                          </li>
-                          <li>
-                              <h4>모바일/PC 레이아웃:</h4> PC에서는 윈도우 형태의 UI를,
-                              모바일에서는 스크롤 화면과 하단 네비게이션 바를 제공합니다.
-                          </li>
-                      </ul>
-                  </div>
-
+          <section className="modal-info petmily-screenshots" aria-labelledby="petmily-screenshots">
+              <h2 id="petmily-screenshots" className="modal-info-heading">주요 기능 화면</h2>
+              <p className="modal-info-content">2026-11-10 로컬 화면입니다. 가상 반려동물의 예시 콘텐츠를 사용했으며, 로그인 아이디·비밀번호·개인정보는 포함하지 않았습니다. 기존 팀 기능과 이후 개인 개선을 구분한 기여 설명은 위 내용을 기준으로 합니다.</p>
+              <div className="petmily-screen-group">
+                  <h3>미니홈피 · PC와 모바일</h3>
+                  <p className="modal-info-content">책갈피 탭과 모바일 하단 탭으로 일기와 방명록에 접근합니다.</p>
+                  <figure className="petmily-shot">
+                      <Image src={miniPC} alt="미니홈피 PC" loading="lazy" />
+                      <figcaption>미니홈피 PC</figcaption>
+                  </figure>
+                  <figure className="petmily-shot petmily-shot-mobile">
+                      <Image src={miniMobile} alt="미니홈피 모바일" loading="lazy" />
+                      <figcaption>미니홈피 모바일</figcaption>
+                  </figure>
               </div>
-          </div>
+              <div className="petmily-screen-group">
+                  <h3>다이어리 · 목록·상세·작성·수정</h3>
+                  <p className="modal-info-content">실제 최신 사이트의 일기 목록·본문 상세·작성 중(미저장)·수정 화면입니다.</p>
+                  <figure className="petmily-shot">
+                      <Image src={diaryPC} alt="다이어리 일기 목록 PC" loading="lazy" />
+                      <figcaption>다이어리 일기 목록 PC</figcaption>
+                  </figure>
+                  <figure className="petmily-shot">
+                      <Image src={diaryDetailPC} alt="다이어리 일기 본문 상세 PC" loading="lazy" />
+                      <figcaption>다이어리 일기 본문 상세 PC</figcaption>
+                  </figure>
+                  <figure className="petmily-shot">
+                      <Image src={diaryWritePC} alt="다이어리 일기 작성 PC" loading="lazy" />
+                      <figcaption>다이어리 일기 작성 PC</figcaption>
+                  </figure>
+                  <figure className="petmily-shot">
+                      <Image src={diaryEditPC} alt="다이어리 일기 수정 PC" loading="lazy" />
+                      <figcaption>다이어리 일기 수정 PC</figcaption>
+                  </figure>
+              </div>
+              <div className="petmily-screen-group">
+                  <h3>캘린더 · 일기 연결</h3>
+                  <p className="modal-info-content">일기가 작성된 날짜를 표시합니다. 모바일에서는 제목을 우선 읽도록 구성했습니다.</p>
+                  <figure className="petmily-shot">
+                      <Image src={calendarPC} alt="일기 캘린더 PC" loading="lazy" />
+                      <figcaption>일기 캘린더 PC</figcaption>
+                  </figure>
+                  <figure className="petmily-shot petmily-shot-mobile">
+                      <Image src={calendarMobile} alt="일기 캘린더 모바일" loading="lazy" />
+                      <figcaption>일기 캘린더 모바일</figcaption>
+                  </figure>
+              </div>
+              <div className="petmily-screen-group">
+                  <h3>방명록 · 기록과 소통</h3>
+                  <p className="modal-info-content">작성 폼과 방명록 목록, 검색 화면입니다.</p>
+                  <figure className="petmily-shot">
+                      <Image src={guestbookPC} alt="방명록 PC" loading="lazy" />
+                      <figcaption>방명록 PC</figcaption>
+                  </figure>
+                  <figure className="petmily-shot petmily-shot-mobile">
+                      <Image src={guestbookMobile} alt="방명록 모바일" loading="lazy" />
+                      <figcaption>방명록 모바일</figcaption>
+                  </figure>
+              </div>
+              <div className="petmily-screen-group">
+                  <h3>게시판 · 커뮤니티</h3>
+                  <p className="modal-info-content">실제 게시글 검색 결과와 게시물 본문 상세 화면입니다.</p>
+                  <figure className="petmily-shot">
+                      <Image src={boardPC} alt="커뮤니티 게시판 PC" loading="lazy" />
+                      <figcaption>커뮤니티 게시판 PC</figcaption>
+                  </figure>
+                  <figure className="petmily-shot">
+                      <Image src={boardDetailPC} alt="커뮤니티 게시글 본문 상세 PC" loading="lazy" />
+                      <figcaption>커뮤니티 게시글 본문 상세 PC</figcaption>
+                  </figure>
+              </div>
+              <div className="petmily-screen-group">
+                  <h3>회원 · 로그인</h3>
+                  <p className="modal-info-content">입력값이 없는 로그인 폼입니다. 로그인 정보와 개인정보는 담지 않았습니다.</p>
+                  <figure className="petmily-shot">
+                      <Image src={loginPC} alt="회원 로그인 PC — 빈 입력 폼" loading="lazy" />
+                      <figcaption>회원 로그인 PC — 빈 입력 폼</figcaption>
+                  </figure>
+              </div>
+          </section>
 
           <section className="modal-info" aria-labelledby="petmily-links">
               <h2 id="petmily-links" className="modal-info-heading">GitHub / Project Links</h2>
