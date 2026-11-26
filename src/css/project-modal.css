@@ -408,7 +408,7 @@
     color: var(--text-color);
 }
 .petmily-detail .petmily-accordion-panel a {
-    color: #77C5F2 !important;
+    color: var(--project-accent, #77C5F2) !important;
 }
 .petmily-detail .petmily-accordion-button:hover,
 .petmily-detail .petmily-accordion-button[aria-expanded="true"] {
@@ -451,7 +451,7 @@
 }
 .petmily-detail a:focus-visible,
 .petmily-detail button:focus-visible {
-    outline: 2px solid #77C5F2;
+    outline: 2px solid var(--project-accent, #77C5F2);
     outline-offset: 4px;
     border-radius: 0.3rem;
 }
@@ -508,12 +508,6 @@
 }
 
 /* Petmily backend evidence only; existing UI screenshots keep their styles. */
-.petmily-detail .petmily-tech-number {
-    color: #e5d4ec;
-    font-size: 1.3rem;
-    margin-right: 1.2rem;
-    flex-shrink: 0;
-}
 .petmily-detail .petmily-tech-button { min-height: 5rem; }
 .petmily-detail .petmily-tech-panel { padding: 1.2rem 0 2rem; }
 .petmily-detail .petmily-tech-figure { margin: 0; min-width: 0; }
@@ -532,4 +526,534 @@
 .petmily-detail .petmily-tech-explanation dt { color: #e5d4ec; }
 .petmily-detail .petmily-existing-decisions {
     font-size: 1.7rem; line-height: 1.5; margin: 2rem 0 1rem;
+}
+
+/* Project index and shared detail layout */
+/* Brand values come from the project screenshots, site stylesheet, and portfolio logo. */
+[data-project-theme="petmily"] {
+    --project-brand: #4d1e5e;
+    --project-accent: #e5b8ef;
+    --project-ink: #fbf9f6;
+    --project-base: #19151c;
+}
+
+[data-project-theme="haircall"] {
+    --project-brand: #ef3a4a;
+    --project-accent: #ffaab3;
+    --project-ink: #fff3f5;
+    --project-base: #1e171b;
+}
+
+[data-project-theme="shopcsv"] {
+    --project-brand: #a8f1d0;
+    --project-accent: #a8f1d0;
+    --project-ink: #f2f7ff;
+    --project-base: #151d2e;
+    --project-secondary: #304be2;
+}
+
+[data-project-theme="portfolio"] {
+    --project-brand: #fff;
+    --project-accent: #ededed;
+    --project-ink: #fff;
+    --project-base: #191a1e;
+}
+
+[data-project-theme] {
+    --project-panel: color-mix(in srgb, var(--project-base), var(--project-accent) 5%);
+    --project-hover: color-mix(in srgb, var(--project-base), var(--project-accent) 11%);
+    --project-line: color-mix(in srgb, var(--project-base), var(--project-accent) 26%);
+    --project-tag: color-mix(in srgb, var(--project-base), var(--project-brand) 22%);
+    --project-muted: color-mix(in srgb, var(--project-ink), var(--project-base) 24%);
+    --text-color: var(--project-ink);
+}
+
+#project {
+    min-height: 0;
+    padding: 1.6rem 9% 1.6rem;
+    scroll-margin-top: 10.5rem;
+}
+
+#project .heading {
+    margin: 0 0 2rem;
+    color: #f0f2f7;
+    font-size: clamp(2.8rem, 4vw, 4rem);
+    text-align: left;
+}
+
+#project .heading span {
+    color: #aab5c8;
+    background: none;
+}
+
+.project-container {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2.2rem;
+    word-break: keep-all;
+    overflow-wrap: anywhere;
+}
+
+.project-card {
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 1rem;
+    background: var(--project-base);
+    color: var(--project-ink);
+    text-align: left;
+}
+
+.project-card::after {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    box-shadow: inset 0 0 0 1px var(--project-line);
+    pointer-events: none;
+    content: "";
+}
+
+.project-card:hover {
+    background: var(--project-hover);
+}
+
+.project-card:hover::after {
+    box-shadow: inset 0 0 0 1px var(--project-accent);
+}
+
+.project-card:focus-within,
+.project-dialog a:focus-visible,
+.project-dialog button:focus-visible {
+    outline: 2px solid var(--project-accent);
+    outline-offset: 2px;
+}
+
+.project-media {
+    overflow: hidden;
+    border-radius: 0.7rem;
+    background: var(--project-panel);
+}
+
+.project-media img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.project-card .project-media {
+    aspect-ratio: 2 / 1;
+    border-radius: 0;
+}
+
+.project-card .project-media-desktop img,
+.project-card .project-media-tool img {
+    height: 100%;
+    object-fit: cover;
+}
+
+.project-media-tool img {
+    object-position: center bottom;
+}
+
+.project-dialog .project-media-tool {
+    aspect-ratio: 2 / 1;
+}
+
+.project-dialog .project-media-tool img {
+    height: 100%;
+    object-fit: cover;
+}
+
+.project-media-phones {
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    gap: 2%;
+    padding: 2.5% 5% 0;
+    background: var(--project-tag);
+}
+
+.project-media-phones img {
+    width: 23%;
+    border: 3px solid var(--project-base);
+    border-radius: clamp(0.8rem, 2vw, 1.7rem) clamp(0.8rem, 2vw, 1.7rem) 0 0;
+}
+
+.project-media-phones img:nth-child(2) {
+    width: 26%;
+}
+
+.project-media-brand {
+    display: grid;
+    place-items: center;
+    background: #000;
+}
+
+.project-media-brand img {
+    width: auto;
+    height: 85%;
+    max-height: 23rem;
+    object-fit: contain;
+}
+
+.project-card-copy {
+    padding: 1.45rem 1.7rem 1.65rem;
+}
+
+.project-period,
+.project-card-stack,
+.project-dialog-stack {
+    color: var(--project-muted);
+    font-size: 1.4rem;
+}
+
+.project-card-title {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.3rem 1rem;
+    margin: 0.3rem 0;
+}
+
+.project-card-title h3 {
+    font-size: clamp(2.2rem, 2.4vw, 3rem);
+    font-weight: 700;
+    overflow-wrap: anywhere;
+}
+
+.project-card-button,
+.project-links a {
+    color: var(--project-accent);
+    font-size: 1.4rem;
+}
+
+.project-card-button {
+    border-radius: 0.4rem;
+    background: var(--project-tag);
+    box-shadow: 0 0 0 0.3rem var(--project-tag);
+    cursor: pointer;
+}
+
+.project-card:hover .project-card-button {
+    background: var(--project-accent);
+    box-shadow: 0 0 0 0.3rem var(--project-accent);
+    color: var(--project-base);
+}
+
+.project-stack-tag {
+    border-radius: 0.3rem;
+    background: var(--project-tag);
+    color: var(--project-accent);
+    box-shadow: 0 0 0 0.12em var(--project-tag);
+}
+
+.project-card-button::after {
+    position: absolute;
+    inset: 0;
+    content: "";
+}
+
+.project-card-summary,
+.project-highlights {
+    font-size: 1.6rem;
+    line-height: 1.5;
+}
+
+.project-highlights {
+    margin: 0.8rem 0 0.3rem;
+    color: var(--project-ink);
+    font-weight: 600;
+}
+
+.project-dialog.chakra-modal__content {
+    max-height: calc(100dvh - 24px);
+    overflow: hidden;
+    word-break: keep-all;
+    overflow-wrap: anywhere;
+    border-radius: 1.2rem;
+    background: var(--project-base);
+    color: var(--project-ink);
+}
+
+.project-dialog .project-dialog-header {
+    padding: 1.4rem 5.5rem 1.1rem 2.4rem;
+    background: var(--project-panel);
+    border-bottom: 1px solid var(--project-line);
+}
+
+.project-dialog-header h2 {
+    font-size: clamp(2.5rem, 4vw, 3.4rem);
+    font-weight: 700;
+    line-height: 1.18;
+}
+
+.project-dialog .project-dialog-close {
+    top: 1.2rem;
+    right: 1.2rem;
+    width: 3.6rem;
+    height: 3.6rem;
+    font-size: 1.3rem;
+}
+
+.project-dialog .project-dialog-body {
+    padding: 1.6rem 2.4rem 2rem;
+    font-size: 1.6rem;
+    line-height: 1.65;
+}
+
+.project-dialog .project-dialog-footer {
+    padding: 0.3rem 2.4rem;
+    border-top: 1px solid var(--project-line);
+    color: var(--project-accent);
+}
+
+.project-dialog-summary {
+    font-size: 1.75rem;
+    font-weight: 600;
+}
+
+.project-dialog-stack {
+    margin: 0.3rem 0 1.4rem;
+}
+
+.project-dialog-stack strong {
+    margin-right: 0.6rem;
+    color: var(--project-ink);
+}
+
+.project-dialog .project-media-phones img {
+    max-width: 16rem;
+}
+
+.project-dialog .project-media-phones img:nth-child(2) {
+    max-width: 18rem;
+}
+
+.project-dialog-body > section,
+.project-dialog .petmily-detail > section,
+.project-dialog .portfolio-detail > section {
+    min-height: 0;
+    padding: 1.5rem 0;
+}
+
+.project-dialog-body > section + section,
+.project-dialog .petmily-detail > section + section,
+.project-dialog .portfolio-detail > section + section {
+    border-top: 1px solid var(--project-line);
+}
+
+.project-dialog .modal-info,
+.project-dialog .modal-info-content {
+    padding-inline: 0;
+}
+
+.project-dialog .modal-info-content {
+    padding-block: 0.4rem;
+    color: var(--project-ink);
+    font-size: 1.6rem;
+    line-height: 1.65;
+}
+
+.project-dialog .modal-info-heading {
+    margin: 0 0 0.7rem;
+    background: none;
+    color: var(--project-accent);
+    font-family: inherit;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.project-case {
+    padding: 1.8rem 0;
+}
+
+.project-case + .project-case {
+    border-top: 1px solid var(--project-line);
+}
+
+.project-case-with-media {
+    display: grid;
+    grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.3fr);
+    align-items: start;
+    gap: 2rem;
+}
+
+.project-case h4 {
+    margin-bottom: 0.5rem;
+    font-size: 1.7rem;
+    font-weight: 700;
+}
+
+.project-case-shots {
+    display: grid;
+    gap: 1.2rem;
+}
+
+.project-case-phones {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 19rem));
+    justify-content: center;
+}
+
+.project-case-shots img {
+    width: 100%;
+    height: auto;
+    border-radius: 0.65rem;
+}
+
+.project-case-shots figcaption,
+.project-dialog .petmily-shot figcaption {
+    margin-top: 0.5rem;
+    color: var(--project-muted);
+    font-size: 1.4rem;
+    line-height: 1.5;
+}
+
+.project-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.5rem;
+    margin-top: 0.8rem;
+}
+
+.project-links a:hover {
+    text-decoration: underline;
+}
+
+.project-dialog .petmily-shot {
+    margin: 0;
+}
+
+.project-dialog .petmily-shot-hero {
+    margin-bottom: 0.5rem;
+}
+
+.project-dialog .petmily-shot img {
+    border: 0;
+    border-radius: 0.65rem;
+}
+
+.petmily-screen-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+    gap: 1rem;
+    margin-top: 0.8rem;
+}
+
+.petmily-screen-grid:has(.petmily-shot-mobile) {
+    grid-template-columns: minmax(0, 3fr) minmax(0, 1fr);
+}
+
+.petmily-screen-grid > :only-child {
+    grid-column: 1 / -1;
+}
+
+.project-dialog .petmily-screen-group {
+    margin-top: 1.6rem;
+}
+
+.project-dialog .petmily-screen-group h3 {
+    margin-bottom: 0;
+    font-size: 1.7rem;
+    font-weight: 700;
+}
+
+.project-dialog .petmily-list {
+    padding-left: 1.8rem;
+}
+
+.project-dialog .petmily-detail h4 {
+    padding-inline: 0;
+}
+
+.project-dialog .petmily-accordion-button,
+.project-dialog .petmily-accordion-button:hover,
+.project-dialog .petmily-accordion-button[aria-expanded="true"] {
+    border: 0 !important;
+    border-radius: 0.6rem !important;
+    background: var(--project-panel) !important;
+    box-shadow: none;
+    transform: none;
+    filter: none;
+}
+
+.project-dialog .petmily-accordion-title {
+    font-size: 1.6rem;
+    font-weight: 650;
+}
+
+[data-project-theme] .project-card-title h3,
+.project-dialog-header h2,
+.project-dialog .project-case h4,
+.project-dialog .petmily-screen-group h3,
+.project-dialog .petmily-accordion-title,
+.project-dialog .modal-info-skills h4 {
+    color: var(--project-accent);
+}
+
+.project-dialog .project-introduction,
+.project-dialog [aria-labelledby="petmily-overview"],
+.project-dialog .portfolio-detail > section:first-child,
+.project-dialog .petmily-accordion-panel {
+    background: var(--project-panel);
+    border-radius: 0.55rem;
+    box-shadow: inset 0 -1px var(--project-line);
+}
+
+.project-dialog .petmily-accordion-button:hover,
+.project-dialog .petmily-accordion-button[aria-expanded="true"] {
+    background: var(--project-hover) !important;
+}
+
+.project-dialog .modal-info-content a {
+    color: var(--project-accent);
+}
+
+.project-dialog :is(.project-links, [aria-labelledby="petmily-links"], .portfolio-detail > section:last-child) a {
+    background: var(--project-tag);
+    border-radius: 0.35rem;
+    box-shadow: 0 0 0 0.2rem var(--project-tag);
+    color: var(--project-accent);
+    font-weight: 600;
+}
+
+.project-dialog :is(.project-links, [aria-labelledby="petmily-links"], .portfolio-detail > section:last-child) a:hover {
+    background: var(--project-accent);
+    box-shadow: 0 0 0 0.2rem var(--project-accent);
+    color: var(--project-base);
+}
+
+[data-project-theme="shopcsv"] .project-card::after,
+[data-project-theme="shopcsv"] .project-dialog-header {
+    --project-line: color-mix(in srgb, var(--project-base), var(--project-secondary) 62%);
+}
+
+@media (max-width: 720px) {
+    #project {
+        padding: 1.8rem 1.6rem 1rem;
+        scroll-margin-top: 4.8rem;
+    }
+
+    .project-container,
+    .project-case-with-media {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 1.2rem;
+    }
+
+    .project-dialog .project-dialog-header {
+        padding-left: 1.4rem;
+    }
+
+    .project-dialog .project-dialog-body {
+        padding: 1.2rem 1.4rem 1.6rem;
+    }
+
+    .project-case-phones {
+        grid-template-columns: repeat(auto-fit, minmax(min(100%, 11rem), 1fr));
+    }
+
+    .project-case-phones > :only-child {
+        max-width: 22rem;
+    }
 }

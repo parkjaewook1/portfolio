@@ -1,18 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./css/style.css";
 import "./css/project-modal.css";
-import {
-    Button,
-    Image,
-    Modal,
-    ModalBody,
-    ModalCloseButton,
-    ModalContent,
-    ModalFooter,
-    ModalHeader,
-    ModalOverlay,
-    useDisclosure,
-} from "@chakra-ui/react";
+import {Image} from "@chakra-ui/react";
 import {Helmet} from "react-helmet";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import projectLogo from "./img/jwplogo.png"
@@ -22,7 +11,6 @@ import htmlLogo from "./img/html-logo.png";
 import cssLogo from "./img/css-logo.png";
 import jsLogo from "./img/js-logo.png";
 import reactLogo from "./img/react-logo.png";
-import project1 from "./project-modal/task-img/petmily-latest/main-1440.png";
 import viteLogo from "./img/vite-js-logo.png";
 import dockerLogo from "./img/docker-logo.png";
 import javaLogo from "./img/java-logo.png";
@@ -45,6 +33,8 @@ import Typed from "typed.js";
 import ScrollReveal from "scrollreveal";
 import {PetmilyModal} from "./project-modal/PetmilyModal";
 import {WebPortfolioModal} from "./project-modal/WebPortfolioModal";
+import {ProjectShowcase} from "./project-modal/ProjectShowcase";
+import {hairCall, petmily, shopCsvFixer, webPortfolio} from "./project-modal/showcaseProjects";
 
 function App(props) {
     useEffect(() => {
@@ -64,10 +54,6 @@ function App(props) {
     const projectRef = useRef(null);
     const contactRef = useRef(null);
     const el = useRef(null);
-
-    /*Chakra UI Modal*/
-    let petmilyModal = useDisclosure();
-    let portfolioModal = useDisclosure();
 
     /* React 스크롤 Reveal*/
     useEffect(() => {
@@ -453,96 +439,10 @@ function App(props) {
                   Project <span>Experience</span>
               </h2>
               <div className="project-container">
-                  <div className="project-box">
-                      <Image src={project1} className="project-image"/>
-                      <div className="project-layer">
-                          <h4>Petmily</h4>
-                          <p>
-                              반려동물과 반려인을 위한 종합 커뮤니티 “Petmily”
-                          </p>
-                          <button className="project-btn" onClick={petmilyModal.onOpen}>
-                              더보기
-                          </button>
-                          {/*----Petmily Modal 시작-------------------*/}
-                          <Modal
-                            onClose={petmilyModal.onClose}
-                            isOpen={petmilyModal.isOpen}
-                            size={"5xl"}
-                            bg={""}
-                          >
-                              <ModalOverlay/>
-                              <ModalContent p={0} w="calc(100% - 24px)" maxW="1100px">
-                                  <ModalHeader bg={"#1f242d"}>
-                                      <div className="modal-header">Petmily</div>
-                                  </ModalHeader>
-                                  <ModalCloseButton
-                                    color={"#dcdcdc"}
-                                    fontSize={"1.4rem"}
-                                    pt={3}
-                                    pr={2}
-                                  />
-                                  <ModalBody bg={"#323946"}>
-                                      <PetmilyModal/>
-                                  </ModalBody>
-                                  <ModalFooter bg={"#1f242d"}>
-                                      <Button
-                                        fontSize="2rem"
-                                        variant={"link"}
-                                        onClick={petmilyModal.onClose}
-                                      >
-                                          닫기
-                                      </Button>
-                                  </ModalFooter>
-                              </ModalContent>
-                          </Modal>
-                      </div>
-                  </div>
-                  <div className="project-box webportfolio">
-                      <Image src={projectLogo} className="project-image"/>
-                      <div className="project-layer">
-                          <h4>Web Portfolio</h4>
-                          <p>
-                              기술에 대한 호기심과 새로움을 향한 도전은 제가 코딩을 즐기는
-                              이유입니다.
-                          </p>
-                          <button className="project-btn" onClick={portfolioModal.onOpen}>
-                              더보기
-                          </button>
-                          {/*---- Portfolio Modal 시작-------------------*/}
-                          <Modal
-                            onClose={portfolioModal.onClose}
-                            isOpen={portfolioModal.isOpen}
-                            size={"3xl"}
-                            bg={""}
-                          >
-                              <ModalOverlay/>
-                              <ModalContent p={0}>
-                                  <ModalHeader bg={"#1f242d"}>
-                                      <div className="modal-header">Web Portfolio</div>
-                                  </ModalHeader>
-                                  <ModalCloseButton
-                                    color={"#dcdcdc"}
-                                    fontSize={"1.4rem"}
-                                    pt={3}
-                                    pr={2}
-                                  />
-                                  <ModalBody bg={"#323946"}>
-                                      <WebPortfolioModal/>
-                                  </ModalBody>
-                                  <ModalFooter bg={"#1f242d"}>
-                                      <Button
-                                        fontSize="2rem"
-                                        variant={"link"}
-                                        onClick={portfolioModal.onClose}
-                                      >
-                                          닫기
-                                      </Button>
-                                  </ModalFooter>
-                              </ModalContent>
-                          </Modal>
-                      </div>
-                  </div>
-
+                  <ProjectShowcase project={petmily}><PetmilyModal/></ProjectShowcase>
+                  <ProjectShowcase project={hairCall}/>
+                  <ProjectShowcase project={shopCsvFixer}/>
+                  <ProjectShowcase project={webPortfolio}><WebPortfolioModal/></ProjectShowcase>
               </div>
           </section>
 
