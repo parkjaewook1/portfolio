@@ -1,11 +1,21 @@
 {
   "files": {
-    "main.css": "/portfolio/static/css/main.7bf15205.css",
-    "main.js": "/portfolio/static/js/main.96a1c0c0.js",
+    "main.css": "/portfolio/static/css/main.5ad30baf.css",
+    "main.js": "/portfolio/static/js/main.33b9e681.js",
     "static/media/jwplogo.png": "/portfolio/static/media/jwplogo.0cbb29490639e5bac4f7.png",
+    "static/media/01-landing-desktop.png": "/portfolio/static/media/01-landing-desktop.e1c03926064116d28593.png",
+    "static/media/07-simulator-service-terms-confirmed.png": "/portfolio/static/media/07-simulator-service-terms-confirmed.a2f022e8b471bf6c0bdf.png",
+    "static/media/06-simulator-customer-match.png": "/portfolio/static/media/06-simulator-customer-match.77342559b7bbe64b3512.png",
     "static/media/mini-1440.png": "/portfolio/static/media/mini-1440.0b66f083798cba0fb7e2.png",
     "static/media/main-1440.png": "/portfolio/static/media/main-1440.ba0b82e0334a696a94e3.png",
     "static/media/photo.jpg": "/portfolio/static/media/photo.b55c0a15b1fabcc973cf.jpg",
+    "static/media/02-simulator-call-registration-photo-preview.png": "/portfolio/static/media/02-simulator-call-registration-photo-preview.407fa51be3f025c64f62.png",
+    "static/media/09-simulator-stylist-preaccept-feed.png": "/portfolio/static/media/09-simulator-stylist-preaccept-feed.367ed98f04d4cbf48ecc.png",
+    "static/media/05-simulator-stylist-preaccept-photo.png": "/portfolio/static/media/05-simulator-stylist-preaccept-photo.4d5dfad4f63b44a57571.png",
+    "static/media/02-file-and-column-mapping.png": "/portfolio/static/media/02-file-and-column-mapping.b13adeca7aab28d06876.png",
+    "static/media/04-handle-error-blocked.png": "/portfolio/static/media/04-handle-error-blocked.82a08bbc089ca0edf2e5.png",
+    "static/media/03-valid-preview.png": "/portfolio/static/media/03-valid-preview.6a0b1f42a1661a0076fb.png",
+    "static/media/07-batch-zip-ready.png": "/portfolio/static/media/07-batch-zip-ready.4d596c2b7a1462f0d600.png",
     "static/media/mini-390.png": "/portfolio/static/media/mini-390.f1b2ee9beaa7b671243b.png",
     "static/media/jwt-logo.png": "/portfolio/static/media/jwt-logo.6e67bd0dbd4a8f8519e9.png",
     "static/media/vite-js-logo.png": "/portfolio/static/media/vite-js-logo.a8b582ff190b95739664.png",
@@ -42,11 +52,11 @@
     "static/media/jwt-flow-mobile.svg": "/portfolio/static/media/jwt-flow-mobile.fc77066e580d3fc738b8558155ff8187.svg",
     "static/media/admin-authorization-mobile.svg": "/portfolio/static/media/admin-authorization-mobile.cd94a7f5e803b3494aedd1d06821eda0.svg",
     "index.html": "/portfolio/index.html",
-    "main.7bf15205.css.map": "/portfolio/static/css/main.7bf15205.css.map",
-    "main.96a1c0c0.js.map": "/portfolio/static/js/main.96a1c0c0.js.map"
+    "main.5ad30baf.css.map": "/portfolio/static/css/main.5ad30baf.css.map",
+    "main.33b9e681.js.map": "/portfolio/static/js/main.33b9e681.js.map"
   },
   "entrypoints": [
-    "static/css/main.7bf15205.css",
-    "static/js/main.96a1c0c0.js"
+    "static/css/main.5ad30baf.css",
+    "static/js/main.33b9e681.js"
   ]
 }
